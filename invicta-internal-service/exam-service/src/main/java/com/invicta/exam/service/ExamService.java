@@ -1,5 +1,5 @@
 package com.invicta.exam.service;
 
-public class ExamService {
+public interface ExamService {
 
 }
