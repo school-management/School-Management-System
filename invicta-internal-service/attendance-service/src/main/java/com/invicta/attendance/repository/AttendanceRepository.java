@@ -1,5 +1,5 @@
 package com.invicta.attendance.repository;
 
-public class AttendanceRepository {
+public interface AttendanceRepository {
 
 }
