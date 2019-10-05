@@ -1,5 +1,5 @@
 package com.invicta.login.service;
 
-public class LoginService {
+public interface LoginService {
 
 }
