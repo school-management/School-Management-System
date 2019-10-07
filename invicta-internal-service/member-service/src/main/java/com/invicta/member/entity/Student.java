@@ -8,52 +8,56 @@ import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import javax.persistence.Id;
 import java.sql.Date;
-import java.time.LocalDate;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(schema = "memberservice", name = "member")
 public class Student implements Serializable {
 
-	LocalDate todayDate = LocalDate.now();
-	java.sql.Date currentDay = java.sql.Date.valueOf(todayDate);
-	private static final long serialVersionUID = 1L;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer mId;
+	private Long sId;
+
 	private String stuId;
-	private String first_name;
-	private String middle_name;
-	private String last_name;
+
+	private String firstname;
+
+	private String middlename;
+
+	private String lastname;
+
 	private Date startDate;
+
 	private String address;
-	private Integer contact_no;
+
+	private Integer contactno;
+
 	private String religion;
 	private String race;
 	private Date dob;
-	private String gs_division;
+
+	private String gsdivision;
+
 	private String gender;
-	private String formar_school;
-	private Integer former_class;
-	private boolean hostel_need;
+
+	private String formarschool;
+
+	private Integer formerclass;
+
+	private boolean hostelneed;
+
 	private String distance;
-	private String achievement_study;
-	private String achievement_sport;
 
-	public java.sql.Date getCurrentDay() {
-		return currentDay;
+	private String achievementstudy;
+
+	private String achievementsport;
+
+	public Long getsId() {
+		return sId;
 	}
 
-	public void setCurrentDay(java.sql.Date currentDay) {
-		this.currentDay = currentDay;
-	}
-
-	public Integer getmId() {
-		return mId;
-	}
-
-	public void setmId(Integer mId) {
-		this.mId = mId;
+	public void setsId(Long sId) {
+		this.sId = sId;
 	}
 
 	public String getStuId() {
@@ -64,28 +68,28 @@ public class Student implements Serializable {
 		this.stuId = stuId;
 	}
 
-	public String getFirst_name() {
-		return first_name;
+	public String getFirstname() {
+		return firstname;
 	}
 
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 
-	public String getMiddle_name() {
-		return middle_name;
+	public String getMiddlename() {
+		return middlename;
 	}
 
-	public void setMiddle_name(String middle_name) {
-		this.middle_name = middle_name;
+	public void setMiddlename(String middlename) {
+		this.middlename = middlename;
 	}
 
-	public String getLast_name() {
-		return last_name;
+	public String getLastname() {
+		return lastname;
 	}
 
-	public void setLast_name(String last_name) {
-		this.last_name = last_name;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 
 	public Date getStartDate() {
@@ -104,12 +108,12 @@ public class Student implements Serializable {
 		this.address = address;
 	}
 
-	public Integer getContact_no() {
-		return contact_no;
+	public Integer getContactno() {
+		return contactno;
 	}
 
-	public void setContact_no(Integer contact_no) {
-		this.contact_no = contact_no;
+	public void setContactno(Integer contactno) {
+		this.contactno = contactno;
 	}
 
 	public String getReligion() {
@@ -136,12 +140,12 @@ public class Student implements Serializable {
 		this.dob = dob;
 	}
 
-	public String getGs_division() {
-		return gs_division;
+	public String getGsdivision() {
+		return gsdivision;
 	}
 
-	public void setGs_division(String gs_division) {
-		this.gs_division = gs_division;
+	public void setGsdivision(String gsdivision) {
+		this.gsdivision = gsdivision;
 	}
 
 	public String getGender() {
@@ -152,28 +156,28 @@ public class Student implements Serializable {
 		this.gender = gender;
 	}
 
-	public String getFormar_school() {
-		return formar_school;
+	public String getFormarschool() {
+		return formarschool;
 	}
 
-	public void setFormar_school(String formar_school) {
-		this.formar_school = formar_school;
+	public void setFormarschool(String formarschool) {
+		this.formarschool = formarschool;
 	}
 
-	public Integer getFormer_class() {
-		return former_class;
+	public Integer getFormerclass() {
+		return formerclass;
 	}
 
-	public void setFormer_class(Integer former_class) {
-		this.former_class = former_class;
+	public void setFormerclass(Integer formerclass) {
+		this.formerclass = formerclass;
 	}
 
-	public boolean isHostel_need() {
-		return hostel_need;
+	public boolean isHostelneed() {
+		return hostelneed;
 	}
 
-	public void setHostel_need(boolean hostel_need) {
-		this.hostel_need = hostel_need;
+	public void setHostelneed(boolean hostelneed) {
+		this.hostelneed = hostelneed;
 	}
 
 	public String getDistance() {
@@ -184,20 +188,20 @@ public class Student implements Serializable {
 		this.distance = distance;
 	}
 
-	public String getAchievement_study() {
-		return achievement_study;
+	public String getAchievementstudy() {
+		return achievementstudy;
 	}
 
-	public void setAchievement_study(String achievement_study) {
-		this.achievement_study = achievement_study;
+	public void setAchievementstudy(String achievementstudy) {
+		this.achievementstudy = achievementstudy;
 	}
 
-	public String getAchievement_sport() {
-		return achievement_sport;
+	public String getAchievementsport() {
+		return achievementsport;
 	}
 
-	public void setAchievement_sport(String achievement_sport) {
-		this.achievement_sport = achievement_sport;
+	public void setAchievementsport(String achievementsport) {
+		this.achievementsport = achievementsport;
 	}
 
 }

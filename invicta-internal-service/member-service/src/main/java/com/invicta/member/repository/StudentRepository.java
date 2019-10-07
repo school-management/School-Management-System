@@ -1,5 +1,9 @@
 package com.invicta.member.repository;
 
-public class StudentRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.invicta.member.entity.Student;
+
+public interface StudentRepository extends JpaRepository<Student, Long> {
 
 }
