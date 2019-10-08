@@ -26,7 +26,6 @@ public class StudentServiceImp implements StudentService {
 			logger.info("Student Service Implementation -->", e.getMessage());
 		}
 		return null;
-		
 
 	}
 
@@ -38,7 +37,30 @@ public class StudentServiceImp implements StudentService {
 			logger.info("Student Service Implementation -->", e.getMessage());
 		}
 		return null;
-	
+
 	}
 
+	@Override
+	public Student getBysId(Long sId) {
+		try {
+			return studentrepository.findBysId(sId);
+		} catch (Exception e) {
+			logger.info("Student Service Implementation -->", e.getMessage());
+		}
+		return null;
+
+	}
+
+	@Override
+	public Student deleteBysId(Long sId) {
+		try {
+			studentrepository.deleteById(sId);
+		} catch (Exception e) {
+			logger.info("Student Service Implementation --->", e.getMessage());
+		}
+		return null;
+
+	}
+
+	
 }

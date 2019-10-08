@@ -13,7 +13,7 @@ public class StudentdtoConverter {
 
 	private static Logger logger = LogManager.getLogger(StudentDto.class);
 
-	public static Student StudentToStudentDTO(StudentDto studentDto) {
+	public static Student StudentDTOToStuden(StudentDto studentDto) {
 		Student student = new Student();
 		if (studentDto != null) {
 			logger.info("Student Converter---> DTO To Entity");
@@ -77,5 +77,34 @@ public class StudentdtoConverter {
 		}
 		return null;
 	}
+	
+	public static StudentDto StudentEntityToStudentDTO(Student student) {
+		StudentDto studentDto = new StudentDto();
+		if (student != null) {
+			logger.info("Company Converter -> Convert Object Entity to DTO");
+			studentDto.setsId(student.getsId());
+			studentDto.setStuId(student.getStuId().toUpperCase());
+			studentDto.setFirstname(student.getFirstname());
+			studentDto.setMiddlename(student.getMiddlename());
+			studentDto.setLastname(student.getLastname());
+			studentDto.setAddress(student.getAddress());
+			studentDto.setDob(student.getDob());
+			studentDto.setDistance(student.getDistance());
+			studentDto.setGender(student.getGender());
+			studentDto.setGsdivision(student.getGsdivision());
+			studentDto.setHostelneed(student.isHostelneed());
+			studentDto.setFormarschool(student.getFormarschool());
+			studentDto.setFormerclass(student.getFormerclass());
+			studentDto.setRace(student.getRace());
+			studentDto.setReligion(student.getReligion());
+			studentDto.setStartDate(student.getStartDate());
+			studentDto.setContactno(student.getContactno());
+			studentDto.setAchievementsport(student.getAchievementsport());
+			studentDto.setAchievementstudy(student.getAchievementstudy());
+			return studentDto;
+		}
+		return null;
+	}
+
 
 }

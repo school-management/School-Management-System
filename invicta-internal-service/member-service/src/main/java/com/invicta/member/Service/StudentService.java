@@ -9,5 +9,10 @@ public interface StudentService {
 	public Student saveStudent(Student student);
 
 	public List<Student> getAllStudent();
+	
+	public Student getBysId(Long sId);
+	
+	public Student deleteBysId(Long sId);
+	
 
 }
