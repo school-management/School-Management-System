@@ -62,5 +62,10 @@ public class StudentServiceImp implements StudentService {
 
 	}
 
-	
+	@Override
+	public Student editStudent(Student student) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

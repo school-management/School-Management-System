@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
@@ -17,12 +18,11 @@ import com.invicta.member.entity.Student;
 import com.invicta.member.mapper.StudentDtoMapper;
 
 @RestController
+@RequestMapping("/api/v1")
 public class StudentController {
 
 	@Autowired
 	private StudentDtoMapper studentDtoMapper;
-
-
 
 	private static Logger logger = LogManager.getLogger(StudentDtoMapper.class);
 

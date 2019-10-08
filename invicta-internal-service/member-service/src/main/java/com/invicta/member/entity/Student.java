@@ -25,34 +25,52 @@ public class Student implements Serializable {
 	@Column(name = "firstname", nullable = false)
 	private String firstname;
 
+	@Column(name = "middlename", nullable = false)
 	private String middlename;
 
+	@Column(name = "lastname", nullable = false)
 	private String lastname;
 
+	@Column(name = "startDate", nullable = false)
 	private Date startDate;
 
+	@Column(name = "address", nullable = false)
 	private String address;
 
+	@Column(name = "contactno", nullable = false)
 	private Integer contactno;
-
+	
+	@Column(name = "religion", nullable = false)
 	private String religion;
+	
+	@Column(name = "race", nullable = false)
 	private String race;
+	
+	@Column(name = "dob", nullable = false)
 	private Date dob;
-
+	
+	@Column(name = "gsdivision", nullable = false)
 	private String gsdivision;
-
+	
+	@Column(name = "gender", nullable = false)
 	private String gender;
-
+	
+	@Column(name = "formarschool", nullable = false)
 	private String formarschool;
-
+	
+	@Column(name = "formerclass", nullable = false)
 	private Integer formerclass;
-
+	
+	@Column(name = "hostelneed", nullable = false)
 	private boolean hostelneed;
-
+	
+	@Column(name = "distance", nullable = false)
 	private String distance;
-
+	
+	@Column(name = "achievementstudy", nullable = false)
 	private String achievementstudy;
-
+	
+	@Column(name = "achievementsport", nullable = false)
 	private String achievementsport;
 
 	public Long getsId() {

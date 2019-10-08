@@ -16,7 +16,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 //@EnableEurekaClient
 @EnableSwagger2
-
 public class MemberServiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MemberServiceApplication.class, args);
@@ -24,21 +23,18 @@ public class MemberServiceApplication {
 	
 	@Bean
 	public Docket swaggerConfiguration() {
-		return new Docket(DocumentationType.SWAGGER_2)
-				.select()
+		return new Docket(DocumentationType.SWAGGER_2).select()
 				.apis(RequestHandlerSelectors
-				.basePackage("com.invicta.member.controller.StudentController"))
-				.paths(PathSelectors
-				.ant("/*"))
-				.build()
-				.apiInfo(myDetails());
+				.basePackage("com.invicta.member.controller"))
+				.paths(PathSelectors.ant("/api/v1/**"))
+				.build().apiInfo(myDetails());
 
 	}
 
 	private ApiInfo myDetails() {
-		return new ApiInfo("StudentService APIs", "Dev Details", "1.8", "",
-				new springfox.documentation.service.Contact("ABC", "http://www.google.com", "saidputhi@gmail.com"),
-				"API License", "http://www.google.com", Collections.emptyList()
+		return new ApiInfo("Member-Service APIS", "Dev Details", "1.8", "",
+				new springfox.documentation.service.Contact("School Management System", "http://localhost:8083/member", "abc@gmail.com"),
+				"API License", "", Collections.emptyList()
 
 		);
 

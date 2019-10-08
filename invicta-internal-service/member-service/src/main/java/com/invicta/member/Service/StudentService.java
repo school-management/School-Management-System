@@ -14,5 +14,6 @@ public interface StudentService {
 	
 	public Student deleteBysId(Long sId);
 	
+	public Student editStudent(Student student);
 
 }
