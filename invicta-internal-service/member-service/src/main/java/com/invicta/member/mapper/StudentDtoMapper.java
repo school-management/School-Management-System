@@ -59,4 +59,39 @@ public class StudentDtoMapper {
 
 	}
 
+	@SuppressWarnings("static-access")
+	public List<StudentDto> getStudentBylastname(String lastname) {
+		
+		List<Student> student = studentService.findBylastname(lastname);
+		return studentdtoConverter.StudentToStudentDTO(student);
+	}
+
+	@SuppressWarnings("static-access")
+	public List<StudentDto> getStudentByfirstname(String firstname) {
+		logger.info("Successfully Get Student By FirstName");
+		List<Student> student = studentService.getByfirstname(firstname);
+		return studentdtoConverter.StudentToStudentDTO(student);
+	}
+	
+	
+	@SuppressWarnings("static-access")
+	public List<StudentDto> getStudentByreligion(String religion) {
+		logger.info("Successfully Get Student By FirstName");
+		List<Student> student = studentService.findbyreligion(religion);
+		return studentdtoConverter.StudentToStudentDTO(student);
+	}
+	
+	@SuppressWarnings("static-access")
+	public List<StudentDto>getbygender(String gender){
+		List<Student> student = studentService.findbygender(gender);
+		return studentdtoConverter.StudentToStudentDTO(student);
+	}
+	
+	
+	@SuppressWarnings("static-access")
+	public List<StudentDto> findtbyhostelstudent(Boolean hostelneed){
+		List<Student>student = studentService.findtbyhostelstudent(hostelneed);
+		return studentdtoConverter.StudentToStudentDTO(student);
+	}
+
 }

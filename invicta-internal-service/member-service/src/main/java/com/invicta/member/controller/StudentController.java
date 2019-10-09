@@ -15,8 +15,6 @@ import org.apache.logging.log4j.Logger;
 import com.invicta.member.dto.StudentDto;
 import com.invicta.member.entity.Student;
 import com.invicta.member.mapper.StudentDtoMapper;
-import com.invicta.member.repository.StudentRepository;
-
 import org.springframework.web.bind.annotation.PutMapping;
 
 //@RequestMapping("/api/")
@@ -26,8 +24,9 @@ public class StudentController {
 	@Autowired
 	private StudentDtoMapper studentDtoMapper;
 
-	@Autowired
-	private StudentRepository studentRepository;
+//	@Autowired
+//	private StudentRepository studentRepository;
+
 	private static Logger logger = LogManager.getLogger(StudentDtoMapper.class);
 
 	@PostMapping("/savestudent")
@@ -92,15 +91,58 @@ public class StudentController {
 
 		return null;
 	}
-	
-	
-	@GetMapping("/getname/{lastname}") // Get Employee By Name
-	public List<Student> getByName(@PathVariable(name = "lastname") String lastname) {
+
+	@GetMapping("/getlastname/{lastname}")
+	public List<StudentDto> getBylastName(@PathVariable(name = "lastname") String lastname) {
 		try {
-			logger.info("Employee Controller -> GetName");
-			return studentRepository.findByfirstname(lastname);
-		} catch (Exception ex) {
-			logger.error("Employee Controller -> error" + ex.getMessage());
+			return studentDtoMapper.getStudentBylastname(lastname);
+		} catch (Exception e) {
+			logger.error("Student Controller :-> Error" + e.getMessage());
+		}
+		return null;
+
+	}
+
+	@GetMapping("/getfirstname/{firstname}")
+	public List<StudentDto> getbyfirstname(@PathVariable(name = "firstname") String firstname) {
+		try {
+			return studentDtoMapper.getStudentByfirstname(firstname);
+		} catch (Exception e) {
+			logger.error("Student Controller :-> Error" + e.getMessage());
+		}
+		return null;
+
+	}
+
+	@GetMapping("/getbyreligion/{religion}")
+	public List<StudentDto> getStudentByreligion(@PathVariable(name = "religion") String religion) {
+		try {
+			return studentDtoMapper.getStudentByreligion(religion);
+		} catch (Exception e) {
+			logger.error("Student Controller :-> Error" + e.getMessage());
+		}
+		return null;
+
+	}
+
+	@GetMapping("getbygender/{gender}")
+	public List<StudentDto> getStudentBygender(@PathVariable(name = "gender") String gender) {
+		try {
+			return studentDtoMapper.getbygender(gender);
+		} catch (Exception e) {
+			logger.error("Student Controller :-> Error" + e.getMessage());
+		}
+		return null;
+
+	}
+
+	@GetMapping("gethostelstudent/{hostelneed}")
+	public List<StudentDto> gethostelstudent(@PathVariable(name = "hostelneed") Boolean hostelneed) {
+		try {
+			return studentDtoMapper.findtbyhostelstudent(hostelneed);
+
+		} catch (Exception e) {
+			logger.error("Student Controller :-> Error" + e.getMessage());
 		}
 		return null;
 

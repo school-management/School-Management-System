@@ -16,6 +16,15 @@ public interface StudentService {
 	
 	public Student updatestudent(Student student);
 	
-	public List<Student> getByName(String lastname);
+	public List<Student>getByfirstname(String firstname);
+	
+	public List<Student> findBylastname(String lastname);
+	
+	public List<Student> findbyreligion(String religion);
+	
+	public 	List<Student> findbygender(String gender);
+	
+	public List<Student> findtbyhostelstudent(Boolean hostelneed);
+
 
 }
