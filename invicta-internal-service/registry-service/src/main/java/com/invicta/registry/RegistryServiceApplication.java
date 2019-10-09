@@ -11,7 +11,7 @@ import com.invicta.registry.filters.PreFilter;
 import com.invicta.registry.filters.RouteFilter;
 
 @SpringBootApplication
-@EnableZuulProxy
+//@EnableZuulProxy
 public class RegistryServiceApplication {
 
 	public static void main(String[] args) {

@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
@@ -16,14 +15,19 @@ import org.apache.logging.log4j.Logger;
 import com.invicta.member.dto.StudentDto;
 import com.invicta.member.entity.Student;
 import com.invicta.member.mapper.StudentDtoMapper;
+import com.invicta.member.repository.StudentRepository;
 
+import org.springframework.web.bind.annotation.PutMapping;
+
+//@RequestMapping("/api/")
 @RestController
-@RequestMapping("/api/v1")
 public class StudentController {
 
 	@Autowired
 	private StudentDtoMapper studentDtoMapper;
 
+	@Autowired
+	private StudentRepository studentRepository;
 	private static Logger logger = LogManager.getLogger(StudentDtoMapper.class);
 
 	@PostMapping("/savestudent")
@@ -72,6 +76,34 @@ public class StudentController {
 		}
 		logger.info("Student Controller -> Student Deleted Failed!!!");
 		return new ResponseEntity<>("Delete FAILED!!!", HttpStatus.BAD_REQUEST);
+	}
+
+	@PutMapping("update/{sId}")
+	public ResponseEntity<String> updateStudent(@RequestBody StudentDto studentDto) {
+		try {
+			logger.info("Student Controller :-> Update");
+			if (studentDtoMapper.UpdateStudent(studentDto) != null) {
+				return new ResponseEntity<>("Successfully Updated", HttpStatus.OK);
+			}
+			return new ResponseEntity<>("Failed To Update", HttpStatus.OK);
+		} catch (Exception ex) {
+			logger.error("Student Controller :-> Error" + ex.getMessage());
+		}
+
+		return null;
+	}
+	
+	
+	@GetMapping("/getname/{lastname}") // Get Employee By Name
+	public List<Student> getByName(@PathVariable(name = "lastname") String lastname) {
+		try {
+			logger.info("Employee Controller -> GetName");
+			return studentRepository.findByfirstname(lastname);
+		} catch (Exception ex) {
+			logger.error("Employee Controller -> error" + ex.getMessage());
+		}
+		return null;
+
 	}
 
 }

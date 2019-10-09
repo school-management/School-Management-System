@@ -41,13 +41,22 @@ public class StudentDtoMapper {
 	public StudentDto getBystudentid(Long sId) {
 		logger.info("Successfully get Student by Id");
 		Student student = studentService.getBysId(sId);
-		 return studentdtoConverter.StudentEntityToStudentDTO(student);
+		return studentdtoConverter.StudentEntityToStudentDTO(student);
 	}
-	
+
 	public StudentDto deleteStudentById(Long sId) {
 		logger.info("Student Mapper -> Student Deleted");
 		studentService.deleteBysId(sId);
 		return null;
 	}
-	
+
+	@SuppressWarnings("static-access")
+	public Student UpdateStudent(StudentDto studentDto) {
+		logger.info("Student is Updated", studentDto.getsId());
+		@SuppressWarnings("unused")
+		Student student = studentdtoConverter.StudentDTOToStuden(studentDto);
+		return studentService.updatestudent(studentdtoConverter.StudentDTOToStuden(studentDto));
+
+	}
+
 }

@@ -63,9 +63,13 @@ public class StudentServiceImp implements StudentService {
 	}
 
 	@Override
-	public Student editStudent(Student student) {
-		// TODO Auto-generated method stub
-		return null;
+	public Student updatestudent(Student student) {
+		return studentrepository.save(student);
+	}
+
+	@Override
+	public List<Student> getByName(String lastname) {
+		return studentrepository.findByfirstname(lastname);
 	}
 
 }
