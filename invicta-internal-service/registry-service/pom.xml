@@ -15,7 +15,11 @@
   
 	<properties>
 		<java.version>8</java.version>
+<<<<<<< HEAD
 		
+=======
+		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+>>>>>>> a462c13c82d8012561ee8029642c372ec498760d
 	</properties>
 
 	<dependencyManagement>

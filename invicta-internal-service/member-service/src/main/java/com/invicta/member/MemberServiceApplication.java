@@ -30,6 +30,7 @@ public class MemberServiceApplication {
 
 	}
 
+
 	private ApiInfo myDetails() {
 		return new ApiInfo("Member-Service APIS", "Dev Details", "1.8", "",
 				new springfox.documentation.service.Contact("School Management System", "http://localhost:8083/member", "abc@gmail.com"),

@@ -12,7 +12,7 @@ import java.sql.Date;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(schema = "memberservice", name = "member")
+@Table(schema = "memberservice", name = "student")
 public class Student implements Serializable {
 
 	@Id
