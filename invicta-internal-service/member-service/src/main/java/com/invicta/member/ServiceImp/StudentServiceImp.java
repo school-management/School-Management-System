@@ -100,4 +100,9 @@ public class StudentServiceImp implements StudentService {
 		return studentrepository.findStudentByClass(gradeId);
 	}
 
+	@Override
+	public List<Student> findBystuId(String stuId) {
+		return studentrepository.findBystuId(stuId);
+	}
+
 }

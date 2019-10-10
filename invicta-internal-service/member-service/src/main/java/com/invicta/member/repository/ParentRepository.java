@@ -6,5 +6,5 @@ import com.invicta.member.entity.Parent;
 
 public interface ParentRepository extends JpaRepository<Parent, Long> {
 
-	public Parent findByParentID(Long par_id);
+//	public Parent findByParentID(Long par_id);
 }

@@ -25,9 +25,12 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 	
 	@Query(value ="from Student where hostelneed = :hostelneed")
 	List<Student> findtbyhostelstudent(Boolean hostelneed);
-	
+	 
 	@Query(value = "from Student where grade_id = :gradeId")
 	List<Student> findStudentByClass(Long gradeId);
+	
+	@Query(value = "from Student where stuId = :stuId")
+	List<Student>findBystuId(String stuId);
 	
 
 }

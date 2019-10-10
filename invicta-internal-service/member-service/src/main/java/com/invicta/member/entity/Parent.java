@@ -1,12 +1,17 @@
 package com.invicta.member.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @SuppressWarnings("serial")
 @Entity
@@ -15,10 +20,9 @@ public class Parent implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
+
 	private Long parId;
 	private String pId;
-	private String sId;
 	private String fathersName;
 	private String fathersOccupation;
 	private String fathersOfficialAddress;
@@ -39,9 +43,14 @@ public class Parent implements Serializable {
 	private String guardianOccupation;
 	private Integer guardianMobileNo;
 	private String guardianEmail;
-	private Integer sibilingsFullName;
-	private String sibilingsGrade;
+	private String sibilingsFullName;
+	private Integer sibilingsGrade;
 	private String sililingsAdmission;
+	
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	@OneToMany(mappedBy = "prent", fetch = FetchType.EAGER)
+	private List<Student> student;
+	
 	public Long getParId() {
 		return parId;
 	}
@@ -53,12 +62,6 @@ public class Parent implements Serializable {
 	}
 	public void setpId(String pId) {
 		this.pId = pId;
-	}
-	public String getsId() {
-		return sId;
-	}
-	public void setsId(String sId) {
-		this.sId = sId;
 	}
 	public String getFathersName() {
 		return fathersName;
@@ -180,17 +183,24 @@ public class Parent implements Serializable {
 	public void setGuardianEmail(String guardianEmail) {
 		this.guardianEmail = guardianEmail;
 	}
-	public Integer getSibilingsFullName() {
+	
+	public String getSibilingsFullName() {
 		return sibilingsFullName;
 	}
-	public void setSibilingsFullName(Integer sibilingsFullName) {
+	public void setSibilingsFullName(String sibilingsFullName) {
 		this.sibilingsFullName = sibilingsFullName;
 	}
-	public String getSibilingsGrade() {
+	public Integer getSibilingsGrade() {
 		return sibilingsGrade;
 	}
-	public void setSibilingsGrade(String sibilingsGrade) {
+	public void setSibilingsGrade(Integer sibilingsGrade) {
 		this.sibilingsGrade = sibilingsGrade;
+	}
+	public List<Student> getStudent() {
+		return student;
+	}
+	public void setStudent(List<Student> student) {
+		this.student = student;
 	}
 	public String getSililingsAdmission() {
 		return sililingsAdmission;
@@ -199,5 +209,7 @@ public class Parent implements Serializable {
 		this.sililingsAdmission = sililingsAdmission;
 	}
 	
+
 	
+
 }

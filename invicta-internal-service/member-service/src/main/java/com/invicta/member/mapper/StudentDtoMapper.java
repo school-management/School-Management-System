@@ -98,4 +98,10 @@ public class StudentDtoMapper {
 		return studentdtoConverter.StudentToStudentDTO(student);
 	}
 
+	@SuppressWarnings("static-access")
+	public List<StudentDto> findbystudentid(String stuId) {
+		List<Student> student = studentService.findBystuId(stuId);
+		return studentdtoConverter.StudentToStudentDTO(student);
+	}
+
 }
