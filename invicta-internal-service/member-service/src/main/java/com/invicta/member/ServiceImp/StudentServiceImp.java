@@ -95,4 +95,9 @@ public class StudentServiceImp implements StudentService {
 		return studentrepository.findtbyhostelstudent(hostelneed);
 	}
 
+	@Override
+	public List<Student> findStudentByClass(Long gradeId) {
+		return studentrepository.findStudentByClass(gradeId);
+	}
+
 }

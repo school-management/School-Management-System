@@ -25,6 +25,8 @@ public interface StudentService {
 	public 	List<Student> findbygender(String gender);
 	
 	public List<Student> findtbyhostelstudent(Boolean hostelneed);
+	
+	public 	List<Student> findStudentByClass(Long gradeId);
 
 
 }

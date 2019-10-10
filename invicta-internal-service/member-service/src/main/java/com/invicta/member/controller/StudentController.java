@@ -15,6 +15,8 @@ import org.apache.logging.log4j.Logger;
 import com.invicta.member.dto.StudentDto;
 import com.invicta.member.entity.Student;
 import com.invicta.member.mapper.StudentDtoMapper;
+import com.invicta.member.repository.StudentRepository;
+
 import org.springframework.web.bind.annotation.PutMapping;
 
 //@RequestMapping("/api/")
@@ -24,8 +26,8 @@ public class StudentController {
 	@Autowired
 	private StudentDtoMapper studentDtoMapper;
 
-//	@Autowired
-//	private StudentRepository studentRepository;
+	@Autowired
+	private StudentRepository studentRepository;
 
 	private static Logger logger = LogManager.getLogger(StudentDtoMapper.class);
 
@@ -146,6 +148,16 @@ public class StudentController {
 		}
 		return null;
 
+	}
+
+	@GetMapping("/getstudentbyclass/{gradeId}")
+	public List<StudentDto> getstudentbyclass(@PathVariable(name = "gradeId") Long gradeId) {
+		try {
+			return studentDtoMapper.findByClass(gradeId);
+		} catch (Exception e) {
+			logger.error("Student Controller :-> Error" + e.getMessage());
+		}
+		return null;
 	}
 
 }

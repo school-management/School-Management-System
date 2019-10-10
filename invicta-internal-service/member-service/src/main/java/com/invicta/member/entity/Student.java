@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 import java.sql.Date;
 
 @SuppressWarnings("serial")
@@ -72,6 +75,19 @@ public class Student implements Serializable {
 	
 	@Column(name = "achievementsport", nullable = false)
 	private String achievementsport;
+	
+	
+	@ManyToOne
+	@JoinColumn(name = "gradeId", nullable = false)
+	private Grade grade;
+
+	public Grade getGrade() {
+		return grade;
+	}
+
+	public void setGrade(Grade grade) {
+		this.grade = grade;
+	}
 
 	public Long getsId() {
 		return sId;
