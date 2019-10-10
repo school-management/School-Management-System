@@ -6,6 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 import com.invicta.member.dto.StudentDto;
+import com.invicta.member.entity.Grade;
 import com.invicta.member.entity.Student;
 
 @Service
@@ -36,6 +37,11 @@ public class StudentdtoConverter {
 			student.setRace(studentDto.getRace());
 			student.setReligion(studentDto.getReligion());
 			student.setStartDate(studentDto.getStartDate());
+			Grade grade = new Grade();
+			grade.setGradeId(studentDto.getGradeId());
+			grade.setGradeName(studentDto.getGradeName());
+			student.setGrade(grade);
+			
 			return student;
 		}
 		return null;
@@ -69,6 +75,8 @@ public class StudentdtoConverter {
 				studentDto.setContactno(student.getContactno());
 				studentDto.setAchievementsport(student.getAchievementsport());
 				studentDto.setAchievementstudy(student.getAchievementstudy());
+				studentDto.setGradeId(student.getGrade().getGradeId());
+				studentDto.setGradeName(student.getGrade().getGradeName());
 				liststudentDto.add(studentDto);
 
 			}
@@ -101,6 +109,8 @@ public class StudentdtoConverter {
 			studentDto.setContactno(student.getContactno());
 			studentDto.setAchievementsport(student.getAchievementsport());
 			studentDto.setAchievementstudy(student.getAchievementstudy());
+			studentDto.setGradeId(student.getGrade().getGradeId());
+			studentDto.setGradeName(student.getGrade().getGradeName());
 			return studentDto;
 		}
 		return null;
