@@ -32,19 +32,20 @@ public class GradeServiceImpl implements GradeService{
 
 	@Override
 	public List<Grade> getAllGrade() {
-		
-		return null;
+		logger.info("grade service Implementation -->");
+		return gradeRepository.findAll();
 	}
 
 	@Override
 	public Grade getById(Long gradeId) {
-		
-		return null;
+		logger.info("grade service Implementation -->");
+		return gradeRepository.findByGradeId(gradeId);
 	}
 
 	@Override
 	public Grade deleteById(Long gradeId) {
-		
+		logger.info("grade service Implementation -->");
+		gradeRepository.deleteById(gradeId);
 		return null;
 	}
 

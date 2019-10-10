@@ -26,18 +26,18 @@ public class MemberServiceApplication {
 		return new Docket(DocumentationType.SWAGGER_2).select()
 				.apis(RequestHandlerSelectors
 				.basePackage("com.invicta.member.controller"))
-				.paths(PathSelectors.ant("/api/v1/**"))
-				.build().apiInfo(myDetails());
+				.paths(PathSelectors.ant("/**"))
+				.build();
 
 	}
 
 
-	private ApiInfo myDetails() {
-		return new ApiInfo("Member-Service APIS", "Dev Details", "1.8", "",
-				new springfox.documentation.service.Contact("School Management System", "http://localhost:8083/member", "abc@gmail.com"),
-				"API License", "", Collections.emptyList()
+//	private ApiInfo myDetails() {
+//		return new ApiInfo("Member-Service APIS", "Dev Details", "1.8", "",
+//				new springfox.documentation.service.Contact("School Management System", "http://localhost:8083/member", "abc@gmail.com"),
+//				"API License", "", Collections.emptyList()
+//
+//		);
 
-		);
-
-	}
+	//}
 }

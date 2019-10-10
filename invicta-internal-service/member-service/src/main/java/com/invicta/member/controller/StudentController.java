@@ -18,7 +18,7 @@ import com.invicta.member.entity.Student;
 import com.invicta.member.mapper.StudentDtoMapper;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/student")
 public class StudentController {
 
 	@Autowired
