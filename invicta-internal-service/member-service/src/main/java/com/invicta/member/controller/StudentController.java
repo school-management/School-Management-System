@@ -16,22 +16,20 @@ import com.invicta.member.dto.StudentDto;
 import com.invicta.member.entity.Student;
 import com.invicta.member.mapper.StudentDtoMapper;
 //import com.invicta.member.repository.StudentRepository;
+import com.invicta.member.repository.StudentRepository;
 
 import org.springframework.web.bind.annotation.PutMapping;
 
-//@RequestMapping("/api/")
 @RestController
-<<<<<<< HEAD
-@RequestMapping("/student")
-=======
->>>>>>> 1d5ab496fe3e6504b23c75798784620154eec751
+//@RequestMapping("/student")
 public class StudentController {
 
 	@Autowired
 	private StudentDtoMapper studentDtoMapper;
 
-//	@Autowired
-//	private StudentRepository studentRepository;
+	@SuppressWarnings("unused")
+	@Autowired
+	private StudentRepository studentRepository;
 
 	private static Logger logger = LogManager.getLogger(StudentDtoMapper.class);
 

@@ -20,196 +20,243 @@ public class Parent implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
-	private Long parId;
-	private String pId;
-	private String fathersName;
-	private String fathersOccupation;
-	private String fathersOfficialAddress;
-	private Integer fathersMobile;
-	private String fathersEmail;
-	private boolean ifFatherOb;
-	private Integer fatherFrom;
-	private Integer fatherTo;
-	private String mothersName;
-	private String mothersOccupation;
-	private Integer mothersMobile;
-	private boolean ifMotherOb;
-	private String maidenName;
-	private Integer motherFrom;
-	private Integer motherTo;
-	private String guardian;
-	private String guardianName;
-	private String guardianOccupation;
-	private Integer guardianMobileNo;
-	private String guardianEmail;
-	private String sibilingsFullName;
+	private Long    parId;
+	private String  parentId;
+	private String  fathername;
+	private String  fatherOccupation;
+	private String  fathersofficialaddress;
+	private Integer fathermobile;
+	private String  fatheremail;
+	private boolean fatheroldstudent;
+	private Integer fstudystart;
+	private Integer fstudyend;
+	private String  mothername;
+	private String  motheroccupation;
+	private Integer mothermobile;
+	private boolean motheroldstudent;
+	private String  mothermaidenname;
+	private Integer motherstudystart;
+	private Integer motherstudyend;
+	private String  guardian;
+	private String  guardianname;
+	private String  guardianoccupation;
+	private Integer guardianmobileNo;
+	private String  guardianemail;
+	private String  sibilingsfullname;
 	private Integer sibilingsGrade;
-	private String sililingsAdmission;
-	
+	private String  sililingsadmission;
+
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	@OneToMany(mappedBy = "prent", fetch = FetchType.EAGER)
 	private List<Student> student;
-	
+
 	public Long getParId() {
 		return parId;
 	}
+
 	public void setParId(Long parId) {
 		this.parId = parId;
 	}
-	public String getpId() {
-		return pId;
+
+	public String getParentId() {
+		return parentId;
 	}
-	public void setpId(String pId) {
-		this.pId = pId;
+
+	public void setParentId(String parentId) {
+		this.parentId = parentId;
 	}
-	public String getFathersName() {
-		return fathersName;
+
+	public String getFathername() {
+		return fathername;
 	}
-	public void setFathersName(String fathersName) {
-		this.fathersName = fathersName;
+
+	public void setFathername(String fathername) {
+		this.fathername = fathername;
 	}
-	public String getFathersOccupation() {
-		return fathersOccupation;
+
+	public String getFatherOccupation() {
+		return fatherOccupation;
 	}
-	public void setFathersOccupation(String fathersOccupation) {
-		this.fathersOccupation = fathersOccupation;
+
+	public void setFatherOccupation(String fatherOccupation) {
+		this.fatherOccupation = fatherOccupation;
 	}
-	public String getFathersOfficialAddress() {
-		return fathersOfficialAddress;
+
+	public String getFathersofficialaddress() {
+		return fathersofficialaddress;
 	}
-	public void setFathersOfficialAddress(String fathersOfficialAddress) {
-		this.fathersOfficialAddress = fathersOfficialAddress;
+
+	public void setFathersofficialaddress(String fathersofficialaddress) {
+		this.fathersofficialaddress = fathersofficialaddress;
 	}
-	public Integer getFathersMobile() {
-		return fathersMobile;
+
+	public Integer getFathermobile() {
+		return fathermobile;
 	}
-	public void setFathersMobile(Integer fathersMobile) {
-		this.fathersMobile = fathersMobile;
+
+	public void setFathermobile(Integer fathermobile) {
+		this.fathermobile = fathermobile;
 	}
-	public String getFathersEmail() {
-		return fathersEmail;
+
+	public String getFatheremail() {
+		return fatheremail;
 	}
-	public void setFathersEmail(String fathersEmail) {
-		this.fathersEmail = fathersEmail;
+
+	public void setFatheremail(String fatheremail) {
+		this.fatheremail = fatheremail;
 	}
-	public boolean isIfFatherOb() {
-		return ifFatherOb;
+
+	public boolean isFatheroldstudent() {
+		return fatheroldstudent;
 	}
-	public void setIfFatherOb(boolean ifFatherOb) {
-		this.ifFatherOb = ifFatherOb;
+
+	public void setFatheroldstudent(boolean fatheroldstudent) {
+		this.fatheroldstudent = fatheroldstudent;
 	}
-	public Integer getFatherFrom() {
-		return fatherFrom;
+
+	public Integer getFstudystart() {
+		return fstudystart;
 	}
-	public void setFatherFrom(Integer fatherFrom) {
-		this.fatherFrom = fatherFrom;
+
+	public void setFstudystart(Integer fstudystart) {
+		this.fstudystart = fstudystart;
 	}
-	public Integer getFatherTo() {
-		return fatherTo;
+
+	public Integer getFstudyend() {
+		return fstudyend;
 	}
-	public void setFatherTo(Integer fatherTo) {
-		this.fatherTo = fatherTo;
+
+	public void setFstudyend(Integer fstudyend) {
+		this.fstudyend = fstudyend;
 	}
-	public String getMothersName() {
-		return mothersName;
+
+	public String getMothername() {
+		return mothername;
 	}
-	public void setMothersName(String mothersName) {
-		this.mothersName = mothersName;
+
+	public void setMothername(String mothername) {
+		this.mothername = mothername;
 	}
-	public String getMothersOccupation() {
-		return mothersOccupation;
+
+	public String getMotheroccupation() {
+		return motheroccupation;
 	}
-	public void setMothersOccupation(String mothersOccupation) {
-		this.mothersOccupation = mothersOccupation;
+
+	public void setMotheroccupation(String motheroccupation) {
+		this.motheroccupation = motheroccupation;
 	}
-	public Integer getMothersMobile() {
-		return mothersMobile;
+
+	public Integer getMothermobile() {
+		return mothermobile;
 	}
-	public void setMothersMobile(Integer mothersMobile) {
-		this.mothersMobile = mothersMobile;
+
+	public void setMothermobile(Integer mothermobile) {
+		this.mothermobile = mothermobile;
 	}
-	public boolean isIfMotherOb() {
-		return ifMotherOb;
+
+	public boolean isMotheroldstudent() {
+		return motheroldstudent;
 	}
-	public void setIfMotherOb(boolean ifMotherOb) {
-		this.ifMotherOb = ifMotherOb;
+
+	public void setMotheroldstudent(boolean motheroldstudent) {
+		this.motheroldstudent = motheroldstudent;
 	}
-	public String getMaidenName() {
-		return maidenName;
+
+	public String getMothermaidenname() {
+		return mothermaidenname;
 	}
-	public void setMaidenName(String maidenName) {
-		this.maidenName = maidenName;
+
+	public void setMothermaidenname(String mothermaidenname) {
+		this.mothermaidenname = mothermaidenname;
 	}
-	public Integer getMotherFrom() {
-		return motherFrom;
+
+	public Integer getMotherstudystart() {
+		return motherstudystart;
 	}
-	public void setMotherFrom(Integer motherFrom) {
-		this.motherFrom = motherFrom;
+
+	public void setMotherstudystart(Integer motherstudystart) {
+		this.motherstudystart = motherstudystart;
 	}
-	public Integer getMotherTo() {
-		return motherTo;
+
+	public Integer getMotherstudyend() {
+		return motherstudyend;
 	}
-	public void setMotherTo(Integer motherTo) {
-		this.motherTo = motherTo;
+
+	public void setMotherstudyend(Integer motherstudyend) {
+		this.motherstudyend = motherstudyend;
 	}
+
 	public String getGuardian() {
 		return guardian;
 	}
+
 	public void setGuardian(String guardian) {
 		this.guardian = guardian;
 	}
-	public String getGuardianName() {
-		return guardianName;
+
+	public String getGuardianname() {
+		return guardianname;
 	}
-	public void setGuardianName(String guardianName) {
-		this.guardianName = guardianName;
+
+	public void setGuardianname(String guardianname) {
+		this.guardianname = guardianname;
 	}
-	public String getGuardianOccupation() {
-		return guardianOccupation;
+
+	public String getGuardianoccupation() {
+		return guardianoccupation;
 	}
-	public void setGuardianOccupation(String guardianOccupation) {
-		this.guardianOccupation = guardianOccupation;
+
+	public void setGuardianoccupation(String guardianoccupation) {
+		this.guardianoccupation = guardianoccupation;
 	}
-	public Integer getGuardianMobileNo() {
-		return guardianMobileNo;
+
+	public Integer getGuardianmobileNo() {
+		return guardianmobileNo;
 	}
-	public void setGuardianMobileNo(Integer guardianMobileNo) {
-		this.guardianMobileNo = guardianMobileNo;
+
+	public void setGuardianmobileNo(Integer guardianmobileNo) {
+		this.guardianmobileNo = guardianmobileNo;
 	}
-	public String getGuardianEmail() {
-		return guardianEmail;
+
+	public String getGuardianemail() {
+		return guardianemail;
 	}
-	public void setGuardianEmail(String guardianEmail) {
-		this.guardianEmail = guardianEmail;
+
+	public void setGuardianemail(String guardianemail) {
+		this.guardianemail = guardianemail;
 	}
-	
-	public String getSibilingsFullName() {
-		return sibilingsFullName;
+
+	public String getSibilingsfullname() {
+		return sibilingsfullname;
 	}
-	public void setSibilingsFullName(String sibilingsFullName) {
-		this.sibilingsFullName = sibilingsFullName;
+
+	public void setSibilingsfullname(String sibilingsfullname) {
+		this.sibilingsfullname = sibilingsfullname;
 	}
+
 	public Integer getSibilingsGrade() {
 		return sibilingsGrade;
 	}
+
 	public void setSibilingsGrade(Integer sibilingsGrade) {
 		this.sibilingsGrade = sibilingsGrade;
 	}
+
+	public String getSililingsadmission() {
+		return sililingsadmission;
+	}
+
+	public void setSililingsadmission(String sililingsadmission) {
+		this.sililingsadmission = sililingsadmission;
+	}
+
 	public List<Student> getStudent() {
 		return student;
 	}
+
 	public void setStudent(List<Student> student) {
 		this.student = student;
 	}
-	public String getSililingsAdmission() {
-		return sililingsAdmission;
-	}
-	public void setSililingsAdmission(String sililingsAdmission) {
-		this.sililingsAdmission = sililingsAdmission;
-	}
-	
 
 	
-
 }
