@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
@@ -19,12 +20,11 @@ import com.invicta.member.mapper.StudentDtoMapper;
 
 import org.springframework.web.bind.annotation.PutMapping;
 
-//@RequestMapping("/api/")
+
 @RestController
-<<<<<<< HEAD
+
 @RequestMapping("/student")
-=======
->>>>>>> 1d5ab496fe3e6504b23c75798784620154eec751
+
 public class StudentController {
 
 	@Autowired

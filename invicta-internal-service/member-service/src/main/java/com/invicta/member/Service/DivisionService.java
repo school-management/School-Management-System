@@ -15,5 +15,7 @@ public interface DivisionService {
 	
 	public Division updateDivision(Division division);
 	
+	public List<Division> getDivisionByName(String name);
+	
 	
 }

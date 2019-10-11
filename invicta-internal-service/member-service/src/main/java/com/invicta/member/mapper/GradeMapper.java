@@ -24,13 +24,13 @@ public class GradeMapper {
 	
 	@SuppressWarnings("static-access")
 	public Grade saveGrade(GradeDto gradeDto) {
-		logger.info("status Mapper -> Status Saved");
+		logger.info("grade Mapper -> grade Saved");
 		return gradeService.saveGrade(gradeConverter.GradeDtoTograde(gradeDto));
 	}
 	
 	@SuppressWarnings("static-access")
 	public List<GradeDto> listGrade(){
-		logger.info("status Mapper -> Status listed");
+		logger.info("grade Mapper -> grade listed");
 		List<Grade> listgrade=gradeService.getAllGrade();
 		return gradeConverter.GradeToGradeDto(listgrade);
 		
@@ -38,7 +38,7 @@ public class GradeMapper {
 	
 	@SuppressWarnings("static-access")
 	public GradeDto getGradeById(Long gradeId) {
-		logger.info("status Mapper -> Status getgradeById");
+		logger.info("grade Mapper -> grade getgradeById");
 		Grade grade=gradeService.getById(gradeId);
 		return gradeConverter.GradeEntityToGradeDto(grade); 
 	}
@@ -46,7 +46,7 @@ public class GradeMapper {
 	
 	@SuppressWarnings("unused")
 	public GradeDto deleteGrade(Long gradeId) {
-		logger.info("status Mapper -> Status deletegrade");
+		logger.info("grade Mapper -> grade deletegrade");
 		Grade grade=gradeService.deleteById(gradeId);
 		return null;
 	}
