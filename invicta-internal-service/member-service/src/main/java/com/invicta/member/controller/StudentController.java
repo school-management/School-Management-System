@@ -17,6 +17,7 @@ import com.invicta.member.dto.StudentDto;
 import com.invicta.member.entity.Student;
 import com.invicta.member.mapper.StudentDtoMapper;
 //import com.invicta.member.repository.StudentRepository;
+import com.invicta.member.repository.StudentRepository;
 
 import org.springframework.web.bind.annotation.PutMapping;
 
@@ -30,8 +31,9 @@ public class StudentController {
 	@Autowired
 	private StudentDtoMapper studentDtoMapper;
 
-//	@Autowired
-//	private StudentRepository studentRepository;
+	@SuppressWarnings("unused")
+	@Autowired
+	private StudentRepository studentRepository;
 
 	private static Logger logger = LogManager.getLogger(StudentDtoMapper.class);
 
