@@ -75,8 +75,8 @@ public class Student implements Serializable {
 	private String achievementsport;
 
 	@ManyToOne
-	@JoinColumn(name = "gradeId", nullable = false)
-	private Grade grade;
+	@JoinColumn(name = "divisionId", nullable = false)
+	private Division division;
 
 	@ManyToOne
 	@JoinColumn(name = "parId", nullable = false)
@@ -89,13 +89,12 @@ public class Student implements Serializable {
 	public void setPrent(Parent prent) {
 		this.prent = prent;
 	}
-
-	public Grade getGrade() {
-		return grade;
+	public Division getDivision() {
+		return division;
 	}
 
-	public void setGrade(Grade grade) {
-		this.grade = grade;
+	public void setDivision(Division division) {
+		this.division = division;
 	}
 
 	public Long getsId() {

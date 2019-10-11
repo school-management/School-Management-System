@@ -19,20 +19,25 @@ import org.springframework.web.bind.annotation.RestController;
 import com.invicta.member.dto.DivisionDto;
 import com.invicta.member.entity.Division;
 import com.invicta.member.mapper.DivisionMapper;
+import com.invicta.member.repository.DivisionRepository;
 
 @RestController
-@RequestMapping("/division")
+//@RequestMapping("/division")
 public class DivisionController {
 	
 	@Autowired
 	private DivisionMapper divisionMapper;
+	
+	@Autowired
+	private DivisionRepository divisionRepository;
 	
 	private static Logger logger = LogManager.getLogger(DivisionMapper.class);
 	
 	@PostMapping("/save")
 	public Division saveDivision(@RequestBody DivisionDto divisionDto) {
 		try {
-			return divisionMapper.saveDivision(divisionDto);
+//			return divisionMapper.saveDivision(divisionDto);
+			return divisionRepository.save(division);
 		}catch(Exception e) {
 			logger.info("Division Controller -> Not succesfully",e.getMessage());
 		}

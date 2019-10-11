@@ -23,8 +23,27 @@ public class StudentDto {
 	private String distance;
 	private String achievementstudy;
 	private String achievementsport;
+	private Long divisionId;
+	private String divisionName;
 	private Long gradeId;
 	private int gradeName;
+	private Long parId;
+	
+	public Long getDivisionId() {
+		return divisionId;
+	}
+
+	public void setDivisionId(Long divisionId) {
+		this.divisionId = divisionId;
+	}
+
+	public String getDivisionName() {
+		return divisionName;
+	}
+
+	public void setDivisionName(String divisionName) {
+		this.divisionName = divisionName;
+	}
 
 	public Long getsId() {
 		return sId;
@@ -192,6 +211,14 @@ public class StudentDto {
 
 	public void setGradeName(int gradeName) {
 		this.gradeName = gradeName;
+	}
+
+	public Long getParId() {
+		return parId;
+	}
+
+	public void setParId(Long parId) {
+		this.parId = parId;
 	}
 	
 
