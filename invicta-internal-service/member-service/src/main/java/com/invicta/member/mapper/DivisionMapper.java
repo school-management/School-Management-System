@@ -24,16 +24,38 @@ public class DivisionMapper {
 	
 	@SuppressWarnings("static-access")
 	public Division saveDivision(DivisionDto divisionDto) {
-		logger.info("status Mapper -> Status Saved");
+		logger.info("division Mapper -> division Saved");
 		return divisionService.saveDivision(divisionConverter.DivisionDtoToDivision(divisionDto));
 		
 	}
 	
 	@SuppressWarnings("static-access")
 	public List<DivisionDto> listDivision(){
-		logger.info("status Mapper -> Status listed");	
+		logger.info("division Mapper -> division listed");	
 		List<Division> listDivision=divisionService.getAllDivision();
 		return divisionConverter.DivisionToDivisionDtoList(listDivision);
 	}
-
+	
+	@SuppressWarnings("static-access")
+	public DivisionDto getDivisionById(Long divisionId) {
+		logger.info("division Mapper -> division getdivisionById");
+		Division division=divisionService.getDivisionById(divisionId);
+		return divisionConverter.DivisionToDivisionDto(division);
+	}
+	
+	public DivisionDto deleteDivision(Long divisionId) {
+		logger.info("division Mapper -> division deletedivision");
+		Division division=divisionService.deleteById(divisionId);
+		return null;
+	}
+	
+	public Division updateDivision(DivisionDto divisionDto) {
+		return divisionService.updateDivision(divisionConverter.DivisionDtoToDivision(divisionDto));
+	}
+	
+	public List<DivisionDto> getDivisionByName(String name){
+		List<Division> listDivision=divisionService.getDivisionByName(name);
+		
+		return divisionConverter.DivisionToDivisionDtoList(listDivision);
+	}
 }

@@ -37,20 +37,33 @@ public class DivisionServiceImpl implements DivisionService{
 
 	@Override
 	public Division getDivisionById(Long divisionId) {
-		// TODO Auto-generated method stub
-		return null;
+		logger.info("division service Implementation -->");
+		return divisionRepository.findDivisionByDivisionId(divisionId);
 	}
 
 	@Override
 	public Division deleteById(Long divisionId) {
-		// TODO Auto-generated method stub
+		logger.info("division service Implementation -->");
+		divisionRepository.deleteById(divisionId);
 		return null;
 	}
 
 	@Override
 	public Division updateDivision(Division division) {
-		// TODO Auto-generated method stub
+		Long divisionId=division.getDivisionId();
+		
+		boolean isExist=divisionRepository.findDivisionByDivisionId(divisionId) != null;
+		if(isExist) {
+			return divisionRepository.save(division);
+		}else {
+		}
 		return null;
+	}
+
+	@Override
+	public List<Division> getDivisionByName(String name) {
+		
+		return divisionRepository.findDivisionByName(name);
 	}
 
 }
