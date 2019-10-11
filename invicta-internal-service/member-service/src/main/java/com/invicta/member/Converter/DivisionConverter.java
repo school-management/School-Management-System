@@ -25,8 +25,7 @@ public class DivisionConverter {
 			
 			Grade grade=new Grade();
 			grade.setGradeId(divisionDto.getGradeId());
-			
-			division.setGradeId(grade);
+			division.setGrade(grade);
 			
 			return division;
 			
@@ -43,8 +42,8 @@ public class DivisionConverter {
 				DivisionDto divisionDto=new DivisionDto();
 				divisionDto.setDivisionId(division.getDivisionId());
 				divisionDto.setDivisionName(division.getDivisionName());
-				divisionDto.setGradeName(division.getGradeId().getGradeName());
-				divisionDto.setGradeId(division.getGradeId().getGradeId());
+				divisionDto.setGradeName(division.getGrade().getGradeName());
+				divisionDto.setGradeId(division.getGrade().getGradeId());
 				
 				listDivisionDto.add(divisionDto);
 				
@@ -60,8 +59,8 @@ public class DivisionConverter {
 			logger.info("Division Converter --> division Object Entity To Dto");
 			divisionDto.setDivisionId(division.getDivisionId());
 			divisionDto.setDivisionName(division.getDivisionName());
-			divisionDto.setGradeId(division.getGradeId().getGradeId());
-			divisionDto.setGradeName(division.getGradeId().getGradeName());
+			divisionDto.setGradeId(division.getGrade().getGradeId());
+			divisionDto.setGradeName(division.getGrade().getGradeName());
 			return divisionDto;
 		}
 		return null;

@@ -1,9 +1,9 @@
 package com.invicta.member.dto;
 
 public class GradeDto {
-	
-	private Long gradeId; 
-	
+
+	private Long gradeId;
+
 	private int gradeName;
 
 	public Long getGradeId() {
@@ -21,7 +21,5 @@ public class GradeDto {
 	public void setGradeName(int gradeName) {
 		this.gradeName = gradeName;
 	}
-	
-	
 
 }

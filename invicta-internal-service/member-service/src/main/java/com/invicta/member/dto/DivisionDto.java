@@ -1,10 +1,5 @@
 package com.invicta.member.dto;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
-import com.invicta.member.entity.Grade;
-
 public class DivisionDto {
 	
 	private Long divisionId;
