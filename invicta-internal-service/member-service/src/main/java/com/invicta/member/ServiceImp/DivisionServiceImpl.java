@@ -66,4 +66,10 @@ public class DivisionServiceImpl implements DivisionService{
 		return divisionRepository.findDivisionByName(name);
 	}
 
+	@Override
+	public List<String> getDivisionByGradeId(Long gradeId) {
+		
+		return divisionRepository.findDivisionByGradeId(gradeId);
+	}
+
 }

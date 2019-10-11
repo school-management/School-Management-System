@@ -29,7 +29,7 @@ public class DivisionController {
 	
 	private static Logger logger = LogManager.getLogger(DivisionMapper.class);
 	
-	@PostMapping("/division")
+	@PostMapping("/save")
 	public Division saveDivision(@RequestBody DivisionDto divisionDto) {
 		try {
 			return divisionMapper.saveDivision(divisionDto);
@@ -76,5 +76,10 @@ public class DivisionController {
 	@GetMapping("/division/name/{name}")
 	public List<DivisionDto> getDivisionByName(@PathVariable(name="name") String name){
 		return divisionMapper.getDivisionByName(name);
+	}
+	
+	@GetMapping("/division/gradeId/{id}")
+	public List<String> getDivisionByGradeId(@PathVariable(name="id") Long id){
+		return divisionMapper.getDivisionByGradeId(id);
 	}
 }

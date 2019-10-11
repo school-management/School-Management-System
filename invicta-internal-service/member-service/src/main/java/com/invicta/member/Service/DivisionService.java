@@ -17,5 +17,6 @@ public interface DivisionService {
 	
 	public List<Division> getDivisionByName(String name);
 	
+	public List<String> getDivisionByGradeId(Long gradeId);
 	
 }
