@@ -4,15 +4,12 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-
 import java.sql.Date;
 
 @SuppressWarnings("serial")
@@ -77,9 +74,9 @@ public class Student implements Serializable {
 	@Column(name = "achievementsport", nullable = false)
 	private String achievementsport;
 
-	@ManyToOne
-	@JoinColumn(name = "divisionId", nullable = false)
-	private Division division;
+//	@ManyToOne
+//	@JoinColumn(name = "divisionId", nullable = false)
+//	private Division division;
 
 	@ManyToOne
 	@JoinColumn(name = "parId", nullable = false)
@@ -92,13 +89,14 @@ public class Student implements Serializable {
 	public void setPrent(Parent prent) {
 		this.prent = prent;
 	}
-	public Division getDivision() {
-		return division;
-	}
-
-	public void setDivision(Division division) {
-		this.division = division;
-	}
+	
+//	public Division getDivision() {
+//		return division;
+//	}
+//
+//	public void setDivision(Division division) {
+//		this.division = division;
+//	}
 
 	public Long getsId() {
 		return sId;

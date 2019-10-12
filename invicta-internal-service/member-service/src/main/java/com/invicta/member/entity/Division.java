@@ -27,20 +27,19 @@ public class Division implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "gradeId", nullable = false)
 	private Grade grade;
-
 	private String divisionName;
 
-	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-	@OneToMany(mappedBy = "division", fetch = FetchType.EAGER)
-	private List<Student> student;
-
-	public List<Student> getStudent() {
-		return student;
-	}
-
-	public void setStudent(List<Student> student) {
-		this.student = student;
-	}
+//	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+//	@OneToMany(mappedBy = "division", fetch = FetchType.EAGER)
+//	private List<Student> student;
+//
+//	public List<Student> getStudent() {
+//		return student;
+//	}
+//
+//	public void setStudent(List<Student> student) {
+//		this.student = student;
+//	}
 
 	public Long getDivisionId() {
 		return divisionId;
