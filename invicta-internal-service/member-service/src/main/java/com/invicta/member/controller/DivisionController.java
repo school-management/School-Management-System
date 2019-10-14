@@ -36,8 +36,8 @@ public class DivisionController {
 	@PostMapping("/save")
 	public Division saveDivision(@RequestBody DivisionDto divisionDto) {
 		try {
-//			return divisionMapper.saveDivision(divisionDto);
-			return divisionRepository.save(division);
+			return divisionMapper.saveDivision(divisionDto);
+//			return divisionRepository.save(division);
 		}catch(Exception e) {
 			logger.info("Division Controller -> Not succesfully",e.getMessage());
 		}
