@@ -257,6 +257,4 @@ public class Parent implements Serializable {
 	public void setStudent(List<Student> student) {
 		this.student = student;
 	}
-
-	
 }

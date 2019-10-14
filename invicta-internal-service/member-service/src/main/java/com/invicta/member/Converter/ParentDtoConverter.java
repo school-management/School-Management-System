@@ -1,5 +1,8 @@
 package com.invicta.member.Converter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
@@ -47,4 +50,77 @@ public class ParentDtoConverter {
 
 	}
 
+	public static List<ParentDto> ParentToParentDto(List<Parent> parentlist) {
+		
+		if (parentlist != null) {
+			logger.info("Parent Converter --> Entity To Dto");
+			List<ParentDto> listParentDto = new ArrayList<>();
+			for (Parent parent : parentlist) {
+				logger.info("Parent Converter --> Parent List");
+				ParentDto parentDto = new ParentDto();
+				parentDto.setParId(parent.getParId());
+				parentDto.setParentId(parent.getParentId().toUpperCase());
+				parentDto.setFathername(parent.getFathername());
+				parentDto.setFatherOccupation(parentDto.getFatherOccupation());
+				parentDto.setFathersofficialaddress(parent.getFathersofficialaddress());
+				parentDto.setFathermobile(parent.getFathermobile());
+				parentDto.setFatheremail(parent.getFatheremail());
+				parentDto.setFatheroldstudent(parent.isFatheroldstudent());
+				parentDto.setFstudystart(parent.getFstudystart());
+				parentDto.setFstudyend(parent.getFstudyend());
+				parentDto.setMothername(parent.getMothername());
+				parentDto.setMotheroccupation(parent.getMotheroccupation());
+				parentDto.setMothermobile(parent.getMothermobile());
+				parentDto.setMotheroldstudent(parent.isMotheroldstudent());
+				parentDto.setMothermaidenname(parent.getMothermaidenname());
+				parentDto.setMotherstudystart(parent.getMotherstudystart());
+				parentDto.setMotherstudyend(parent.getMotherstudyend());
+				parentDto.setGuardian(parent.getGuardian());
+				parentDto.setGuardianname(parent.getGuardianname());
+				parentDto.setGuardianoccupation(parent.getGuardianoccupation());
+				parentDto.setGuardianmobileNo(parent.getGuardianmobileNo());
+				parentDto.setGuardianemail(parent.getGuardianemail());
+				parentDto.setSibilingsfullname(parent.getSibilingsfullname());
+				parentDto.setSibilingsGrade(parent.getSibilingsGrade());
+				parentDto.setSililingsadmission(parent.getSililingsadmission());
+			}
+			return listParentDto;
+		}
+		return null;
+		
+	}
+	
+	public static ParentDto ParentEntityToParentDto(Parent parent) {
+		ParentDto parentDto = new ParentDto();
+		if (parent != null) {
+			logger.info("Parent Converter --> Convert object Entity To Dto");
+			parentDto.setParId(parent.getParId());
+			parentDto.setParentId(parent.getParentId().toUpperCase());
+			parentDto.setFathername(parent.getFathername());
+			parentDto.setFatherOccupation(parentDto.getFatherOccupation());
+			parentDto.setFathersofficialaddress(parent.getFathersofficialaddress());
+			parentDto.setFathermobile(parent.getFathermobile());
+			parentDto.setFatheremail(parent.getFatheremail());
+			parentDto.setFatheroldstudent(parent.isFatheroldstudent());
+			parentDto.setFstudystart(parent.getFstudystart());
+			parentDto.setFstudyend(parent.getFstudyend());
+			parentDto.setMothername(parent.getMothername());
+			parentDto.setMotheroccupation(parent.getMotheroccupation());
+			parentDto.setMothermobile(parent.getMothermobile());
+			parentDto.setMotheroldstudent(parent.isMotheroldstudent());
+			parentDto.setMothermaidenname(parent.getMothermaidenname());
+			parentDto.setMotherstudystart(parent.getMotherstudystart());
+			parentDto.setMotherstudyend(parent.getMotherstudyend());
+			parentDto.setGuardian(parent.getGuardian());
+			parentDto.setGuardianname(parent.getGuardianname());
+			parentDto.setGuardianoccupation(parent.getGuardianoccupation());
+			parentDto.setGuardianmobileNo(parent.getGuardianmobileNo());
+			parentDto.setGuardianemail(parent.getGuardianemail());
+			parentDto.setSibilingsfullname(parent.getSibilingsfullname());
+			parentDto.setSibilingsGrade(parent.getSibilingsGrade());
+			parentDto.setSililingsadmission(parent.getSililingsadmission());
+		return parentDto;
+		}
+		return null;
+	}
 }
