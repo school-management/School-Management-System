@@ -38,7 +38,6 @@ public class StudentController {
 	public Student savedstudent(@RequestBody StudentDto studentDto) {
 		try {
 			return studentDtoMapper.saveStudent(studentDto);
-//			return studentRepository.save(student);
 		} catch (Exception e) {
 			logger.info("Studet Controller -> New Student Created succesfully", e.getMessage());
 		}
