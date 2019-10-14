@@ -45,6 +45,7 @@ public class DivisionMapper {
 	
 	public DivisionDto deleteDivision(Long divisionId) {
 		logger.info("division Mapper -> division deletedivision");
+		@SuppressWarnings("unused")
 		Division division=divisionService.deleteById(divisionId);
 		return null;
 	}
