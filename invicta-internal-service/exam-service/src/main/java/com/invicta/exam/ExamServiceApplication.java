@@ -22,7 +22,7 @@ public class ExamServiceApplication {
 	public Docket swaggerConfiguration() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
 				.apis(RequestHandlerSelectors
-				.basePackage("com.invicta.member.controller"))
+				.basePackage("com.invicta.exam.controller"))
 				.paths(PathSelectors.ant("/Api/**"))
 				.build();
 
