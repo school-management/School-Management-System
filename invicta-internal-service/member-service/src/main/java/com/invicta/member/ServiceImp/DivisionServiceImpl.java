@@ -1,12 +1,10 @@
 package com.invicta.member.ServiceImp;
 
 import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.invicta.member.Service.DivisionService;
 import com.invicta.member.entity.Division;
 import com.invicta.member.repository.DivisionRepository;
@@ -64,6 +62,12 @@ public class DivisionServiceImpl implements DivisionService{
 	public List<Division> getDivisionByName(String name) {
 		
 		return divisionRepository.findDivisionByName(name);
+	}
+
+	@Override
+	public List<String> getDivisionByGradeId(Long gradeId) {
+		
+		return divisionRepository.findDivisionByGradeId(gradeId);
 	}
 
 }

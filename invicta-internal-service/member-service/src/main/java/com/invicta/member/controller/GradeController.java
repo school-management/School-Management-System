@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.jboss.logging.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +20,7 @@ import com.invicta.member.entity.Grade;
 import com.invicta.member.mapper.GradeMapper;
 
 @RestController
-//@RequestMapping("/gradeapi")
+@RequestMapping("/Api/")
 public class GradeController {
 	
 	@Autowired

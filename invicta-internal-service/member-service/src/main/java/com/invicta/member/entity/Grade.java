@@ -17,7 +17,6 @@ public class Grade implements Serializable {
 	private Long gradeId;
 	private int gradeName;
 
-
 	public Long getGradeId() {
 		return gradeId;
 	}

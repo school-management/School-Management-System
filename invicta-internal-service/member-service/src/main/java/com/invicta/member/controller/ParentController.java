@@ -15,13 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.invicta.member.dto.ParentDto;
 import com.invicta.member.entity.Parent;
 import com.invicta.member.mapper.ParentDtoMapper;
-import com.invicta.member.repository.ParentRepository;
 
 
 @RestController
-
-@RequestMapping("/parent")
-
+@RequestMapping("/Api/")
 public class ParentController {
 
 	@Autowired

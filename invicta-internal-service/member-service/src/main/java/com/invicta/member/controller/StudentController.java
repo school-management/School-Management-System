@@ -21,11 +21,8 @@ import com.invicta.member.repository.StudentRepository;
 
 import org.springframework.web.bind.annotation.PutMapping;
 
-
 @RestController
-
-@RequestMapping("/student")
-
+@RequestMapping("/Api/")
 public class StudentController {
 
 	@Autowired
@@ -41,6 +38,7 @@ public class StudentController {
 	public Student savedstudent(@RequestBody StudentDto studentDto) {
 		try {
 			return studentDtoMapper.saveStudent(studentDto);
+//			return studentRepository.save(student);
 		} catch (Exception e) {
 			logger.info("Studet Controller -> New Student Created succesfully", e.getMessage());
 		}
@@ -164,10 +162,11 @@ public class StudentController {
 			logger.error("Student Controller :-> Error" + e.getMessage());
 		}
 		return null;
-	
+
 	}
+
 	@GetMapping("/getbystudentid/{stuId}")
-	public List<StudentDto>getbystudentid(@PathVariable(name="stuId") String stuId){
+	public List<StudentDto> getbystudentid(@PathVariable(name = "stuId") String stuId) {
 		try {
 			return studentDtoMapper.findbystudentid(stuId);
 		} catch (Exception e) {
@@ -175,5 +174,5 @@ public class StudentController {
 		}
 		return null;
 
-}
+	}
 }

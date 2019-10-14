@@ -4,15 +4,12 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-
 import java.sql.Date;
 
 @SuppressWarnings("serial")
@@ -92,6 +89,7 @@ public class Student implements Serializable {
 	public void setPrent(Parent prent) {
 		this.prent = prent;
 	}
+	
 	public Division getDivision() {
 		return division;
 	}

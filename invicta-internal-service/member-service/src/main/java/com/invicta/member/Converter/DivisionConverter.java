@@ -44,7 +44,6 @@ public class DivisionConverter {
 				divisionDto.setDivisionName(division.getDivisionName());
 				divisionDto.setGradeName(division.getGrade().getGradeName());
 				divisionDto.setGradeId(division.getGrade().getGradeId());
-				
 				listDivisionDto.add(divisionDto);
 				
 			}

@@ -45,17 +45,25 @@ public class DivisionMapper {
 	
 	public DivisionDto deleteDivision(Long divisionId) {
 		logger.info("division Mapper -> division deletedivision");
+		@SuppressWarnings("unused")
 		Division division=divisionService.deleteById(divisionId);
 		return null;
 	}
 	
+	@SuppressWarnings("static-access")
 	public Division updateDivision(DivisionDto divisionDto) {
 		return divisionService.updateDivision(divisionConverter.DivisionDtoToDivision(divisionDto));
 	}
 	
+	@SuppressWarnings("static-access")
 	public List<DivisionDto> getDivisionByName(String name){
 		List<Division> listDivision=divisionService.getDivisionByName(name);
 		
 		return divisionConverter.DivisionToDivisionDtoList(listDivision);
+	}
+	
+	public List<String> getDivisionByGradeId(Long gradeId){
+		
+		return divisionService.getDivisionByGradeId(gradeId);
 	}
 }
