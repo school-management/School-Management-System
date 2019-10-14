@@ -1,6 +1,6 @@
 package com.invicta.exam.dto;
 
-public class Subject1To8Dto {
+public class SubjectOneDto {
 
 	private Long subjectId;
 	private String subjectName;

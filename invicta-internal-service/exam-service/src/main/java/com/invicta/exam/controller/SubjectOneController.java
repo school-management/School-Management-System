@@ -16,21 +16,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.invicta.exam.dto.Subject1To8Dto;
-import com.invicta.exam.entity.Subject1To8;
-import com.invicta.exam.mapper.Subject1To8DtoMapper;
+import com.invicta.exam.dto.SubjectOneDto;
+import com.invicta.exam.entity.SubjectOne;
+import com.invicta.exam.mapper.SubjectOneDtoMapper;
 
 @RestController
 @RequestMapping("/Api/")
-public class Subject1To8Controller {
+public class SubjectOneController {
 
 	@Autowired
-	private Subject1To8DtoMapper subject1To8DtoMapper;
+	private SubjectOneDtoMapper subject1To8DtoMapper;
 
-	private static Logger logger = LogManager.getLogger(Subject1To8DtoMapper.class);
+	private static Logger logger = LogManager.getLogger(SubjectOneDtoMapper.class);
 
 	@PostMapping("/subjects")
-	public Subject1To8 saveSubject(@RequestBody Subject1To8Dto subject1To8Dto) {
+	public SubjectOne saveSubject(@RequestBody SubjectOneDto subject1To8Dto) {
 		try {
 			return subject1To8DtoMapper.saveSubjects(subject1To8Dto);
 		} catch (Exception e) {
@@ -41,7 +41,7 @@ public class Subject1To8Controller {
 	}
 
 	@GetMapping("/subjects")
-	public ResponseEntity<List<Subject1To8Dto>> getAllSubjects() {
+	public ResponseEntity<List<SubjectOneDto>> getAllSubjects() {
 		try {
 			return new ResponseEntity<>(subject1To8DtoMapper.getAllSubjects(), HttpStatus.OK);
 		} catch (Exception e) {
@@ -52,7 +52,7 @@ public class Subject1To8Controller {
 	}
 
 	@GetMapping("subjects/{subjectId}")
-	public ResponseEntity<Subject1To8Dto> getSubjectbyId(@PathVariable Long subjectId) {
+	public ResponseEntity<SubjectOneDto> getSubjectbyId(@PathVariable Long subjectId) {
 		try {
 			return new ResponseEntity<>(subject1To8DtoMapper.getBySubjectId(subjectId), HttpStatus.OK);
 		} catch (Exception e) {
@@ -85,7 +85,7 @@ public class Subject1To8Controller {
 	}
 
 	@PutMapping("subjects/{subjectId}")
-	public ResponseEntity<String> updateStudent(@RequestBody Subject1To8Dto subject1To8Dto) {
+	public ResponseEntity<String> updateStudent(@RequestBody SubjectOneDto subject1To8Dto) {
 		try {
 			logger.info("Subject8 Controller :-> Update");
 			if (subject1To8DtoMapper.UpdateSubjects(subject1To8Dto) != null) {
