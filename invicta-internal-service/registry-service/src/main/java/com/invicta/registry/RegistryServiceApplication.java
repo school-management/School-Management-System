@@ -2,6 +2,7 @@ package com.invicta.registry;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
 import com.invicta.registry.filters.ErrorFilter;
 import com.invicta.registry.filters.PostFilter;
@@ -9,7 +10,7 @@ import com.invicta.registry.filters.PreFilter;
 import com.invicta.registry.filters.RouteFilter;
 
 @SpringBootApplication
-//@EnableZuulProxy
+@EnableZuulProxy
 public class RegistryServiceApplication {
 
 	public static void main(String[] args) {

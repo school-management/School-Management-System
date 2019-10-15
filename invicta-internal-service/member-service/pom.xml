@@ -19,6 +19,11 @@
 	<properties>
 		<java.version>8</java.version>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+<<<<<<< HEAD
+
+		
+=======
+>>>>>>> 1fecb9dcaec12e721bd267f38cb40f030d4caf51
 	</properties>
 
 	<dependencyManagement>
@@ -72,7 +77,15 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.9.2</version>
 		</dependency>
-	
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+		</dependency>
+
 	</dependencies>
 
 
