@@ -83,6 +83,7 @@ public class ParentDtoConverter {
 				parentDto.setSibilingsfullname(parent.getSibilingsfullname());
 				parentDto.setSibilingsGrade(parent.getSibilingsGrade());
 				parentDto.setSililingsadmission(parent.getSililingsadmission());
+				listParentDto.add(parentDto);
 			}
 			return listParentDto;
 		}

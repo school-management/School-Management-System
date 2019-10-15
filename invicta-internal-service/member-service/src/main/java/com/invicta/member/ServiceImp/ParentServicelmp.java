@@ -64,4 +64,19 @@ public class ParentServicelmp implements ParentService {
 		return null;
 	}
 
+	@Override
+	public List<Parent> getByFathername(String fathername) {
+		return parentRepository.findByFathername(fathername);
+	}
+
+	@Override
+	public List<Parent> getByMothername(String mothername) {
+		return parentRepository.findByMothername(mothername);
+	}
+
+	@Override
+	public List<Parent> getByGuardianname(String guardianname) {
+		return parentRepository.findByGuardianname(guardianname);
+	}
+
 }

@@ -16,5 +16,9 @@ public interface ParentService {
 	
 	public Parent deleteByParId(Long parId);
 	
+	public List<Parent> getByFathername(String fathername);
 	
+	public List<Parent> getByMothername(String mothername);
+	
+	public List<Parent> getByGuardianname(String guardianname);
 }
