@@ -26,7 +26,7 @@ public class MemberServiceApplication {
 		return new Docket(DocumentationType.SWAGGER_2).select()
 				.apis(RequestHandlerSelectors
 				.basePackage("com.invicta.member.controller"))
-				.paths(PathSelectors.ant("/api/v1/**"))
+				.paths(PathSelectors.ant("/**"))
 				.build().apiInfo(myDetails());
 
 	}
