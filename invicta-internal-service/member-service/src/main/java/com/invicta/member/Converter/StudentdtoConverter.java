@@ -6,6 +6,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 import com.invicta.member.dto.StudentDto;
+import com.invicta.member.entity.Division;
+import com.invicta.member.entity.Parent;
 import com.invicta.member.entity.Student;
 
 @Service
@@ -36,6 +38,12 @@ public class StudentdtoConverter {
 			student.setRace(studentDto.getRace());
 			student.setReligion(studentDto.getReligion());
 			student.setStartDate(studentDto.getStartDate());
+			Division division= new Division();
+			division.setDivisionId(studentDto.getDivisionId());
+			student.setDivision(division);
+			Parent parent = new Parent();
+			parent.setParId(studentDto.getParId());
+			student.setPrent(parent);
 			return student;
 		}
 		return null;
@@ -69,6 +77,35 @@ public class StudentdtoConverter {
 				studentDto.setContactno(student.getContactno());
 				studentDto.setAchievementsport(student.getAchievementsport());
 				studentDto.setAchievementstudy(student.getAchievementstudy());
+				studentDto.setDivisionId(student.getDivision().getDivisionId());
+				studentDto.setDivisionName(student.getDivision().getDivisionName());
+				studentDto.setGradeId(student.getDivision().getGrade().getGradeId());
+				studentDto.setGradeName(student.getDivision().getGrade().getGradeName());
+				studentDto.setParId(student.getPrent().getParId());
+				studentDto.setParentId(student.getPrent().getParentId());
+				studentDto.setFathername(student.getPrent().getFathername());
+				studentDto.setFatheremail(student.getPrent().getFatheremail());
+				studentDto.setFathermobile(student.getPrent().getFathermobile());
+				studentDto.setFatherOccupation(student.getPrent().getFatherOccupation());
+				studentDto.setFatheroldstudent(student.getPrent().isFatheroldstudent());
+				studentDto.setFathersofficialaddress(student.getPrent().getFathersofficialaddress());
+				studentDto.setFstudystart(student.getPrent().getFstudystart());
+				studentDto.setFstudyend(student.getPrent().getFstudyend());
+				studentDto.setMothername(student.getPrent().getMothername());
+				studentDto.setMothermaidenname(student.getPrent().getMothermaidenname());
+				studentDto.setMothermobile(student.getPrent().getMothermobile());
+				studentDto.setMotheroccupation(student.getPrent().getMotheroccupation());
+				studentDto.setMotheroldstudent(student.getPrent().isMotheroldstudent());
+				studentDto.setMotherstudystart(student.getPrent().getMotherstudystart());
+				studentDto.setMotherstudyend(student.getPrent().getMotherstudyend());
+				studentDto.setSibilingsfullname(student.getPrent().getSibilingsfullname());
+				studentDto.setSililingsadmission(student.getPrent().getSililingsadmission());
+				studentDto.setSibilingsGrade(student.getPrent().getSibilingsGrade()); 
+				studentDto.setGuardian(student.getPrent().getGuardian());
+				studentDto.setGuardianemail(student.getPrent().getGuardianemail());
+				studentDto.setGuardianmobileNo(student.getPrent().getFathermobile());
+				studentDto.setGuardianname(student.getPrent().getGuardianname());
+				studentDto.setGuardianoccupation(student.getPrent().getGuardianoccupation());
 				liststudentDto.add(studentDto);
 
 			}
@@ -77,7 +114,7 @@ public class StudentdtoConverter {
 		}
 		return null;
 	}
-	
+
 	public static StudentDto StudentEntityToStudentDTO(Student student) {
 		StudentDto studentDto = new StudentDto();
 		if (student != null) {
@@ -101,10 +138,38 @@ public class StudentdtoConverter {
 			studentDto.setContactno(student.getContactno());
 			studentDto.setAchievementsport(student.getAchievementsport());
 			studentDto.setAchievementstudy(student.getAchievementstudy());
+			studentDto.setDivisionId(student.getDivision().getDivisionId());
+			studentDto.setDivisionName(student.getDivision().getDivisionName());
+			studentDto.setGradeId(student.getDivision().getGrade().getGradeId());
+			studentDto.setGradeName(student.getDivision().getGrade().getGradeName());
+			studentDto.setParId(student.getPrent().getParId());
+			studentDto.setParentId(student.getPrent().getParentId());
+			studentDto.setFathername(student.getPrent().getFathername());
+			studentDto.setFatheremail(student.getPrent().getFatheremail());
+			studentDto.setFathermobile(student.getPrent().getFathermobile());
+			studentDto.setFatherOccupation(student.getPrent().getFatherOccupation());
+			studentDto.setFatheroldstudent(student.getPrent().isFatheroldstudent());
+			studentDto.setFathersofficialaddress(student.getPrent().getFathersofficialaddress());
+			studentDto.setFstudystart(student.getPrent().getFstudystart());
+			studentDto.setFstudyend(student.getPrent().getFstudyend());
+			studentDto.setMothername(student.getPrent().getMothername());
+			studentDto.setMothermaidenname(student.getPrent().getMothermaidenname());
+			studentDto.setMothermobile(student.getPrent().getMothermobile());
+			studentDto.setMotheroccupation(student.getPrent().getMotheroccupation());
+			studentDto.setMotheroldstudent(student.getPrent().isMotheroldstudent());
+			studentDto.setMotherstudystart(student.getPrent().getMotherstudystart());
+			studentDto.setMotherstudyend(student.getPrent().getMotherstudyend());
+			studentDto.setSibilingsfullname(student.getPrent().getSibilingsfullname());
+			studentDto.setSililingsadmission(student.getPrent().getSililingsadmission());
+			studentDto.setSibilingsGrade(student.getPrent().getSibilingsGrade()); 
+			studentDto.setGuardian(student.getPrent().getGuardian());
+			studentDto.setGuardianemail(student.getPrent().getGuardianemail());
+			studentDto.setGuardianmobileNo(student.getPrent().getFathermobile());
+			studentDto.setGuardianname(student.getPrent().getGuardianname());
+			studentDto.setGuardianoccupation(student.getPrent().getGuardianoccupation());
 			return studentDto;
 		}
 		return null;
 	}
-
 
 }

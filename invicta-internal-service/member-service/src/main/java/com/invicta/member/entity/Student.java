@@ -8,20 +8,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.sql.Date;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(schema = "memberservice", name = "member")
+@Table(schema = "memberservice", name = "student")
 public class Student implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long sId;
-
+	@Column(name = "stuId", nullable = false)
 	private String stuId;
 
-	
 	@Column(name = "firstname", nullable = false)
 	private String firstname;
 
@@ -39,39 +40,63 @@ public class Student implements Serializable {
 
 	@Column(name = "contactno", nullable = false)
 	private Integer contactno;
-	
+
 	@Column(name = "religion", nullable = false)
 	private String religion;
-	
+
 	@Column(name = "race", nullable = false)
 	private String race;
-	
+
 	@Column(name = "dob", nullable = false)
 	private Date dob;
-	
+
 	@Column(name = "gsdivision", nullable = false)
 	private String gsdivision;
-	
+
 	@Column(name = "gender", nullable = false)
 	private String gender;
-	
+
 	@Column(name = "formarschool", nullable = false)
 	private String formarschool;
-	
+
 	@Column(name = "formerclass", nullable = false)
 	private Integer formerclass;
-	
+
 	@Column(name = "hostelneed", nullable = false)
 	private boolean hostelneed;
-	
+
 	@Column(name = "distance", nullable = false)
 	private String distance;
-	
+
 	@Column(name = "achievementstudy", nullable = false)
 	private String achievementstudy;
-	
+
 	@Column(name = "achievementsport", nullable = false)
 	private String achievementsport;
+
+	@ManyToOne
+	@JoinColumn(name = "divisionId", nullable = false)
+	private Division division;
+
+	@ManyToOne
+	@JoinColumn(name = "parId", nullable = false)
+	private Parent prent;
+
+	public Parent getPrent() {
+		return prent;
+	}
+
+	public void setPrent(Parent prent) {
+		this.prent = prent;
+	}
+	
+	public Division getDivision() {
+		return division;
+	}
+
+	public void setDivision(Division division) {
+		this.division = division;
+	}
 
 	public Long getsId() {
 		return sId;

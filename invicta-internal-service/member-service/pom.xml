@@ -19,8 +19,11 @@
 	<properties>
 		<java.version>8</java.version>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+<<<<<<< HEAD
 
 		
+=======
+>>>>>>> 1fecb9dcaec12e721bd267f38cb40f030d4caf51
 	</properties>
 
 	<dependencyManagement>
@@ -45,7 +48,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -75,15 +78,14 @@
 			<version>2.9.2</version>
 		</dependency>
 		<dependency>
-            <groupId>javax.xml</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>2.1</version>
-        </dependency><dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi</artifactId>
-			<version>3.17</version>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
-        
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+		</dependency>
+
 	</dependencies>
 
 

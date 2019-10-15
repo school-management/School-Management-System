@@ -2,7 +2,6 @@ package com.invicta.member.ServiceImp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.invicta.member.Service.StudentService;
 import com.invicta.member.entity.Student;
 import com.invicta.member.repository.StudentRepository;
@@ -63,9 +62,46 @@ public class StudentServiceImp implements StudentService {
 	}
 
 	@Override
-	public Student editStudent(Student student) {
-		// TODO Auto-generated method stub
-		return null;
+	public Student updatestudent(Student student) {
+		return studentrepository.save(student);
+	}
+
+	@Override
+	public List<Student> getByfirstname(String firstname) {
+		return studentrepository.findByfirstname(firstname);
+	}
+
+	@Override
+	public List<Student> findBylastname(String lastname) {
+		return studentrepository.findBylastname(lastname);
+	}
+
+	@Override
+	public List<Student> findbyreligion(String religion) {
+
+		return studentrepository.findbyreligion(religion);
+	}
+
+	@Override
+	public List<Student> findbygender(String gender) {
+
+		return studentrepository.findbygender(gender);
+	}
+
+	@Override
+	public List<Student> findtbyhostelstudent(Boolean hostelneed) {
+
+		return studentrepository.findtbyhostelstudent(hostelneed);
+	}
+
+	@Override
+	public List<Student> findStudentByClass(Long gradeId) {
+		return studentrepository.findStudentByClass(gradeId);
+	}
+
+	@Override
+	public List<Student> findBystuId(String stuId) {
+		return studentrepository.findBystuId(stuId);
 	}
 
 }
