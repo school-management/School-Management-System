@@ -89,6 +89,7 @@ public class Student implements Serializable {
 	public void setPrent(Parent prent) {
 		this.prent = prent;
 	}
+	
 	public Division getDivision() {
 		return division;
 	}

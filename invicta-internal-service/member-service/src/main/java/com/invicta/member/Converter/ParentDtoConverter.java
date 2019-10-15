@@ -25,7 +25,7 @@ public class ParentDtoConverter {
 			parent.setFatheroldstudent(parentDto.isFatheroldstudent());
 			parent.setFathersofficialaddress(parentDto.getFathersofficialaddress());
 			parent.setFstudystart(parentDto.getFstudystart());
-			parent.setFstudystart(parentDto.getFstudyend());
+			parent.setFstudyend(parentDto.getFstudyend());
 			parent.setMothername(parentDto.getMothername());
 			parent.setMothermaidenname(parentDto.getMothermaidenname());
 			parent.setMothermobile(parentDto.getFathermobile());

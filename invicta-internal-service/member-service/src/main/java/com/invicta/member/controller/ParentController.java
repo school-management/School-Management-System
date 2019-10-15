@@ -5,20 +5,18 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.invicta.member.dto.ParentDto;
 import com.invicta.member.entity.Parent;
 import com.invicta.member.mapper.ParentDtoMapper;
-import com.invicta.member.repository.ParentRepository;
 
 @RestController
+@RequestMapping("/Api/")
 public class ParentController {
 
 	@Autowired
 	private ParentDtoMapper parentDtoMapper;
-	
-	@Autowired
-	private ParentRepository parentRepository;
 
 	private static Logger logger = LogManager.getLogger(ParentDtoMapper.class);
 
