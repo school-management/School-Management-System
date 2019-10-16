@@ -22,7 +22,7 @@ import com.invicta.member.repository.StudentRepository;
 import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
-@RequestMapping("/Api/")
+//@RequestMapping("/Api/")
 public class StudentController {
 
 	@Autowired
@@ -38,7 +38,6 @@ public class StudentController {
 	public Student savedstudent(@RequestBody StudentDto studentDto) {
 		try {
 			return studentDtoMapper.saveStudent(studentDto);
-//			return studentRepository.save(student);
 		} catch (Exception e) {
 			logger.info("Studet Controller -> New Student Created succesfully", e.getMessage());
 		}

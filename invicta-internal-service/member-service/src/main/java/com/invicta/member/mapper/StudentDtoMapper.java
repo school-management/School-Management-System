@@ -29,6 +29,7 @@ public class StudentDtoMapper {
 		return studentService.saveStudent(studentdtoConverter.StudentDTOToStuden(studentDto));
 	}
 
+	
 	@SuppressWarnings("static-access")
 	public List<StudentDto> getAllStudent() {
 		logger.info(" Student Successfully Listed ");
