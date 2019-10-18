@@ -61,7 +61,7 @@ public class StaffController {
 	@GetMapping("/{staffId}")
 	public ResponseEntity<StaffDto> getBystaffId(@PathVariable(name = "staffId") Long staffId) {
 		try {
-			return new ResponseEntity<>(staffDtoMapper.getBystaffId(staffId), HttpStatus.OK);
+//			return new ResponseEntity<>(staffDtoMapper.getBystaffId(staffId), HttpStatus.OK);
 		} catch (Exception e) {
 			logger.info("Staff Controller -> getBystaffId", e.getMessage());
 		}

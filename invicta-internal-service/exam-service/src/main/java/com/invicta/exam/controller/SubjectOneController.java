@@ -1,10 +1,12 @@
 package com.invicta.exam.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,17 +17,24 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.client.RestTemplate;
+import org.springframework.http.HttpMethod;
 import com.invicta.exam.dto.SubjectOneDto;
+import com.invicta.exam.entity.Student;
+import com.invicta.exam.entity.SubjectList;
 import com.invicta.exam.entity.SubjectOne;
 import com.invicta.exam.mapper.SubjectOneDtoMapper;
+import com.invicta.exam.service.SubjectOneService;
 
 @RestController
-@RequestMapping("/Api/")
+//@RequestMapping("/Api/")
 public class SubjectOneController {
 
 	@Autowired
 	private SubjectOneDtoMapper subject1To8DtoMapper;
+	
+	@Autowired
+	private SubjectOneService subjectOneService;
 
 	private static Logger logger = LogManager.getLogger(SubjectOneDtoMapper.class);
 
@@ -98,4 +107,73 @@ public class SubjectOneController {
 
 		return null;
 	}
+	
+	@SuppressWarnings("unused")
+	@GetMapping("/getallSubject")
+	public List<SubjectList> getAllSubjectList() {
+		try {
+			RestTemplate restTemplate = new RestTemplate();
+			List<SubjectOne> subjectList = subjectOneService.getsubjectById();
+			int length = subjectList.size();
+			System.out.println(length);
+			
+			List<SubjectList> retrievedsubject = new ArrayList<SubjectList>();
+			for (int i = 0; i < length; i++) {
+				logger.info("Subject Controller :--> loop started");
+				SubjectList subject8List = new SubjectList();
+				Long subjectId = Long.parseLong(String.valueOf(subjectList.get(i)));
+				
+				SubjectOne subjectone = subjectOneService.getBySubjectId(subjectId);
+				subject8List.setSubjectId(subjectone.getSubjectId());
+				subject8List.setSubjectName(subjectone.getSubjectName());
+				subject8List.setsId(subjectone.getsId());
+				System.out.println(subject8List);
+				ResponseEntity<Student> response = restTemplate.exchange(
+						"http://localhost:8083/member/" + subjectone.getSubjectId(),
+						HttpMethod.GET, null, new ParameterizedTypeReference<Student>() {
+						});
+				Student student = response.getBody();
+				subject8List.setsId(student.getsId());
+				subject8List.setGradeId(student.getGradeId());
+				subject8List.setGradeName(student.getGradeName());
+				retrievedsubject.add(subject8List);
+				return retrievedsubject;
+				}
+		
+		}catch (Exception ex) {
+		
+			logger.error("Subject Controller :--> error" + ex.getMessage());
+	}
+		return null;
+}
+	
+	
+	@SuppressWarnings("unused")
+	@RequestMapping("/subjectObj/{subjectId}")
+	public SubjectList getResourceAllocationObj(@PathVariable("subjectId") Long subjectId) {
+		SubjectList resourceAllocationList = new SubjectList();
+		SubjectOne resourceAllocation = subjectOneService.getBySubjectId(subjectId);
+	
+		resourceAllocationList.setSubjectId(resourceAllocation.getSubjectId());
+		resourceAllocationList.setSubjectName(resourceAllocation.getSubjectName());
+		resourceAllocationList.setsId(resourceAllocation.getsId());
+		RestTemplate restTemplate = new RestTemplate();
+		ResponseEntity<Student> response = restTemplate.exchange(
+				"http://localhost:8083/member/" + resourceAllocation.getSubjectId(),
+				HttpMethod.GET, null, new ParameterizedTypeReference<Student>() {
+				});
+
+		Student employee = response.getBody();
+		resourceAllocationList.setGradeId(employee.getGradeId());
+		resourceAllocationList.setGradeName(employee.getGradeName());
+		resourceAllocationList.setDivisionId(employee.getDivisionId());
+		resourceAllocationList.setDivisionName(employee.getDivisionName());
+		resourceAllocationList.setFirstname(employee.getFirstname());
+		resourceAllocationList.setMiddlename(employee.getMiddlename());
+		resourceAllocationList.setLastname(employee.getLastname());
+		resourceAllocationList.setStuId(employee.getStuId());
+		return resourceAllocationList;
+
+	}
+
 }
