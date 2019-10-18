@@ -15,4 +15,6 @@ public interface SubjectOneService {
 	public SubjectOne deleteBySubjectId(Long subjectId);
 
 	public SubjectOne updateSubject(SubjectOne subject1To8);
+	
+	public List<SubjectOne> getsubjectById();
 }

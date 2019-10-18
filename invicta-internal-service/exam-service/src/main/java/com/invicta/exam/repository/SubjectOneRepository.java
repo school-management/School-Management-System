@@ -1,10 +1,21 @@
 package com.invicta.exam.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import com.invicta.exam.entity.SubjectOne;
 
 public interface SubjectOneRepository extends JpaRepository<SubjectOne, Long>{
 
 	public SubjectOne findBySubjectId(Long subjectId);
+	
+	List<SubjectOne> save(List<SubjectOne> subjectOne);
+	
+	String fetchAllsubjectId = "SELECT s_id FROM subject1to8";
+
+	@Query(value = fetchAllsubjectId, nativeQuery = true)
+	<T> List<T> getAllsubjectId();
+
 }

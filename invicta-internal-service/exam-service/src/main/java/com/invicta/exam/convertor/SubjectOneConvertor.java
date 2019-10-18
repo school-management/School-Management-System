@@ -21,20 +21,21 @@ public class SubjectOneConvertor {
 			logger.info("Subject 1To8 Converter ----> DTO To Entity");
 			subject1To8.setSubjectId(subject1To8Dto.getSubjectId());
 			subject1To8.setSubjectName(subject1To8Dto.getSubjectName());
-			subject1To8.setGradeId(subject1To8Dto.getGradeId());
+			subject1To8.setsId(subject1To8Dto.getsId());
 			return subject1To8;
 		}
 		return null;
 
 	}
 	
+	@SuppressWarnings("unused")
 	public static SubjectOneDto SubjectToSubjectDto(SubjectOne subject1To8) {
 		SubjectOneDto subject1To8Dto = new SubjectOneDto();
 		if (subject1To8Dto != null) {
 			logger.info("Subject 1To8 Converter ----> Entity To DTO ");
 			subject1To8Dto.setSubjectId(subject1To8.getSubjectId());
 			subject1To8Dto.setSubjectName(subject1To8.getSubjectName());
-			subject1To8Dto.setGradeId(subject1To8.getGradeId());
+			subject1To8Dto.setsId(subject1To8.getsId());
 			return subject1To8Dto;
 		}
 		return null;
@@ -49,7 +50,7 @@ public class SubjectOneConvertor {
 				SubjectOneDto subject1To8Dto = new SubjectOneDto();
 				subject1To8Dto.setSubjectId(subject1To8.getSubjectId());
 				subject1To8Dto.setSubjectName(subject1To8.getSubjectName());
-				subject1To8Dto.setGradeId(subject1To8.getGradeId());
+				subject1To8Dto.setsId(subject1To8Dto.getsId());
 				listSubjectDto.add(subject1To8Dto);
 			}
 			return listSubjectDto;
