@@ -11,10 +11,16 @@ public interface StaffService {
 
 	public List<Staff> getAllStaff();
 	
-	public  Staff getBystaffId(Long staff);
+	public  Staff getBystaffId(Long staffId);
 	
-	public  Staff deleteBystaffId(Long staff);
+	public  Staff deleteByStaffId(Long staff);
 	
-	public  Staff editStaff( Staff  staff);
+	public  Staff updatestaff(Staff staff);
+	
+	public List<Staff>findByempId(String empId);
+	
+	public List<Staff>findBylastname(String lastname);
+	
+	public List<Staff>findBydesignation(String designation);
 
 }
