@@ -8,6 +8,8 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.invicta.exam.entity.Student;
+import com.invicta.exam.entity.SubjectList;
 import com.invicta.exam.entity.SubjectOne;
 import com.invicta.exam.repository.SubjectOneRepository;
 import com.invicta.exam.service.SubjectOneService;
@@ -53,7 +55,7 @@ public class SubjectOneServiceImpl implements SubjectOneService {
 	@Override
 	public SubjectOne deleteBySubjectId(Long subjectId) {
 		try {
-			 subject1To8Repository.deleteById(subjectId);
+			subject1To8Repository.deleteById(subjectId);
 		} catch (Exception e) {
 			logger.info("Subject1To8 Service Implementation -->", e.getMessage());
 		}
@@ -73,7 +75,7 @@ public class SubjectOneServiceImpl implements SubjectOneService {
 
 		return null;
 	}
-	
+
 	public void saveResourceTable(List<SubjectOne> resourceAllocation) {
 
 		try {
@@ -102,5 +104,18 @@ public class SubjectOneServiceImpl implements SubjectOneService {
 
 		return subject1To8Repository.getAllsubjectId();
 	}
+
+	@Override
+	public List<SubjectOne> getAllstudentId() {
+
+		return subject1To8Repository.getAllstudentId();
+	}
+
+	@Override
+	public List<SubjectOne> getAllsubjectId() {
+
+		return subject1To8Repository.getAllsubjectId();
+	}
+
 
 }

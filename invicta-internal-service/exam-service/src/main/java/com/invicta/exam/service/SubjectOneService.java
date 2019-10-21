@@ -2,6 +2,8 @@ package com.invicta.exam.service;
 
 import java.util.List;
 
+import com.invicta.exam.entity.Student;
+import com.invicta.exam.entity.SubjectList;
 import com.invicta.exam.entity.SubjectOne;
 
 public interface SubjectOneService {
@@ -17,4 +19,12 @@ public interface SubjectOneService {
 	public SubjectOne updateSubject(SubjectOne subject1To8);
 	
 	public List<SubjectOne> getsubjectById();
+	
+	public List<SubjectOne> getAllstudentId();
+	
+	public List<SubjectOne> getAllsubjectId();
+	
+;
 }
+
+

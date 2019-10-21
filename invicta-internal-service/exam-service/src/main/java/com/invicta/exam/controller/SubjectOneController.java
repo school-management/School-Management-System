@@ -36,12 +36,14 @@ public class SubjectOneController {
 	@Autowired
 	private SubjectOneService subjectOneService;
 
+
 	private static Logger logger = LogManager.getLogger(SubjectOneDtoMapper.class);
 
 	@PostMapping("/subjects")
-	public SubjectOne saveSubject(@RequestBody SubjectOneDto subject1To8Dto) {
+	public SubjectOne saveSubject(@RequestBody SubjectOne subject1To8) {
 		try {
-			return subject1To8DtoMapper.saveSubjects(subject1To8Dto);
+//			return subject1To8DtoMapper.saveSubjects(subject1To8Dto);
+			return subjectOneService.createSubject(subject1To8);
 		} catch (Exception e) {
 			logger.info("Subject8 Controller -> New Subject Created succesfully", e.getMessage());
 		}
@@ -106,50 +108,10 @@ public class SubjectOneController {
 		}
 
 		return null;
-	}
+	}	
 	
 	@SuppressWarnings("unused")
-	@GetMapping("/getallSubject")
-	public List<SubjectList> getAllSubjectList() {
-		try {
-			RestTemplate restTemplate = new RestTemplate();
-			List<SubjectOne> subjectList = subjectOneService.getsubjectById();
-			int length = subjectList.size();
-			System.out.println(length);
-			
-			List<SubjectList> retrievedsubject = new ArrayList<SubjectList>();
-			for (int i = 0; i < length; i++) {
-				logger.info("Subject Controller :--> loop started");
-				SubjectList subject8List = new SubjectList();
-				Long subjectId = Long.parseLong(String.valueOf(subjectList.get(i)));
-				
-				SubjectOne subjectone = subjectOneService.getBySubjectId(subjectId);
-				subject8List.setSubjectId(subjectone.getSubjectId());
-				subject8List.setSubjectName(subjectone.getSubjectName());
-				subject8List.setsId(subjectone.getsId());
-				System.out.println(subject8List);
-				ResponseEntity<Student> response = restTemplate.exchange(
-						"http://localhost:8083/member/" + subjectone.getSubjectId(),
-						HttpMethod.GET, null, new ParameterizedTypeReference<Student>() {
-						});
-				Student student = response.getBody();
-				subject8List.setsId(student.getsId());
-				subject8List.setGradeId(student.getGradeId());
-				subject8List.setGradeName(student.getGradeName());
-				retrievedsubject.add(subject8List);
-				return retrievedsubject;
-				}
-		
-		}catch (Exception ex) {
-		
-			logger.error("Subject Controller :--> error" + ex.getMessage());
-	}
-		return null;
-}
-	
-	
-	@SuppressWarnings("unused")
-	@RequestMapping("/subjectObj/{subjectId}")
+	@RequestMapping("subjectObj/{subjectId}")
 	public SubjectList getResourceAllocationObj(@PathVariable("subjectId") Long subjectId) {
 		SubjectList resourceAllocationList = new SubjectList();
 		SubjectOne resourceAllocation = subjectOneService.getBySubjectId(subjectId);
@@ -159,21 +121,79 @@ public class SubjectOneController {
 		resourceAllocationList.setsId(resourceAllocation.getsId());
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<Student> response = restTemplate.exchange(
-				"http://localhost:8083/member/" + resourceAllocation.getSubjectId(),
+				"http://localhost:8083/member/getonestudent/" + resourceAllocation.getSubjectId(),
 				HttpMethod.GET, null, new ParameterizedTypeReference<Student>() {
 				});
 
 		Student employee = response.getBody();
-		resourceAllocationList.setGradeId(employee.getGradeId());
-		resourceAllocationList.setGradeName(employee.getGradeName());
-		resourceAllocationList.setDivisionId(employee.getDivisionId());
-		resourceAllocationList.setDivisionName(employee.getDivisionName());
-		resourceAllocationList.setFirstname(employee.getFirstname());
-		resourceAllocationList.setMiddlename(employee.getMiddlename());
-		resourceAllocationList.setLastname(employee.getLastname());
-		resourceAllocationList.setStuId(employee.getStuId());
+//		resourceAllocationList.setGradeId(employee.getGradeId());
+//		resourceAllocationList.setGradeName(employee.getGradeName());
+//		resourceAllocationList.setDivisionId(employee.getDivisionId());
+//		resourceAllocationList.setDivisionName(employee.getDivisionName());
+//		resourceAllocationList.setFirstname(employee.getFirstname());
+//		resourceAllocationList.setMiddlename(employee.getMiddlename());
+//		resourceAllocationList.setLastname(employee.getLastname());
+//		resourceAllocationList.setStuId(employee.getStuId());
 		return resourceAllocationList;
 
 	}
+	
+		
+		
+		@RequestMapping("SubjectListObj/{subjectId}")
+		public SubjectList getsubjectObj(@PathVariable("subjectId") Long subjectId) {
+			SubjectList subClassificationList = new SubjectList();
+			SubjectOneDto subClassification = subject1To8DtoMapper.getBySubjectId(subjectId);
+		
+			subClassificationList.setSubjectId(subClassification.getSubjectId());
+			subClassificationList.setSubjectName(subClassification.getSubjectName());
+			subClassificationList.setsId(subClassification.getsId());
+
+			RestTemplate restTemplate = new RestTemplate();
+			ResponseEntity<Student> response = restTemplate.exchange(
+					"http://localhost:8083/member/getonestudent/" + subClassification.getsId(),
+					HttpMethod.GET, null, new ParameterizedTypeReference<Student>() {
+					});
+
+			Student mainClass = response.getBody();
+			subClassificationList.setStudentobj(mainClass);
+			return subClassificationList;
+		}
+		
+		
+		@GetMapping("/GetAllSubjectList")
+		public List<SubjectList> getAllSubClassList() {
+			RestTemplate restTemplate = new RestTemplate();
+			List<SubjectOne> subClassList = subjectOneService.getAllsubjectId();
+			int length = subClassList.size();
+			System.out.println(length);
+			List<SubjectList> retrievedSubClass = new ArrayList<SubjectList>();
+			for (int i = 0; i < length; i++) {
+				SubjectList subClassificationList = new SubjectList();
+				Long subjectId = Long.parseLong(String.valueOf(subClassList.get(i)));
+				SubjectOne subClassification = subjectOneService.getBySubjectId(subjectId);
+			
+				subClassificationList.setSubjectId(subClassification.getSubjectId());
+				subClassificationList.setSubjectName(subClassification.getSubjectName());
+				subClassificationList.setsId(subClassification.getsId()); 
+				ResponseEntity<Student> response = restTemplate.exchange(
+						"http://localhost:8083/member/getonestudent/"
+								+ subClassification.getsId(),
+						HttpMethod.GET, null, new ParameterizedTypeReference<Student>() {
+						});
+				Student mainClass = response.getBody();
+				subClassificationList.setStudentobj(mainClass);
+				retrievedSubClass.add(subClassificationList);
+			}
+			return retrievedSubClass;
+		}
+		
+		
+		
+//		@PostMapping("/SaveSubjectTable")
+//		public ResponseEntity<Void> saveSubjectTable(@RequestBody List<SubjectOne> subjectOne) {
+//			subjectOneService.createSubject(subject1To8)
+//			return new ResponseEntity<Void>(HttpStatus.OK);
+//		}
 
 }

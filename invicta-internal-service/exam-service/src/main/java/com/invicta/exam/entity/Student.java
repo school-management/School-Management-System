@@ -52,6 +52,7 @@ public class Student {
 	private Integer sibilingsGrade;
 	private String sililingsadmission;
 	
+	
 	public Long getsId() {
 		return sId;
 	}
@@ -340,6 +341,7 @@ public class Student {
 	public void setSililingsadmission(String sililingsadmission) {
 		this.sililingsadmission = sililingsadmission;
 	}
+	
 	
 	
 	
