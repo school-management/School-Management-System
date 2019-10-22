@@ -11,39 +11,55 @@ import com.invicta.member.repository.StaffRepository;
 
 @Service
 public class StaffServiceImp implements StaffService {
-	
+
+	private static final Object Staff = null;
 	@Autowired
 	private StaffRepository staffRepository;
 
 	@Override
 	public Staff saveStaff(Staff staff) {
-		
 		return staffRepository.save(staff);
 	}
 
 	@Override
 	public List<Staff> getAllStaff() {
-		
 		return staffRepository.findAll();
 	}
 
 	@Override
-	public Staff getBystaffId(Long staff) {
-		// TODO Auto-generated method stub
+	public Staff getBystaffId(Long staffId) {
+		return staffRepository.findStaffByStaffId(staffId);
+	}
+
+	@Override
+	public Staff deleteByStaffId(Long staffId) {
+
+		staffRepository.deleteById(staffId);
 		return null;
 	}
 
 	@Override
-	public Staff deleteBystaffId(Long staff) {
-		// TODO Auto-generated method stub
-		return null;
+	public Staff updatestaff(Staff staff) {
+		return staffRepository.save(staff);
 	}
 
 	@Override
-	public Staff editStaff(Staff staff) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Staff> findByempId(String empId) {
+		
+		return staffRepository.findStaffByEmpId(empId);
 	}
+
+	@Override
+	public List<Staff> findBylastname(String lastname) {
+				return staffRepository.findStaffByLastName(lastname);
+	}
+
+	@Override
+	public List<Staff> findBydesignation(String designation) {
+		
+		return staffRepository.findStaffBydesignation(designation);
+	}
+
 	
 	
 }
