@@ -5,19 +5,16 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.invicta.exam.dto.SubjectOneDto;
-import com.invicta.exam.entity.Grade;
 import com.invicta.exam.entity.SubjectOne;
-import com.invicta.exam.entity.SubjectOneList;
 
 @Service
 public class SubjectOneConvertor {
 
 	private static Logger logger = LogManager.getLogger(SubjectOneDto.class);
-	
+
 	public static SubjectOne SubjectDtoToSubject(SubjectOneDto subjectOneDto) {
 		SubjectOne subjectOne = new SubjectOne();
 		if (subjectOneDto != null) {
@@ -25,6 +22,7 @@ public class SubjectOneConvertor {
 			subjectOne.setSubjectId(subjectOneDto.getSubjectId());
 			subjectOne.setSubjectName(subjectOneDto.getSubjectName());
 			subjectOne.setGradeId(subjectOneDto.getGradeId());
+			//subject1To8.setsId(subject1To8Dto.getsId());
 			return subjectOne;
 		}
 		return null;

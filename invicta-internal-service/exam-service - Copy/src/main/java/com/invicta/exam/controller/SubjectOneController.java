@@ -9,6 +9,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,12 +17,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-
 import com.invicta.exam.dto.SubjectOneDto;
 //import com.invicta.exam.entity.Student;
 import com.invicta.exam.entity.SubjectOneList;
@@ -45,83 +46,34 @@ public class SubjectOneController {
 	@PostMapping("/subjects")
 	public SubjectOne saveSubject(@RequestBody SubjectOneDto subject1To8Dto) {
 		try {
-			RestTemplate restTemplate = new RestTemplate();
-			ResponseEntity<Grade> response = restTemplate.exchange(
-					"http://localhost:8083/member/grade/" + subject1To8Dto.getGradeId(), HttpMethod.GET, null,
-					new ParameterizedTypeReference<Grade>() {
-					});
-			System.out.println("gggggggggggggggggggg"+response.hasBody());
-			if(response.hasBody()) {
-				return	subject1To8DtoMapper.saveSubjects(subject1To8Dto);
-			}
-		
-//			return subject1To8DtoMapper.saveSubjects(subject1To8Dto);
+			return subject1To8DtoMapper.saveSubjects(subject1To8Dto);
 		} catch (Exception e) {
 			logger.info("Subject8 Controller -> New Subject Created succesfully", e.getMessage());
 		}
 
 		return null;
 	}
-	
-	@GetMapping("subjects/{subjectId}")
-	public SubjectOneList getSubjectObjectUsingSubjectId(@PathVariable("subjectId") Long subjectId) {
-		SubjectOneList subjectOneList = new SubjectOneList();
-		SubjectOne subjectOne = subjectOneService.getBySubjectId(subjectId);
 
-		subjectOneList.setSubjectId(subjectOne.getSubjectId());
-		subjectOneList.setSubjectName(subjectOne.getSubjectName());
-		subjectOneList.setGradeId(subjectOne.getGradeId());
-
-		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<Grade> response = restTemplate.exchange(
-				"http://localhost:8083/member/grade/" + subjectOneList.getGradeId(), HttpMethod.GET, null,
-				new ParameterizedTypeReference<Grade>() {
-				});
-
-		Grade grade = response.getBody();
-		subjectOneList.setGradeId(grade.getGradeId());
-		subjectOneList.setGradeObj(grade);
-		return subjectOneList;
+	@GetMapping("/subjects")
+	public ResponseEntity<List<SubjectOneDto>> getAllSubjects() {
+		try {
+			return new ResponseEntity<>(subject1To8DtoMapper.getAllSubjects(), HttpStatus.OK);
+		} catch (Exception e) {
+			logger.info("Subject8 Controller -> GetAllSubjects", e.getMessage());
+		}
+		return null;
 
 	}
 
-	@GetMapping("/subjects")
-	public List<SubjectOneList> getAllSubClassList() {
-		RestTemplate restTemplate = new RestTemplate();
-		List<SubjectOne> subList = subjectOneService.getsubjectById();
-		int length = subList.size();
-		List<SubjectOneList> retrivedSubjects = new ArrayList<SubjectOneList>();
-		for (int i = 0; i < length; i++) {
-			SubjectOneList subjectsList = new SubjectOneList();
-			Long subjectId = Long.parseLong(String.valueOf(subList.get(i)));
-			SubjectOne subjectOne = subjectOneService.getBySubjectId(subjectId);
-
-			subjectsList.setSubjectId(subjectOne.getSubjectId());
-			subjectsList.setSubjectName(subjectOne.getSubjectName());
-			subjectsList.setGradeId(subjectOne.getGradeId());
-			ResponseEntity<Grade> response = restTemplate.exchange(
-					"http://localhost:8083/member/grade/" + subjectOne.getGradeId(), HttpMethod.GET, null,
-					new ParameterizedTypeReference<Grade>() {
-					});
-
-			Grade grade = response.getBody();
-			subjectsList.setGradeObj(grade);
-			retrivedSubjects.add(subjectsList);
-			
-			System.out.println("gggggggggggggggggggg"+subjectsList.getSubjectName()+response.hasBody());
-			
-			
-//			SubjectOne sub=new SubjectOne();
-//			sub.setSubjectId(subjectsList.getSubjectId());
-//			sub.setSubjectName(subjectsList.getSubjectName());
-//			sub.setGradeId(subjectsList.getGradeId());
-//			
-//			subjectOneService.createSubject(sub);
-			
-			
-			
+	@GetMapping("subjects/{subjectId}")
+	public ResponseEntity<SubjectOneDto> getSubjectbyId(@PathVariable Long subjectId) {
+		try {
+			return new ResponseEntity<>(subject1To8DtoMapper.getBySubjectId(subjectId), HttpStatus.OK);
+		} catch (Exception e) {
+			logger.info("Subject8 Controller -> GetSubjectById", e.getMessage());
 		}
-		return retrivedSubjects;
+		return null;
+
 	}
 
 	@DeleteMapping("subjects/{subjectId}")
@@ -159,8 +111,57 @@ public class SubjectOneController {
 		return null;
 	}
 
+	@GetMapping("subjectObject/{subjectId}")
+	public SubjectOneList getSubjectObjectUsingSubjectId(@PathVariable("subjectId") Long subjectId) {
+		SubjectOneList subjectOneList = new SubjectOneList();
+		SubjectOne subjectOne = subjectOneService.getBySubjectId(subjectId);
+		
+		subjectOneList.setSubjectId(subjectOne.getSubjectId());
+		subjectOneList.setSubjectName(subjectOne.getSubjectName());
+		subjectOneList.setGradeId(subjectOne.getGradeId());
+		
+		RestTemplate restTemplate = new RestTemplate();
+		ResponseEntity<Grade> response = restTemplate.exchange("http://localhost:8083/member/grade/"+subjectOne.getSubjectId(), 
+				HttpMethod.GET, null, new ParameterizedTypeReference<Grade>() {});
+		
+		Grade grade = response.getBody();
+		//subjectOneList.setGradeName(grade.getGradeName());
+		return subjectOneList;
+		
+	}
 
+	
+	
+	@GetMapping("/GetAllSubjectsList")
+	public List<SubjectOneList> getAllSubjectsUsingRestTemplate(){
+		//try {
+			RestTemplate restTemplate = new RestTemplate();
+			List<SubjectOne> subList = subjectOneService.getAllSubjects();
+			int length = subList.size();
+			System.out.println(length);
+			List<SubjectOneList> retrivedSubjects = new ArrayList<SubjectOneList>();
+			for (int i = 0; i < length; i++) {
+				SubjectOneList subjectsList = new SubjectOneList();
+				System.out.println("hii da new idea");
+				System.out.println(subList.get(i));
+				Long subjectId =Long.parseLong(String.valueOf(subList.get(i)));
+				SubjectOne subjectOne = subjectOneService.getBySubjectId(subjectId);
+				
+				subjectsList.setSubjectId(subjectOne.getSubjectId());
+				subjectsList.setSubjectName(subjectOne.getSubjectName());
+				subjectsList.setGradeId(subjectOne.getGradeId());
+				System.out.println(subjectsList);
+				ResponseEntity<Grade> response = restTemplate.exchange("http://localhost:8083/member/grade/", 
+						HttpMethod.GET, null, new ParameterizedTypeReference<Grade>() {});
+				
+				Grade grade = response.getBody();
+				subjectsList.setGradeObj(grade);
+				retrivedSubjects.add(subjectsList);
+			}
+			return retrivedSubjects;
+//		} catch (Exception e) {
+//			logger.error("Subject Controller :--> error" + e.getMessage());
+//		}
+	}
 
 }
-
-

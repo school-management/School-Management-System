@@ -74,65 +74,44 @@ public class SubjectOneServiceImpl implements SubjectOneService {
 
 		return null;
 	}
-
-	@Override
-	public List<SubjectOne> getsubjectById() {
-		return subjectOneRepository.getAllsubjectId();
-	}
-
-	@Override
-	public List<SubjectOne> getallgradebyId() {
-		return subjectOneRepository.getAllgradeId();
-	}
-
-	@Override
-	public List<Grade> getAllGradeId() {
-		return subjectOneRepository.getAllgradeId();
-	}
 	
-
-
-}
-
-
-	
-
-	
-
-
-	
-
-
-
-//	@Override
-//	public SubjectOne getBySubjectId() {
-//		// TODO Auto-generated method stub
-//		return null;
+//	public void saveResourceTable(List<SubjectOne> resourceAllocation) {
+//
+//		try {
+//			int size = resourceAllocation.size();
+//			int counter = 0;
+//			List<SubjectOne> temp = new ArrayList<>();
+//
+//			for (SubjectOne emp : resourceAllocation) {
+//				temp.add(emp);
+//
+//				if ((counter + 1) % 500 == 0 || (counter + 1) == size) {
+////					resourceAllocationRepository.saveAll(resourceAllocation);
+//					subject1To8Repository.saveAll(resourceAllocation);
+//					temp.clear();
+//				}
+//				counter++;
+//			}
+//		} catch (Exception ex) {
+//			logger.error("Resource Allocation Imp Error :-> " + ex.getMessage());
+//		}
+//
 //	}
 
 //	@Override
 //	public List<SubjectOne> getsubjectById() {
 //
-//		return subjectOneRepository.findBySubjectId(subjectId);
+//		return subject1To8Repository.getAllsubjectId();
 //	}
 
-//public void saveResourceTable(List<SubjectOne> resourceAllocation) {
-//
-//	try {
-//		int size = resourceAllocation.size();
-//		int counter = 0;
-//		List<SubjectOne> temp = new ArrayList<>();
-//
-//		for (SubjectOne emp : resourceAllocation) {
-//			temp.add(emp);
-//
-//			if ((counter + 1) % 500 == 0 || (counter + 1) == size) {
-////				resourceAllocationRepository.saveAll(resourceAllocation);
-//				subjectOneRepository.saveAll(resourceAllocation);
-//				temp.clear();
-//			}
-//			counter++;
-//		}
-//	} catch (Exception ex) {
-//		logger.error("Resource Allocation Imp Error :-> " + ex.getMessage());
-//	}
+	@Override
+	public List<SubjectOne> getAllGradeIdSubjectOne() {
+		return subjectOneRepository.getAllgradeIdfromSubjectOne();
+	}
+
+	@Override
+	public List<Grade> getAllGradeIdGrade() {
+		return subjectOneRepository.getAllgradeIdfromgrade();
+	}
+
+}

@@ -1,11 +1,28 @@
-package com.invicta.exam.dto;
+package com.invicta.exam.entity;
 
-public class SubjectOneDto {
+public class SubjectOneList {
 
 	private Long subjectId;
 	private String subjectName;
 	private Long gradeId;
-	//private Long sId;
+
+	private Grade gradeObj;
+
+	public Grade getGradeObj() {
+		return gradeObj;
+	}
+
+	public void setGradeObj(Grade gradeObj) {
+		this.gradeObj = gradeObj;
+	}
+
+	public Long getGradeId() {
+		return gradeId;
+	}
+
+	public void setGradeId(Long gradeId) {
+		this.gradeId = gradeId;
+	}
 
 	public Long getSubjectId() {
 		return subjectId;
@@ -22,25 +39,5 @@ public class SubjectOneDto {
 	public void setSubjectName(String subjectName) {
 		this.subjectName = subjectName;
 	}
-
-	public Long getGradeId() {
-		return gradeId;
-	}
-
-	public void setGradeId(Long gradeId) {
-		this.gradeId = gradeId;
-	}
-	
-	
-
-//	public Long getsId() {
-//		return sId;
-//	}
-//
-//	public void setsId(Long sId) {
-//		this.sId = sId;
-//	}
-
-	
 
 }

@@ -17,14 +17,9 @@ public interface SubjectOneService {
 
 	public SubjectOne updateSubject(SubjectOne subject1To8);
 
-	public List<SubjectOne> getsubjectById();
+	//public List<SubjectOne> getsubjectById();
 
-	public List<SubjectOne> getallgradebyId();
+	public List<SubjectOne> getAllGradeIdSubjectOne();
 
-	public List<Grade> getAllGradeId();
-
-//	public SubjectOne getBySubjectId(Long subjectId);
-	
-	
-	
+	public List<Grade> getAllGradeIdGrade();
 }
