@@ -22,7 +22,7 @@ import com.invicta.member.entity.Grade;
 import com.invicta.member.mapper.GradeMapper;
 
 @RestController
-//@RequestMapping("/Api/")
+@RequestMapping("Api/")
 public class GradeController {
 	
 	@Autowired
@@ -67,50 +67,3 @@ public class GradeController {
 	
 
 }
-
-
-//@Autowired
-//private RestTemplate restTemplate;
-
-//Api for microservice connection
-//@GetMapping("/saveGrade")
-//public ResponseEntity<List<?>> getAllGrade() throws JsonParseException, JsonMappingException, IOException{
-//		try {
-//		
-//		String url = "http://localhost:8083/member/grade";
-//		String resp = restTemplate.getForObject(url, String.class);
-//
-//		System.out.println("resp" + resp);
-//
-//		ObjectMapper objectMapper = new ObjectMapper();
-//		List<GradeDto> list = objectMapper.readValue(resp,
-//				new TypeReference<List<GradeDto>>() {
-//				});
-//		System.out.println("list " + list);
-//		
-//		for (GradeDto entry : list) {
-//			
-//			Grade grade = new Grade();
-//			grade.setGradeId(entry.getGradeId());
-//			grade.setGradeName(entry.getGradeName());
-//	
-//					
-//			System.out.println("gradeList " + grade);
-//
-//		HttpHeaders headers = new HttpHeaders();
-//		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-//		HttpEntity<Grade> entity = new HttpEntity<Grade>(grade, headers);
-//		System.out.println("yes");
-//		ResponseEntity<?> obj = restTemplate.exchange("http://localhost:8084/exam/subjects",
-//				HttpMethod.POST, entity, Grade.class);
-//
-//		System.out.println("obj" + obj);
-//		
-//	}
-//		return null;
-//	} catch (Exception ex) {
-//		logger.error("Check Your Error");
-//		System.out.println("Something went Wrong" + ex.getCause());
-//	}
-//	return null;
-//}

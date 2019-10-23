@@ -13,7 +13,7 @@ import com.invicta.exam.entity.SubjectOne;
 import com.invicta.exam.service.SubjectOneService;
 
 @Service
-public class SubjectOneDtoMapper {
+public class SubjectOneMapper {
 
 	@Autowired
 	private SubjectOneService subject1To8Service;

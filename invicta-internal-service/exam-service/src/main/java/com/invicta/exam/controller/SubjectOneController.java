@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.http.HttpEntity;
@@ -27,34 +28,34 @@ import com.invicta.exam.dto.SubjectOneDto;
 import com.invicta.exam.entity.SubjectOneList;
 import com.invicta.exam.entity.Grade;
 import com.invicta.exam.entity.SubjectOne;
-import com.invicta.exam.mapper.SubjectOneDtoMapper;
+import com.invicta.exam.mapper.SubjectOneMapper;
 import com.invicta.exam.service.SubjectOneService;
 
 @RestController
-//@RequestMapping("/Api/")
+@RequestMapping("Api/")
 public class SubjectOneController {
 
 	@Autowired
-	private SubjectOneDtoMapper subject1To8DtoMapper;
+	private SubjectOneMapper subject1To8DtoMapper;
 
 	@Autowired
 	private SubjectOneService subjectOneService;
 
-	private static Logger logger = LogManager.getLogger(SubjectOneDtoMapper.class);
+	private static Logger logger = LogManager.getLogger(SubjectOneMapper.class);
 
 	@PostMapping("/subjects")
 	public SubjectOne saveSubject(@RequestBody SubjectOneDto subject1To8Dto) {
 		try {
 			RestTemplate restTemplate = new RestTemplate();
 			ResponseEntity<Grade> response = restTemplate.exchange(
-					"http://localhost:8083/member/grade/" + subject1To8Dto.getGradeId(), HttpMethod.GET, null,
+					"http://localhost:8083/member/Api/grade/" + subject1To8Dto.getGradeId(), HttpMethod.GET, null,
 					new ParameterizedTypeReference<Grade>() {
 					});
-			System.out.println("gggggggggggggggggggg"+response.hasBody());
-			if(response.hasBody()) {
-				return	subject1To8DtoMapper.saveSubjects(subject1To8Dto);
+			System.out.println("gggggggggggggggggggg" + response.hasBody());
+			if (response.hasBody()) {
+				return subject1To8DtoMapper.saveSubjects(subject1To8Dto);
 			}
-		
+
 //			return subject1To8DtoMapper.saveSubjects(subject1To8Dto);
 		} catch (Exception e) {
 			logger.info("Subject8 Controller -> New Subject Created succesfully", e.getMessage());
@@ -62,7 +63,7 @@ public class SubjectOneController {
 
 		return null;
 	}
-	
+
 	@GetMapping("subjects/{subjectId}")
 	public SubjectOneList getSubjectObjectUsingSubjectId(@PathVariable("subjectId") Long subjectId) {
 		SubjectOneList subjectOneList = new SubjectOneList();
@@ -74,7 +75,7 @@ public class SubjectOneController {
 
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<Grade> response = restTemplate.exchange(
-				"http://localhost:8083/member/grade/" + subjectOneList.getGradeId(), HttpMethod.GET, null,
+				"http://localhost:8083/member/Api/grade/" + subjectOneList.getGradeId(), HttpMethod.GET, null,
 				new ParameterizedTypeReference<Grade>() {
 				});
 
@@ -100,26 +101,16 @@ public class SubjectOneController {
 			subjectsList.setSubjectName(subjectOne.getSubjectName());
 			subjectsList.setGradeId(subjectOne.getGradeId());
 			ResponseEntity<Grade> response = restTemplate.exchange(
-					"http://localhost:8083/member/grade/" + subjectOne.getGradeId(), HttpMethod.GET, null,
+					"http://localhost:8083/member/Api/grade/" + subjectOne.getGradeId(), HttpMethod.GET, null,
 					new ParameterizedTypeReference<Grade>() {
 					});
 
 			Grade grade = response.getBody();
 			subjectsList.setGradeObj(grade);
 			retrivedSubjects.add(subjectsList);
-			
-			System.out.println("gggggggggggggggggggg"+subjectsList.getSubjectName()+response.hasBody());
-			
-			
-//			SubjectOne sub=new SubjectOne();
-//			sub.setSubjectId(subjectsList.getSubjectId());
-//			sub.setSubjectName(subjectsList.getSubjectName());
-//			sub.setGradeId(subjectsList.getGradeId());
-//			
-//			subjectOneService.createSubject(sub);
-			
-			
-			
+
+			System.out.println("gggggggggggggggggggg" + subjectsList.getSubjectName() + response.hasBody());
+
 		}
 		return retrivedSubjects;
 	}
@@ -159,8 +150,4 @@ public class SubjectOneController {
 		return null;
 	}
 
-
-
 }
-
-
