@@ -24,7 +24,6 @@ public class StaffDtoMapper {
 	@Autowired
 	private StaffDtoConverter  staffDtoConverter;
 	
-	@SuppressWarnings("static-access")
 	public Staff saveStaff(StaffDto staffDto) {
 		logger.info("staff Details -> staff Saved");
 		return staffService.saveStaff(StaffDtoConverter.StaffDtoToStaff(staffDto));

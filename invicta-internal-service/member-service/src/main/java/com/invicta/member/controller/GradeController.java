@@ -20,7 +20,7 @@ import com.invicta.member.entity.Grade;
 import com.invicta.member.mapper.GradeMapper;
 
 @RestController
-@RequestMapping("api/")
+@RequestMapping("grade/")
 public class GradeController {
 	
 	@Autowired
@@ -29,7 +29,7 @@ public class GradeController {
 	
 	private static Logger logger = LogManager.getLogger(GradeMapper.class);
 	
-	@PostMapping("/gradesave")
+	@PostMapping("/grades")
 	public Grade savedGrade(@RequestBody GradeDto gradeDto) {
 		try {
 			return gradeMapper.saveGrade(gradeDto);
@@ -38,19 +38,19 @@ public class GradeController {
 		}
 		return null;
 	}
-	@GetMapping("/grade")
+	@GetMapping("/grades")
 	public List<GradeDto> getGrade(){
 		logger.info("Grade Controller ->  Grade listviewed ");
 		return gradeMapper.listGrade();
 		
 	}
 	
-	@GetMapping("grade/{gradeId}")
+	@GetMapping("grades/{gradeId}")
 	public GradeDto getGradeById(@PathVariable(name="gradeId") Long gradeId) {
 		return gradeMapper.getGradeById(gradeId);
 	}
 	
-	@DeleteMapping("/grade/{gradeId}")
+	@DeleteMapping("/grades/{gradeId}")
 	public ResponseEntity<String> deleteGrade(@PathVariable("gradeId") Long gradeId){
 		if(gradeMapper.getGradeById(gradeId)!=null) {
 			if(gradeMapper.deleteGrade(gradeId)==null) {

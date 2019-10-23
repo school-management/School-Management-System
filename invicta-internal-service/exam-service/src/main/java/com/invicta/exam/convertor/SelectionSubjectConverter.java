@@ -28,7 +28,6 @@ private static Logger logger = LogManager.getLogger(SelectionSubjectDto.class);
 
 	}
 	
-	@SuppressWarnings("unused")
 	public static SelectionSubjectDto SelectionSubjectEntityToSelectionSubjectDto(SelectionSubject selectionSubject) {
 		SelectionSubjectDto selectionSubjectDto = new SelectionSubjectDto();
 		if (selectionSubject != null) {

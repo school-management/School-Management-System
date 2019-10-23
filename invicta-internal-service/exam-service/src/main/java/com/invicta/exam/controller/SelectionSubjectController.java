@@ -21,7 +21,7 @@ import com.invicta.exam.entity.SelectionSubject;
 import com.invicta.exam.mapper.SelectionSubjectMapper;
 
 @RestController
-@RequestMapping("api/")
+@RequestMapping("selectionsubject/")
 public class SelectionSubjectController {
 
 	@Autowired

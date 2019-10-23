@@ -53,7 +53,6 @@ public class SubjectOneMapper {
 	@SuppressWarnings("static-access")
 	public SubjectOne UpdateSubjects(SubjectOneDto subject1To8Dto) {
 		logger.info("Subject is Updated", subject1To8Dto.getSubjectId());
-		@SuppressWarnings("unused")
 		SubjectOne subject1To8 = subject1To8Convertor.SubjectDtoToSubject(subject1To8Dto);
 		return subject1To8Service.updateSubject(subject1To8);
 

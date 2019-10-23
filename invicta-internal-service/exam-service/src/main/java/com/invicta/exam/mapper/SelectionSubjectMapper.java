@@ -54,7 +54,6 @@ public class SelectionSubjectMapper {
 	@SuppressWarnings("static-access")
 	public SelectionSubject UpdateSelectionSubjects(SelectionSubjectDto selectionSubjectDto) {
 		logger.info("Selection Subject is Updated", selectionSubjectDto.getSelectionSubjectId());
-		@SuppressWarnings("unused")
 		SelectionSubject selectionSubject = selectionSubjectConverter.SelectionSubjectDtoToSelectionSubjectEntity(selectionSubjectDto);
 		return selectionSubjectService.updateSubject(selectionSubject);
 
