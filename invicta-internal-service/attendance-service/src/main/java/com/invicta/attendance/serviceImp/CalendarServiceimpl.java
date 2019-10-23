@@ -1,5 +1,7 @@
 package com.invicta.attendance.serviceImp;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,17 @@ public class CalendarServiceimpl implements CalendarService {
 	@Override
 	public Calendar saveCalendar(Calendar calendar) {
 		return calendarRepository.save(calendar);
+	}
+
+	@Override
+	public List<Calendar> getallCalendardetails() {
+		return calendarRepository.findAll();
+	}
+
+	@Override
+	public Calendar updateCalendar(Calendar student) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
