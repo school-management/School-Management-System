@@ -50,5 +50,8 @@ public class MemberServiceApplication {
 				Collections.emptyList());
 	}
 
-	
+	@Bean
+	public RestTemplate getRestTemplate() {
+		return new RestTemplate();
+	}
 }

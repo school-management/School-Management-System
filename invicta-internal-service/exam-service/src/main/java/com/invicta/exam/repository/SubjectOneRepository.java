@@ -14,7 +14,10 @@ public interface SubjectOneRepository extends JpaRepository<SubjectOne, Long>{
 	List<SubjectOne> save(List<SubjectOne> subjectOne);
 	
 	String fetchAllsubjectId = "SELECT subject_id FROM subject1to8";
+<<<<<<< HEAD
 
+=======
+>>>>>>> aeb3b123ea345ab321014a602c063654eac9d1ff
 	@Query(value = fetchAllsubjectId, nativeQuery = true)
 	<T> List<T> getAllsubjectId();
 	
@@ -25,4 +28,9 @@ public interface SubjectOneRepository extends JpaRepository<SubjectOne, Long>{
 
 	
 
+	String fetchAllgradeId = "SELECT grade_id FROM grade";
+	@Query(value = fetchAllsubjectId, nativeQuery = true)
+	<T> List<T> getAllgradeId();
+
+	
 }

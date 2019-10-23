@@ -6,6 +6,7 @@ public class SubjectOneDto {
 
 	private Long subjectId;
 	private String subjectName;
+<<<<<<< HEAD
 	private Long sId;
 	private String stuId;
 	private String firstname;
@@ -430,6 +431,10 @@ public class SubjectOneDto {
 	public void setSililingsadmission(String sililingsadmission) {
 		this.sililingsadmission = sililingsadmission;
 	}
+=======
+	private Long gradeId;
+	//private Long sId;
+>>>>>>> aeb3b123ea345ab321014a602c063654eac9d1ff
 
 	public Long getSubjectId() {
 		return subjectId;
@@ -447,13 +452,23 @@ public class SubjectOneDto {
 		this.subjectName = subjectName;
 	}
 
-	public Long getsId() {
-		return sId;
+	public Long getGradeId() {
+		return gradeId;
 	}
 
-	public void setsId(Long sId) {
-		this.sId = sId;
+	public void setGradeId(Long gradeId) {
+		this.gradeId = gradeId;
 	}
+	
+	
+
+//	public Long getsId() {
+//		return sId;
+//	}
+//
+//	public void setsId(Long sId) {
+//		this.sId = sId;
+//	}
 
 	
 
