@@ -37,18 +37,21 @@ public class SubjectOneController {
 	private SubjectOneService subjectOneService;
 
 
+	
 	private static Logger logger = LogManager.getLogger(SubjectOneDtoMapper.class);
 
 	@PostMapping("/subjects")
-	public SubjectOne saveSubject(@RequestBody SubjectOne subject1To8) {
-		try {
-//			return subject1To8DtoMapper.saveSubjects(subject1To8Dto);
-			return subjectOneService.createSubject(subject1To8);
-		} catch (Exception e) {
-			logger.info("Subject8 Controller -> New Subject Created succesfully", e.getMessage());
+	public  ResponseEntity<String> saveSubject(@RequestBody SubjectOne subject1To8) {
+		RestTemplate restTemplate = new RestTemplate();
+		ResponseEntity<Student> response = restTemplate.exchange(
+				"http://localhost:8083/member/getonestudent/" + subject1To8.getSubjectId(),
+				HttpMethod.GET, null, new ParameterizedTypeReference<Student>() {
+				});
+		if(response != null) {
+			subjectOneService.createSubject(subject1To8);
 		}
-
 		return null;
+
 	}
 
 	@GetMapping("/subjects")
@@ -167,6 +170,8 @@ public class SubjectOneController {
 			List<SubjectOne> subClassList = subjectOneService.getAllsubjectId();
 			int length = subClassList.size();
 			System.out.println(length);
+			
+			
 			List<SubjectList> retrievedSubClass = new ArrayList<SubjectList>();
 			for (int i = 0; i < length; i++) {
 				SubjectList subClassificationList = new SubjectList();
@@ -188,12 +193,5 @@ public class SubjectOneController {
 			return retrievedSubClass;
 		}
 		
-		
-		
-//		@PostMapping("/SaveSubjectTable")
-//		public ResponseEntity<Void> saveSubjectTable(@RequestBody List<SubjectOne> subjectOne) {
-//			subjectOneService.createSubject(subject1To8)
-//			return new ResponseEntity<Void>(HttpStatus.OK);
-//		}
 
 }
