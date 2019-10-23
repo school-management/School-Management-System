@@ -107,6 +107,6 @@
 				</executions>
 			</plugin>
 		</plugins>
-		<finalName>attendance</finalName>
+		<finalName>attendanceservice</finalName>
 	</build>
 </project>
