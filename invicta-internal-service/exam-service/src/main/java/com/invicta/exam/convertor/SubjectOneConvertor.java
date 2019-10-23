@@ -36,7 +36,6 @@ public class SubjectOneConvertor {
 			subjectOneDto.setSubjectId(subjectOne.getSubjectId());
 			subjectOneDto.setSubjectName(subjectOne.getSubjectName());
 			subjectOneDto.setGradeId(subjectOne.getGradeId());
-			//subject1To8Dto.setsId(subject1To8.getsId());
 			return subjectOneDto;
 		}
 		return null;

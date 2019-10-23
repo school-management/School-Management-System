@@ -26,7 +26,7 @@ import com.invicta.exam.mapper.SubjectOneMapper;
 import com.invicta.exam.service.SubjectOneService;
 
 @RestController
-@RequestMapping("Api/")
+@RequestMapping("api/")
 public class SubjectOneController {
 
 	@Autowired
@@ -42,7 +42,7 @@ public class SubjectOneController {
 		try {
 			RestTemplate restTemplate = new RestTemplate();
 			ResponseEntity<Grade> response = restTemplate.exchange(
-					"http://localhost:8083/member/Api/grade/" + subject1To8Dto.getGradeId(), HttpMethod.GET, null,
+					"http://localhost:8083/member/api/grade/" + subject1To8Dto.getGradeId(), HttpMethod.GET, null,
 					new ParameterizedTypeReference<Grade>() {
 					});
 			System.out.println("gggggggggggggggggggg" + response.hasBody());
@@ -69,7 +69,7 @@ public class SubjectOneController {
 
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<Grade> response = restTemplate.exchange(
-				"http://localhost:8083/member/Api/grade/" + subjectOneList.getGradeId(), HttpMethod.GET, null,
+				"http://localhost:8083/member/api/grade/" + subjectOneList.getGradeId(), HttpMethod.GET, null,
 				new ParameterizedTypeReference<Grade>() {
 				});
 
@@ -95,7 +95,7 @@ public class SubjectOneController {
 			subjectsList.setSubjectName(subjectOne.getSubjectName());
 			subjectsList.setGradeId(subjectOne.getGradeId());
 			ResponseEntity<Grade> response = restTemplate.exchange(
-					"http://localhost:8083/member/Api/grade/" + subjectOne.getGradeId(), HttpMethod.GET, null,
+					"http://localhost:8083/member/api/grade/" + subjectOne.getGradeId(), HttpMethod.GET, null,
 					new ParameterizedTypeReference<Grade>() {
 					});
 

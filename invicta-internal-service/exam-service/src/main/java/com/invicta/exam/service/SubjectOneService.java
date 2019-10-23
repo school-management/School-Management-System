@@ -23,10 +23,4 @@ public interface SubjectOneService {
 
 	public List<Grade> getAllGradeId();
 
-//	public SubjectOne getBySubjectId(Long subjectId);
-	
-	
-	
 }
-
-
