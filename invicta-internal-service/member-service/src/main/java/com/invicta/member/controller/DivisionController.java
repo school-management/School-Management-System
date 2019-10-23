@@ -20,7 +20,7 @@ import com.invicta.member.entity.Division;
 import com.invicta.member.mapper.DivisionMapper;
 
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/division")
 public class DivisionController {
 
 	@Autowired

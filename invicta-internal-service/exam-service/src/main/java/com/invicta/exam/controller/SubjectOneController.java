@@ -26,7 +26,7 @@ import com.invicta.exam.mapper.SubjectOneMapper;
 import com.invicta.exam.service.SubjectOneService;
 
 @RestController
-@RequestMapping("api/")
+@RequestMapping("/exam")
 public class SubjectOneController {
 
 	@Autowired

@@ -19,7 +19,7 @@ import com.invicta.attendance.service.CalendarService;
 import com.invicta.attendance.serviceImp.CalendarServiceimpl;
 
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/calendar")
 public class CalendarController {
 
 	@Autowired
