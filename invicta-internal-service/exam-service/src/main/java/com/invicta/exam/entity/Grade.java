@@ -3,6 +3,7 @@ package com.invicta.exam.entity;
 import java.io.Serializable;
 
 
+@SuppressWarnings("serial")
 public class Grade implements Serializable {
 
 	private Long gradeId;

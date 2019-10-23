@@ -1,7 +1,5 @@
 package com.invicta.member.controller;
 
-import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -22,7 +20,7 @@ import com.invicta.member.entity.Grade;
 import com.invicta.member.mapper.GradeMapper;
 
 @RestController
-//@RequestMapping("/Api/")
+@RequestMapping("/api/")
 public class GradeController {
 	
 	@Autowired

@@ -1,6 +1,5 @@
 package com.invicta.exam.serviceImp;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -89,33 +88,20 @@ public class SubjectOneServiceImpl implements SubjectOneService {
 	public List<Grade> getAllGradeId() {
 		return subjectOneRepository.getAllgradeId();
 	}
-	
 
-
-	@Override
-	public List<SubjectOne> getAllstudentId() {
-
-		return subject1To8Repository.getAllstudentId();
-	}
-
-	@Override
-	public List<SubjectOne> getAllsubjectId() {
-
-		return subject1To8Repository.getAllsubjectId();
-	}
-
+//	@Override
+//	public List<SubjectOne> getAllstudentId() {
+//
+//		return subject1To8Repository.getAllstudentId();
+//	}
+//
+//	@Override
+//	public List<SubjectOne> getAllsubjectId() {
+//
+//		return subject1To8Repository.getAllsubjectId();
+//	}
 
 }
-
-
-	
-
-	
-
-
-	
-
-
 
 //	@Override
 //	public SubjectOne getBySubjectId() {

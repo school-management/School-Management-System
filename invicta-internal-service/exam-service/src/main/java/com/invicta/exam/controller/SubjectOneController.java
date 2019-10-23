@@ -1,9 +1,7 @@
 package com.invicta.exam.controller;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +14,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-
 import com.invicta.exam.dto.SubjectOneDto;
 //import com.invicta.exam.entity.Student;
 import com.invicta.exam.entity.SubjectOneList;
@@ -31,7 +27,7 @@ import com.invicta.exam.mapper.SubjectOneDtoMapper;
 import com.invicta.exam.service.SubjectOneService;
 
 @RestController
-//@RequestMapping("/Api/")
+@RequestMapping("/api/")
 public class SubjectOneController {
 
 	@Autowired
@@ -40,8 +36,6 @@ public class SubjectOneController {
 	@Autowired
 	private SubjectOneService subjectOneService;
 
-
-	
 	private static Logger logger = LogManager.getLogger(SubjectOneDtoMapper.class);
 
 	@PostMapping("/subjects")
@@ -52,11 +46,11 @@ public class SubjectOneController {
 					"http://localhost:8083/member/grade/" + subject1To8Dto.getGradeId(), HttpMethod.GET, null,
 					new ParameterizedTypeReference<Grade>() {
 					});
-			System.out.println("gggggggggggggggggggg"+response.hasBody());
-			if(response.hasBody()) {
-				return	subject1To8DtoMapper.saveSubjects(subject1To8Dto);
+			System.out.println("gggggggggggggggggggg" + response.hasBody());
+			if (response.hasBody()) {
+				return subject1To8DtoMapper.saveSubjects(subject1To8Dto);
 			}
-		
+
 //			return subject1To8DtoMapper.saveSubjects(subject1To8Dto);
 		} catch (Exception e) {
 			logger.info("Subject8 Controller -> New Subject Created succesfully", e.getMessage());
@@ -64,7 +58,7 @@ public class SubjectOneController {
 		return null;
 
 	}
-	
+
 	@GetMapping("subjects/{subjectId}")
 	public SubjectOneList getSubjectObjectUsingSubjectId(@PathVariable("subjectId") Long subjectId) {
 		SubjectOneList subjectOneList = new SubjectOneList();
@@ -109,19 +103,16 @@ public class SubjectOneController {
 			Grade grade = response.getBody();
 			subjectsList.setGradeObj(grade);
 			retrivedSubjects.add(subjectsList);
-			
-			System.out.println("gggggggggggggggggggg"+subjectsList.getSubjectName()+response.hasBody());
-			
-			
+
+			System.out.println("gggggggggggggggggggg" + subjectsList.getSubjectName() + response.hasBody());
+
 //			SubjectOne sub=new SubjectOne();
 //			sub.setSubjectId(subjectsList.getSubjectId());
 //			sub.setSubjectName(subjectsList.getSubjectName());
 //			sub.setGradeId(subjectsList.getGradeId());
 //			
 //			subjectOneService.createSubject(sub);
-			
-			
-			
+
 		}
 		return retrivedSubjects;
 	}
@@ -161,8 +152,4 @@ public class SubjectOneController {
 		return null;
 	}
 
-
-
 }
-
-

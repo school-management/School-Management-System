@@ -1,6 +1,6 @@
 package com.invicta.attendance.dto;
 
-public class CalenderDto {
+public class CalendarDto {
 	
 	private Long calenderId;
 	private String holiday;

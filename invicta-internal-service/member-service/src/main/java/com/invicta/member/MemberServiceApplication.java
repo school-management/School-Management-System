@@ -5,11 +5,8 @@ import java.util.Collections;
 //import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
-
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -20,7 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
-@EnableEurekaClient
+//@EnableEurekaClient
 public class MemberServiceApplication {
 
 	public static void main(String[] args) {
@@ -37,7 +34,7 @@ public class MemberServiceApplication {
 	public Docket swaggerConfiguration() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
 				.apis(RequestHandlerSelectors.basePackage("com.invicta.member.controller"))
-				.paths(PathSelectors.ant("/Api/**")).build()
+				.paths(PathSelectors.ant("/api/**")).build()
 				
 				.apiInfo(apiInfo());
 

@@ -25,7 +25,7 @@ public class AttendanceServiceApplication {
 	public Docket swaggerConfiguration() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
 				.apis(RequestHandlerSelectors.basePackage("com.invicta.attendance.controller"))
-				.paths(PathSelectors.ant("/Api/**")).build()
+				.paths(PathSelectors.ant("/api/**")).build()
 
 				.apiInfo(apiInfo());
 
