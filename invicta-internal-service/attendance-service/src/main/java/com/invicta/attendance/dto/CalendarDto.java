@@ -1,23 +1,38 @@
 package com.invicta.attendance.dto;
 
+import java.util.Date;
+
 public class CalendarDto {
 	
-	private Long calenderId;
-	private String holiday;
+	private Long calendarId;
+	private String Typeofday;
+	private Date todaydate;
+	private String resoan;
 	
-	public Long getCalenderId() {
-		return calenderId;
+	public Long getCalendarId() {
+		return calendarId;
 	}
-	public void setCalenderId(Long calenderId) {
-		this.calenderId = calenderId;
+	public void setCalendarId(Long calendarId) {
+		this.calendarId = calendarId;
 	}
-	public String getHoliday() {
-		return holiday;
+	public String getTypeofday() {
+		return Typeofday;
 	}
-	public void setHoliday(String holiday) {
-		this.holiday = holiday;
+	public void setTypeofday(String typeofday) {
+		Typeofday = typeofday;
+	}
+	public Date getTodaydate() {
+		return todaydate;
+	}
+	public void setTodaydate(Date todaydate) {
+		this.todaydate = todaydate;
+	}
+	public String getResoan() {
+		return resoan;
+	}
+	public void setResoan(String resoan) {
+		this.resoan = resoan;
 	}
 	
 	
-
 }

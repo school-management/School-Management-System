@@ -1,7 +1,7 @@
 package com.invicta.attendance.entity;
 
 import java.io.Serializable;
-
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,22 +16,38 @@ public class Calendar implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long calendarId;
-	private String holiday;
-
+	private String Typeofday;
+	private Date todaydate;
+	private String resoan;
+	
 	public Long getCalendarId() {
 		return calendarId;
 	}
-
 	public void setCalendarId(Long calendarId) {
 		this.calendarId = calendarId;
 	}
-
-	public String getHoliday() {
-		return holiday;
+	public String getTypeofday() {
+		return Typeofday;
 	}
-
-	public void setHoliday(String holiday) {
-		this.holiday = holiday;
+	public void setTypeofday(String typeofday) {
+		Typeofday = typeofday;
 	}
+	public Date getTodaydate() {
+		return todaydate;
+	}
+	public void setTodaydate(Date todaydate) {
+		this.todaydate = todaydate;
+	}
+	public String getResoan() {
+		return resoan;
+	}
+	public void setResoan(String resoan) {
+		this.resoan = resoan;
+	}
+	
+	
+
+
+	
 
 }
