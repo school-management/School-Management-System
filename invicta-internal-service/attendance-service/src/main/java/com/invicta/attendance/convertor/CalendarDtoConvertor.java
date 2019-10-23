@@ -16,8 +16,10 @@ public class CalendarDtoConvertor {
 		Calendar calendar = new Calendar();
 		if (calendarDto != null) {
 			logger.info("Student Converter---> DTO To Entity");
-			calendar.setCalendarId(calendarDto.getCalenderId());
-			calendar.setHoliday(calendarDto.getHoliday());
+			calendar.setCalendarId(calendarDto.getCalendarId());
+			calendar.setTodaydate(calendarDto.getTodaydate());
+			calendar.setResoan(calendarDto.getResoan());
+			calendar.setTypeofday(calendarDto.getTypeofday());
 			return calendar;
 		}
 		return null;
@@ -32,8 +34,10 @@ public class CalendarDtoConvertor {
 			for (Calendar calendar : calendarlist) {
 				logger.info("Student Converter---> Student List Converte");
 				CalendarDto calendarDto = new CalendarDto();
-				calendarDto.setCalenderId(calendar.getCalendarId());
-				calendarDto.setHoliday(calendar.getHoliday());
+				calendarDto.setCalendarId(calendar.getCalendarId());
+				calendarDto.setResoan(calendar.getResoan());
+				calendarDto.setTodaydate(calendar.getTodaydate());
+				calendarDto.setTypeofday(calendar.getTypeofday());
 				listCalendarDto.add(calendarDto);
 
 			}
