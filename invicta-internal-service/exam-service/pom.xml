@@ -104,7 +104,7 @@
 				</executions>
 			</plugin>
 		</plugins>
-		<finalName>exam</finalName>
+		<finalName>examservice</finalName>
 	</build>
 </project>
   
