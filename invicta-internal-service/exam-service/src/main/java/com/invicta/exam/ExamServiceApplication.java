@@ -23,7 +23,7 @@ public class ExamServiceApplication {
 		return new Docket(DocumentationType.SWAGGER_2).select()
 				.apis(RequestHandlerSelectors
 				.basePackage("com.invicta.exam.controller"))
-				.paths(PathSelectors.ant("/api/**"))
+				.paths(PathSelectors.regex("/.*"))
 				.build();
 
 	}

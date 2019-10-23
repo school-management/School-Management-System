@@ -21,7 +21,7 @@ import com.invicta.member.mapper.ParentDtoMapper;
 import com.invicta.member.repository.ParentRepository;
 
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/parent")
 public class ParentController {
 
 	@Autowired

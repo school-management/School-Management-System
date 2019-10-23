@@ -22,7 +22,7 @@ import com.invicta.member.entity.Staff;
 import com.invicta.member.mapper.StaffDtoMapper;
 
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/staff")
 public class StaffController {
 
 	@Autowired
