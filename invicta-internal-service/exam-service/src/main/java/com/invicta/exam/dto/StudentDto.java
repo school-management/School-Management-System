@@ -1,8 +1,9 @@
-package com.invicta.exam.entity;
+package com.invicta.exam.dto;
 
 import java.sql.Date;
 
-public class Student {
+public class StudentDto {
+	
 	private Long sId;
 	private String stuId;
 	private String firstname;
@@ -51,7 +52,6 @@ public class Student {
 	private String sibilingsfullname;
 	private Integer sibilingsGrade;
 	private String sililingsadmission;
-	
 	public Long getsId() {
 		return sId;
 	}
@@ -340,7 +340,6 @@ public class Student {
 	public void setSililingsadmission(String sililingsadmission) {
 		this.sililingsadmission = sililingsadmission;
 	}
-	
 	
 	
 

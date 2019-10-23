@@ -1,10 +1,20 @@
-package com.invicta.exam.dto;
+package com.invicta.exam.entity;
 
-public class SubjectListDto {
+
+public class SubjectList {
+	
 	private Long subjectId;
 	private String subjectName;
 	private Long sId;
 	
+	private Student studentobj;
+	
+	public Student getStudentobj() {
+		return studentobj;
+	}
+	public void setStudentobj(Student studentobj) {
+		this.studentobj = studentobj;
+	}
 	public Long getSubjectId() {
 		return subjectId;
 	}
@@ -23,6 +33,7 @@ public class SubjectListDto {
 	public void setsId(Long sId) {
 		this.sId = sId;
 	}
-
 	
+	
+
 }

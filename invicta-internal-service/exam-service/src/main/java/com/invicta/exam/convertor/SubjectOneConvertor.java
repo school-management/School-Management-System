@@ -5,13 +5,10 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.invicta.exam.dto.SubjectOneDto;
-import com.invicta.exam.entity.Grade;
 import com.invicta.exam.entity.SubjectOne;
-import com.invicta.exam.entity.SubjectOneList;
 
 @Service
 public class SubjectOneConvertor {

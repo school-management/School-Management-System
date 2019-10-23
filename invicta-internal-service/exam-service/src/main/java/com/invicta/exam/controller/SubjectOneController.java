@@ -1,9 +1,7 @@
 package com.invicta.exam.controller;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +17,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-
 import com.invicta.exam.dto.SubjectOneDto;
-//import com.invicta.exam.entity.Student;
 import com.invicta.exam.entity.SubjectOneList;
 import com.invicta.exam.entity.Grade;
 import com.invicta.exam.entity.SubjectOne;
@@ -60,8 +54,8 @@ public class SubjectOneController {
 		} catch (Exception e) {
 			logger.info("Subject8 Controller -> New Subject Created succesfully", e.getMessage());
 		}
-
 		return null;
+
 	}
 
 	@GetMapping("subjects/{subjectId}")

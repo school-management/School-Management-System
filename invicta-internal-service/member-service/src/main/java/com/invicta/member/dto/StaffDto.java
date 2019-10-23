@@ -2,9 +2,6 @@ package com.invicta.member.dto;
 
 import java.sql.Date;
 
-import javax.persistence.Column;
-import javax.validation.constraints.Email;
-
 public class StaffDto {
 
 	private Long staffId;

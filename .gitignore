@@ -16,3 +16,5 @@ bin/
 HELP.md
 mvnw.cmd
 .sonarlint
+member.log
+attendance.log
