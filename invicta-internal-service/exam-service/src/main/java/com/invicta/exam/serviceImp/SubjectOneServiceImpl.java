@@ -8,12 +8,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-<<<<<<< HEAD
-import com.invicta.exam.entity.Student;
-import com.invicta.exam.entity.SubjectList;
-=======
 import com.invicta.exam.entity.Grade;
->>>>>>> aeb3b123ea345ab321014a602c063654eac9d1ff
 import com.invicta.exam.entity.SubjectOne;
 import com.invicta.exam.repository.SubjectOneRepository;
 import com.invicta.exam.service.SubjectOneService;
@@ -59,11 +54,7 @@ public class SubjectOneServiceImpl implements SubjectOneService {
 	@Override
 	public SubjectOne deleteBySubjectId(Long subjectId) {
 		try {
-<<<<<<< HEAD
-			subject1To8Repository.deleteById(subjectId);
-=======
 			subjectOneRepository.deleteById(subjectId);
->>>>>>> aeb3b123ea345ab321014a602c063654eac9d1ff
 		} catch (Exception e) {
 			logger.info("Subject1To8 Service Implementation -->", e.getMessage());
 		}
@@ -83,30 +74,6 @@ public class SubjectOneServiceImpl implements SubjectOneService {
 
 		return null;
 	}
-<<<<<<< HEAD
-
-	public void saveResourceTable(List<SubjectOne> resourceAllocation) {
-
-		try {
-			int size = resourceAllocation.size();
-			int counter = 0;
-			List<SubjectOne> temp = new ArrayList<>();
-
-			for (SubjectOne emp : resourceAllocation) {
-				temp.add(emp);
-
-				if ((counter + 1) % 500 == 0 || (counter + 1) == size) {
-//					resourceAllocationRepository.saveAll(resourceAllocation);
-					subject1To8Repository.saveAll(resourceAllocation);
-					temp.clear();
-				}
-				counter++;
-			}
-		} catch (Exception ex) {
-			logger.error("Resource Allocation Imp Error :-> " + ex.getMessage());
-		}
-=======
->>>>>>> aeb3b123ea345ab321014a602c063654eac9d1ff
 
 	@Override
 	public List<SubjectOne> getsubjectById() {

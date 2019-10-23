@@ -18,32 +18,9 @@ public class SubjectOne {
 
 	@Column(name = "subjectName", nullable = false)
 	private String subjectName;
-<<<<<<< HEAD
-	
-	@Column(name = "sId", nullable = false)
-	private Long sId;
-
-
-	public SubjectOne(Long subjectId, String subjectName, Long sId) {
-		super();
-		this.subjectId = subjectId;
-		this.subjectName = subjectName;
-		this.sId = sId;
-	}
-
-	public SubjectOne(Long sId) {
-		super();
-		this.sId = sId;
-	}
-
-	public SubjectOne() {
-		super();
-	}
-=======
 
 	@Column(name = "gradeId", nullable = false)
 	private Long gradeId;
->>>>>>> aeb3b123ea345ab321014a602c063654eac9d1ff
 
 	public Long getSubjectId() {
 		return subjectId;

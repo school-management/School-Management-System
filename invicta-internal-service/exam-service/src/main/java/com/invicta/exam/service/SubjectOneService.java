@@ -2,12 +2,7 @@ package com.invicta.exam.service;
 
 import java.util.List;
 
-<<<<<<< HEAD
-import com.invicta.exam.entity.Student;
-import com.invicta.exam.entity.SubjectList;
-=======
 import com.invicta.exam.entity.Grade;
->>>>>>> aeb3b123ea345ab321014a602c063654eac9d1ff
 import com.invicta.exam.entity.SubjectOne;
 
 public interface SubjectOneService {
@@ -23,14 +18,6 @@ public interface SubjectOneService {
 	public SubjectOne updateSubject(SubjectOne subject1To8);
 
 	public List<SubjectOne> getsubjectById();
-<<<<<<< HEAD
-	
-	public List<SubjectOne> getAllstudentId();
-	
-	public List<SubjectOne> getAllsubjectId();
-	
-;
-=======
 
 	public List<SubjectOne> getallgradebyId();
 
@@ -40,7 +27,6 @@ public interface SubjectOneService {
 	
 	
 	
->>>>>>> aeb3b123ea345ab321014a602c063654eac9d1ff
 }
 
 
