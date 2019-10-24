@@ -15,34 +15,12 @@ public class SubjectOne {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "subjectId", nullable = false)
 	private Long subjectId;
-	
+
 	@Column(name = "subjectName", nullable = false)
 	private String subjectName;
-	
-	@Column(name = "sId", nullable = false)
-	private Long sId;
 
-	
-	
-	public SubjectOne(Long subjectId, String subjectName, Long sId) {
-		super();
-		this.subjectId = subjectId;
-		this.subjectName = subjectName;
-		this.sId = sId;
-	}
-	
-	
-
-	public SubjectOne(Long sId) {
-		super();
-		this.sId = sId;
-	}
-
-
-
-	public SubjectOne() {
-		super();
-	}
+	@Column(name = "gradeId", nullable = false)
+	private Long gradeId;
 
 	public Long getSubjectId() {
 		return subjectId;
@@ -60,13 +38,12 @@ public class SubjectOne {
 		this.subjectName = subjectName;
 	}
 
-	public Long getsId() {
-		return sId;
+	public Long getGradeId() {
+		return gradeId;
 	}
 
-	public void setsId(Long sId) {
-		this.sId = sId;
+	public void setGradeId(Long gradeId) {
+		this.gradeId = gradeId;
 	}
-	
 
 }

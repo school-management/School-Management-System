@@ -2,6 +2,7 @@ package com.invicta.exam.service;
 
 import java.util.List;
 
+import com.invicta.exam.entity.Grade;
 import com.invicta.exam.entity.SubjectOne;
 
 public interface SubjectOneService {
@@ -15,6 +16,11 @@ public interface SubjectOneService {
 	public SubjectOne deleteBySubjectId(Long subjectId);
 
 	public SubjectOne updateSubject(SubjectOne subject1To8);
-	
+
 	public List<SubjectOne> getsubjectById();
+
+	public List<SubjectOne> getallgradebyId();
+
+	public List<Grade> getAllGradeId();
+
 }

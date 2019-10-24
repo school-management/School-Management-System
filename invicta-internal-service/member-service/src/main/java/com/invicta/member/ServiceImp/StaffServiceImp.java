@@ -12,6 +12,7 @@ import com.invicta.member.repository.StaffRepository;
 @Service
 public class StaffServiceImp implements StaffService {
 
+	@SuppressWarnings("unused")
 	private static final Object Staff = null;
 	@Autowired
 	private StaffRepository staffRepository;

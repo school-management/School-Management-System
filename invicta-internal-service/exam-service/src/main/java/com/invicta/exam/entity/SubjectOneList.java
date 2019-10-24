@@ -1,39 +1,43 @@
 package com.invicta.exam.entity;
 
+public class SubjectOneList {
 
-public class SubjectList {
-	
 	private Long subjectId;
 	private String subjectName;
-	private Long sId;
-	
-	private Student studentobj;
-	
-	public Student getStudentobj() {
-		return studentobj;
+	private Long gradeId;
+
+	private Grade gradeObj;
+
+	public Grade getGradeObj() {
+		return gradeObj;
 	}
-	public void setStudentobj(Student studentobj) {
-		this.studentobj = studentobj;
+
+	public void setGradeObj(Grade gradeObj) {
+		this.gradeObj = gradeObj;
 	}
+
+	public Long getGradeId() {
+		return gradeId;
+	}
+
+	public void setGradeId(Long gradeId) {
+		this.gradeId = gradeId;
+	}
+
 	public Long getSubjectId() {
 		return subjectId;
 	}
+
 	public void setSubjectId(Long subjectId) {
 		this.subjectId = subjectId;
 	}
+
 	public String getSubjectName() {
 		return subjectName;
 	}
+
 	public void setSubjectName(String subjectName) {
 		this.subjectName = subjectName;
 	}
-	public Long getsId() {
-		return sId;
-	}
-	public void setsId(Long sId) {
-		this.sId = sId;
-	}
-	
-	
 
 }

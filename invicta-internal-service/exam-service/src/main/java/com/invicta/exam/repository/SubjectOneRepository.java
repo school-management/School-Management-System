@@ -13,9 +13,20 @@ public interface SubjectOneRepository extends JpaRepository<SubjectOne, Long>{
 	
 	List<SubjectOne> save(List<SubjectOne> subjectOne);
 	
-	String fetchAllsubjectId = "SELECT s_id FROM subject1to8";
-
+	String fetchAllsubjectId = "SELECT subject_id FROM subject1to8";
 	@Query(value = fetchAllsubjectId, nativeQuery = true)
 	<T> List<T> getAllsubjectId();
+	
+	
+	String fetchAllstudentId = "SELECT s_id  FROM subject1to8";
+	@Query(value = fetchAllstudentId, nativeQuery=true)
+	<T> List<T> getAllstudentId();
 
+	
+
+	String fetchAllgradeId = "SELECT grade_id FROM grade";
+	@Query(value = fetchAllsubjectId, nativeQuery = true)
+	<T> List<T> getAllgradeId();
+
+	
 }

@@ -56,7 +56,7 @@ public class StudentController {
 
 	}
 
-	@GetMapping("/{sId}")
+	@GetMapping("getonestudent/{sId}")
 	public ResponseEntity<StudentDto> getStudentbyId(@PathVariable Long sId) {
 		try {
 			return new ResponseEntity<>(studentDtoMapper.getBystudentid(sId), HttpStatus.OK);

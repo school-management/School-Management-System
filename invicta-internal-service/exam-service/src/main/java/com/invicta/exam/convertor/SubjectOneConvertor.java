@@ -14,44 +14,44 @@ import com.invicta.exam.entity.SubjectOne;
 public class SubjectOneConvertor {
 
 	private static Logger logger = LogManager.getLogger(SubjectOneDto.class);
-
-	public static SubjectOne SubjectDtoToSubject(SubjectOneDto subject1To8Dto) {
-		SubjectOne subject1To8 = new SubjectOne();
-		if (subject1To8Dto != null) {
+	
+	public static SubjectOne SubjectDtoToSubject(SubjectOneDto subjectOneDto) {
+		SubjectOne subjectOne = new SubjectOne();
+		if (subjectOneDto != null) {
 			logger.info("Subject 1To8 Converter ----> DTO To Entity");
-			subject1To8.setSubjectId(subject1To8Dto.getSubjectId());
-			subject1To8.setSubjectName(subject1To8Dto.getSubjectName());
-			subject1To8.setsId(subject1To8Dto.getsId());
-			return subject1To8;
+			subjectOne.setSubjectId(subjectOneDto.getSubjectId());
+			subjectOne.setSubjectName(subjectOneDto.getSubjectName());
+			subjectOne.setGradeId(subjectOneDto.getGradeId());
+			return subjectOne;
 		}
 		return null;
 
 	}
 	
 	@SuppressWarnings("unused")
-	public static SubjectOneDto SubjectToSubjectDto(SubjectOne subject1To8) {
-		SubjectOneDto subject1To8Dto = new SubjectOneDto();
-		if (subject1To8Dto != null) {
+	public static SubjectOneDto SubjectToSubjectDto(SubjectOne subjectOne) {
+		SubjectOneDto subjectOneDto = new SubjectOneDto();
+		if (subjectOneDto != null) {
 			logger.info("Subject 1To8 Converter ----> Entity To DTO ");
-			subject1To8Dto.setSubjectId(subject1To8.getSubjectId());
-			subject1To8Dto.setSubjectName(subject1To8.getSubjectName());
-			subject1To8Dto.setsId(subject1To8.getsId());
-			return subject1To8Dto;
+			subjectOneDto.setSubjectId(subjectOne.getSubjectId());
+			subjectOneDto.setSubjectName(subjectOne.getSubjectName());
+			subjectOneDto.setGradeId(subjectOne.getGradeId());
+			return subjectOneDto;
 		}
 		return null;
 
 	}
 	
-	public static List<SubjectOneDto> SubjectToSubjectDto(List<SubjectOne> subjectList){
-		if(subjectList !=null) {
+	public static List<SubjectOneDto> SubjectToSubjectDto(List<SubjectOne> subjectOneList){
+		if(subjectOneList !=null) {
 			logger.info("Subject To DTO Converter for List");
 			List<SubjectOneDto> listSubjectDto = new ArrayList<>();
-			for(SubjectOne subject1To8 : subjectList) {
-				SubjectOneDto subject1To8Dto = new SubjectOneDto();
-				subject1To8Dto.setSubjectId(subject1To8.getSubjectId());
-				subject1To8Dto.setSubjectName(subject1To8.getSubjectName());
-				subject1To8Dto.setsId(subject1To8Dto.getsId());
-				listSubjectDto.add(subject1To8Dto);
+			for(SubjectOne subjectOne : subjectOneList) {
+				SubjectOneDto subjectOneDto = new SubjectOneDto();
+				subjectOneDto.setSubjectId(subjectOne.getSubjectId());
+				subjectOneDto.setSubjectName(subjectOne.getSubjectName());
+				subjectOneDto.setGradeId(subjectOne.getGradeId());
+				listSubjectDto.add(subjectOneDto);
 			}
 			return listSubjectDto;
 		}

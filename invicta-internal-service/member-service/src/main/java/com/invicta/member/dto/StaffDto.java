@@ -2,9 +2,6 @@ package com.invicta.member.dto;
 
 import java.sql.Date;
 
-
-
-
 public class StaffDto {
 
 	private Long staffId;

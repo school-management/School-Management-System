@@ -25,6 +25,7 @@ public class GradeController {
 	
 	@Autowired
 	private GradeMapper gradeMapper;
+
 	
 	private static Logger logger = LogManager.getLogger(GradeMapper.class);
 	
@@ -44,12 +45,12 @@ public class GradeController {
 		
 	}
 	
-	@GetMapping("/grade/{gradeId}")
+	@GetMapping("grades/{gradeId}")
 	public GradeDto getGradeById(@PathVariable(name="gradeId") Long gradeId) {
 		return gradeMapper.getGradeById(gradeId);
 	}
 	
-	@DeleteMapping("/grade/{gradeId}")
+	@DeleteMapping("/grades/{gradeId}")
 	public ResponseEntity<String> deleteGrade(@PathVariable("gradeId") Long gradeId){
 		if(gradeMapper.getGradeById(gradeId)!=null) {
 			if(gradeMapper.deleteGrade(gradeId)==null) {
@@ -61,5 +62,6 @@ public class GradeController {
 		return new ResponseEntity<>("faild",HttpStatus.BAD_REQUEST);
 		
 	}
+	
 
 }
