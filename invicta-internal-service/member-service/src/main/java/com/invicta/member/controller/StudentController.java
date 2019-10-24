@@ -45,7 +45,7 @@ public class StudentController {
 		return null;
 	}
 
-	@GetMapping("/GetAllStudent")
+	@GetMapping("/liststudent")
 	public ResponseEntity<List<StudentDto>> getAllStudent() {
 		try {
 			return new ResponseEntity<>(studentDtoMapper.getAllStudent(), HttpStatus.OK);

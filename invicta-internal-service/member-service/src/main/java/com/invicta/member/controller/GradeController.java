@@ -20,7 +20,7 @@ import com.invicta.member.entity.Grade;
 import com.invicta.member.mapper.GradeMapper;
 
 @RestController
-@RequestMapping("grade/")
+@RequestMapping("/grade")
 public class GradeController {
 	
 	@Autowired
@@ -29,7 +29,7 @@ public class GradeController {
 	
 	private static Logger logger = LogManager.getLogger(GradeMapper.class);
 	
-	@PostMapping("/grades")
+	@PostMapping("/savegrade")
 	public Grade savedGrade(@RequestBody GradeDto gradeDto) {
 		try {
 			return gradeMapper.saveGrade(gradeDto);
@@ -38,7 +38,7 @@ public class GradeController {
 		}
 		return null;
 	}
-	@GetMapping("/grades")
+	@GetMapping("/listgrade")
 	public List<GradeDto> getGrade(){
 		logger.info("Grade Controller ->  Grade listviewed ");
 		return gradeMapper.listGrade();
