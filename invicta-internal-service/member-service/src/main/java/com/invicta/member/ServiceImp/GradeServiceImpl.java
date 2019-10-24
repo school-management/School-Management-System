@@ -39,13 +39,25 @@ public class GradeServiceImpl implements GradeService{
 	@Override
 	public Grade getById(Long gradeId) {
 		logger.info("grade service Implementation -->");
-		return gradeRepository.findByGradeId(gradeId);
+		return gradeRepository.findGradeByGradeId(gradeId);
 	}
 
 	@Override
 	public Grade deleteById(Long gradeId) {
 		logger.info("grade service Implementation -->");
 		gradeRepository.deleteById(gradeId);
+		return null;
+	}
+
+	@Override
+	public Grade updateGrade(Grade grade) {
+		Long gradeId=grade.getGradeId();
+		
+		boolean isExist=gradeRepository.findGradeByGradeId(gradeId) != null;
+		if(isExist){
+			return gradeRepository.save(grade);
+		}
+		
 		return null;
 	}
 

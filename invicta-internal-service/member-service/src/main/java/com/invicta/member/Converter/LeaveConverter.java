@@ -20,7 +20,7 @@ public class LeaveConverter {
 	public static Leave LeaveDtoToLeave(LeaveDto leaveDto) {
 		Leave leave=new Leave();
 		if(leaveDto != null) {
-			leave.setFullName(leaveDto.getFullName());
+			logger.info("leave converter---> DTO To Entity");
 			leave.setLeaveDate(leaveDto.getLeaveDate());
 			
 			
@@ -49,10 +49,12 @@ public class LeaveConverter {
 	
 	public static List<LeaveDto> LeaveToLeaveDtoList(List<Leave> leaveList){
 		if(leaveList != null) {
+			logger.info("leave converter---> Entity To Dto list");
 			List<LeaveDto> listLeaveDto=new ArrayList<>();
 			for(Leave leave:leaveList) {
+				logger.info("leave Converter--> leave List converte");
 				LeaveDto leaveDto=new LeaveDto();
-				leaveDto.setFullName(leave.getFullName());
+				leaveDto.setFullName(leave.getStaff().getFirstname()+""+leave.getStaff().getLastname());
 				leaveDto.setLeaveDate(leave.getLeaveDate());
 				leaveDto.setLeaveDetailsId(leave.getLeaveDetailsId());
 				leaveDto.setLeaveTypeId(leave.getLeavetype().getLeaveTypeId());
@@ -73,7 +75,9 @@ public class LeaveConverter {
 	public static LeaveDto LeaveToLeaveDto(Leave leave) {
 		LeaveDto leaveDto =new LeaveDto();
 		if(leave !=null) {
-			leaveDto.setFullName(leave.getFullName());
+			logger.info("leave Converter --> leave Object Entity To Dto");
+
+			//leaveDto.setFullName(leave.getFullName());
 			leaveDto.setLeaveDate(leave.getLeaveDate());
 			leaveDto.setLeaveDetailsId(leave.getLeaveDetailsId());
 			leaveDto.setLeaveTypeId(leave.getLeavetype().getLeaveTypeId());

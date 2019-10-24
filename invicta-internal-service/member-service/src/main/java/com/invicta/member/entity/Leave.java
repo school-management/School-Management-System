@@ -28,7 +28,7 @@ public class Leave implements Serializable{
 	@JoinColumn(name="staffId",nullable =false)
 	private Staff staff;
 	
-	private String fullName;
+	
 	
 	private Date leaveDate;
 	
@@ -58,13 +58,7 @@ public class Leave implements Serializable{
 
 
 
-	public String getFullName() {
-		return fullName;
-	}
-
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
-	}
+	
 
 	public Date getLeaveDate() {
 		return leaveDate;

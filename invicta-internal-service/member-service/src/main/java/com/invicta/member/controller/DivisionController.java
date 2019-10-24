@@ -28,7 +28,7 @@ public class DivisionController {
 
 	private static Logger logger = LogManager.getLogger(DivisionMapper.class);
 
-	@PostMapping("/save")
+	@PostMapping("/savedivision")
 	public Division saveDivision(@RequestBody DivisionDto divisionDto) {
 		try {
 			return divisionMapper.saveDivision(divisionDto);
@@ -39,7 +39,7 @@ public class DivisionController {
 		return null;
 	}
 
-	@GetMapping("/list")
+	@GetMapping("/listdivision")
 	public List<DivisionDto> getDivision() {
 		logger.info("Division Controller ->  Division listviewed ");
 		return divisionMapper.listDivision();

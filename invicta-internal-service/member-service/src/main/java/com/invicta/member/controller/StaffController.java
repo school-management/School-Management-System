@@ -26,7 +26,7 @@ import com.invicta.member.mapper.StaffDtoMapper;
 public class StaffController {
 
 	@Autowired
-	private StaffDtoMapper staffDtoMapper;
+	private StaffDtoMapper staffDtoMapper; 
 
 	@SuppressWarnings("unused")
 	@Autowired

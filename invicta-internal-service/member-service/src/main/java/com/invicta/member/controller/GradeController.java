@@ -28,7 +28,7 @@ public class GradeController {
 	
 	private static Logger logger = LogManager.getLogger(GradeMapper.class);
 	
-	@PostMapping("/gradesave")
+	@PostMapping("/savegrade")
 	public Grade savedGrade(@RequestBody GradeDto gradeDto) {
 		try {
 			return gradeMapper.saveGrade(gradeDto);
@@ -37,7 +37,7 @@ public class GradeController {
 		}
 		return null;
 	}
-	@GetMapping("/grade")
+	@GetMapping("/listgrade")
 	public List<GradeDto> getGrade(){
 		logger.info("Grade Controller ->  Grade listviewed ");
 		return gradeMapper.listGrade();

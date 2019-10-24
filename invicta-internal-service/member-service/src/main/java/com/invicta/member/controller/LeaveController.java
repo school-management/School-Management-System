@@ -15,7 +15,7 @@ import com.invicta.member.mapper.LeaveMapper;
 
 
 @RestController
-@RequestMapping("/Api")
+@RequestMapping("/Api/")
 public class LeaveController {
 	
 	@Autowired

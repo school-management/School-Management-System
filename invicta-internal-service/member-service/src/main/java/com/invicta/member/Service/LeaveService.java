@@ -2,8 +2,6 @@ package com.invicta.member.Service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
 import com.invicta.member.entity.Leave;
 
 

@@ -22,7 +22,7 @@ import com.invicta.member.repository.StudentRepository;
 import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
-//@RequestMapping("/Api/")
+@RequestMapping("/Api/")
 public class StudentController {
 
 	@Autowired
@@ -45,7 +45,7 @@ public class StudentController {
 		return null;
 	}
 
-	@GetMapping("/GetAllStudent")
+	@GetMapping("/liststudent")
 	public ResponseEntity<List<StudentDto>> getAllStudent() {
 		try {
 			return new ResponseEntity<>(studentDtoMapper.getAllStudent(), HttpStatus.OK);
