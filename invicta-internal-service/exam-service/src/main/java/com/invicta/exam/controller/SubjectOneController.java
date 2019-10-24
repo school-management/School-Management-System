@@ -69,7 +69,7 @@ public class SubjectOneController {
 
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<Grade> response = restTemplate.exchange(
-				"http://localhost:8083/memberservice/grade/grades/" + subjectOneList.getGradeId(), HttpMethod.GET, null,
+				"http://MEMBERSERVICE/memberservice/grade/grades/" + subjectOneList.getGradeId(), HttpMethod.GET, null,
 				new ParameterizedTypeReference<Grade>() {
 				});
 
