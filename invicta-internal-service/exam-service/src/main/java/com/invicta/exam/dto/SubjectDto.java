@@ -1,29 +1,34 @@
 package com.invicta.exam.dto;
 
-import java.sql.Date;
+public class SubjectDto {
 
-@SuppressWarnings("unused")
-public class SubjectOneDto {
-
-	private Long subjectId;
-	private String subjectName;
+	private Long SubjectId;
+	private String SubjectName;
+	private String Category;
 	private Long gradeId;
-	
 
 	public Long getSubjectId() {
-		return subjectId;
+		return SubjectId;
 	}
 
 	public void setSubjectId(Long subjectId) {
-		this.subjectId = subjectId;
+		SubjectId = subjectId;
 	}
 
 	public String getSubjectName() {
-		return subjectName;
+		return SubjectName;
 	}
 
 	public void setSubjectName(String subjectName) {
-		this.subjectName = subjectName;
+		SubjectName = subjectName;
+	}
+
+	public String getCategory() {
+		return Category;
+	}
+
+	public void setCategory(String category) {
+		Category = category;
 	}
 
 	public Long getGradeId() {
@@ -33,9 +38,5 @@ public class SubjectOneDto {
 	public void setGradeId(Long gradeId) {
 		this.gradeId = gradeId;
 	}
-	
-	
-
-	
 
 }
