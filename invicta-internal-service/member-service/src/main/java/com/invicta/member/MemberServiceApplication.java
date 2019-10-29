@@ -2,11 +2,10 @@ package com.invicta.member;
 
 import java.util.Collections;
 
-//import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.client.RestTemplate;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -17,19 +16,13 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
-//@EnableEurekaClient
+@EnableEurekaClient
 public class MemberServiceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MemberServiceApplication.class, args);
 	}
 
-//	@Bean
-//	@LoadBalanced
-//	public RestTemplate getRestTemplate() {
-//		return new RestTemplate();
-//	}
-//	
 	@Bean
 	public Docket swaggerConfiguration() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
@@ -46,8 +39,5 @@ public class MemberServiceApplication {
 				Collections.emptyList());
 	}
 
-	@Bean
-	public RestTemplate getRestTemplate() {
-		return new RestTemplate();
-	}
+	
 }

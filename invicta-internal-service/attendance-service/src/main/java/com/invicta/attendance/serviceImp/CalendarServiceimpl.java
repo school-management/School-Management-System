@@ -26,9 +26,8 @@ public class CalendarServiceimpl implements CalendarService {
 	}
 
 	@Override
-	public Calendar updateCalendar(Calendar student) {
-		// TODO Auto-generated method stub
-		return null;
+	public Calendar updateCalendar(Calendar calendar) {
+		return calendarRepository.save(calendar);
 	}
 
 }

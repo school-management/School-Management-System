@@ -13,5 +13,5 @@ public interface GradeService {
 	
 	public Grade deleteById(Long gradeId);
 	
-
+	public Grade updateGrade(Grade grade);
 }
