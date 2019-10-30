@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import com.invicta.member.Service.StudentService;
 import com.invicta.member.dto.StudentDto;
 import com.invicta.member.entity.Student;
 import com.invicta.member.mapper.StudentDtoMapper;
@@ -31,10 +33,14 @@ public class StudentController {
 	@SuppressWarnings("unused")
 	@Autowired
 	private StudentRepository studentRepository;
+	
+	@Autowired
+	private StudentService studentService;
+	
 
 	private static Logger logger = LogManager.getLogger(StudentDtoMapper.class);
 
-	@PostMapping("/savestudent")
+	@PostMapping("/student")
 	public Student savedstudent(@RequestBody StudentDto studentDto) {
 		try {
 			return studentDtoMapper.saveStudent(studentDto);
@@ -45,7 +51,7 @@ public class StudentController {
 		return null;
 	}
 
-	@GetMapping("/liststudent")
+	@GetMapping("/getstudent")
 	public ResponseEntity<List<StudentDto>> getAllStudent() {
 		try {
 			return new ResponseEntity<>(studentDtoMapper.getAllStudent(), HttpStatus.OK);
@@ -56,7 +62,7 @@ public class StudentController {
 
 	}
 
-	@GetMapping("getonestudent/{sId}")
+	@GetMapping("student/{sId}")
 	public ResponseEntity<StudentDto> getStudentbyId(@PathVariable Long sId) {
 		try {
 			return new ResponseEntity<>(studentDtoMapper.getBystudentid(sId), HttpStatus.OK);
@@ -67,7 +73,7 @@ public class StudentController {
 
 	}
 
-	@DeleteMapping("/{sId}")
+	@DeleteMapping("delete/{sId}")
 	public ResponseEntity<String> deleteStudentsId(@PathVariable Long sId) {
 		if (studentDtoMapper.getBystudentid(sId) != null) {
 			if (studentDtoMapper.deleteStudentById(sId) == null) {
@@ -108,7 +114,7 @@ public class StudentController {
 
 	}
 
-	@GetMapping("/getfirstname/{firstname}")
+	@GetMapping("/firstname/{firstname}")
 	public List<StudentDto> getbyfirstname(@PathVariable(name = "firstname") String firstname) {
 		try {
 			return studentDtoMapper.getStudentByfirstname(firstname);
@@ -119,7 +125,7 @@ public class StudentController {
 
 	}
 
-	@GetMapping("/getbyreligion/{religion}")
+	@GetMapping("/religion/{religion}")
 	public List<StudentDto> getStudentByreligion(@PathVariable(name = "religion") String religion) {
 		try {
 			return studentDtoMapper.getStudentByreligion(religion);
@@ -130,7 +136,7 @@ public class StudentController {
 
 	}
 
-	@GetMapping("getbygender/{gender}")
+	@GetMapping("/gender/{gender}")
 	public List<StudentDto> getStudentBygender(@PathVariable(name = "gender") String gender) {
 		try {
 			return studentDtoMapper.getbygender(gender);
@@ -141,7 +147,7 @@ public class StudentController {
 
 	}
 
-	@GetMapping("gethostelstudent/{hostelneed}")
+	@GetMapping("hostelstudent/{hostelneed}")
 	public List<StudentDto> gethostelstudent(@PathVariable(name = "hostelneed") Boolean hostelneed) {
 		try {
 			return studentDtoMapper.findtbyhostelstudent(hostelneed);
@@ -153,7 +159,7 @@ public class StudentController {
 
 	}
 
-	@GetMapping("/getstudentbyclass/{gradeId}")
+	@GetMapping("/studentclass/{gradeId}")
 	public List<StudentDto> getstudentbyclass(@PathVariable(name = "gradeId") Long gradeId) {
 		try {
 			return studentDtoMapper.findByClass(gradeId);
@@ -164,7 +170,7 @@ public class StudentController {
 
 	}
 
-	@GetMapping("/getbystudentid/{stuId}")
+	@GetMapping("/studentid/{stuId}")
 	public List<StudentDto> getbystudentid(@PathVariable(name = "stuId") String stuId) {
 		try {
 			return studentDtoMapper.findbystudentid(stuId);
@@ -174,4 +180,17 @@ public class StudentController {
 		return null;
 
 	}
+	
+	
+	@GetMapping("/gender/{searchString}")
+	public List<Student> getStudentfullname(@PathVariable(name = "searchString") String searchString) {
+		try {
+			return studentService.findbyfullname(searchString);
+		} catch (Exception e) {
+			logger.error("Student Controller :-> Error" + e.getMessage());
+		}
+		return null;
+
+	}
+	
 }

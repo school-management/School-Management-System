@@ -58,8 +58,6 @@ public class LeaveConverter {
 				leaveDto.setLeaveDate(leave.getLeaveDate());
 				leaveDto.setLeaveDetailsId(leave.getLeaveDetailsId());
 				leaveDto.setLeaveTypeId(leave.getLeavetype().getLeaveTypeId());
-				
-
 				leaveDto.setLeaveName(leave.getLeavetype().getLeaveName());
 				leaveDto.setNoOfDay(leave.getNoOfDay());
 				leaveDto.setReason(leave.getReason());

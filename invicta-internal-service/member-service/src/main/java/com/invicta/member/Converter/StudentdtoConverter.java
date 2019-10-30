@@ -38,7 +38,7 @@ public class StudentdtoConverter {
 			student.setRace(studentDto.getRace());
 			student.setReligion(studentDto.getReligion());
 			student.setStartDate(studentDto.getStartDate());
-			Division division= new Division();
+			Division division = new Division();
 			division.setDivisionId(studentDto.getDivisionId());
 			student.setDivision(division);
 			Parent parent = new Parent();
@@ -100,12 +100,14 @@ public class StudentdtoConverter {
 				studentDto.setMotherstudyend(student.getPrent().getMotherstudyend());
 				studentDto.setSibilingsfullname(student.getPrent().getSibilingsfullname());
 				studentDto.setSililingsadmission(student.getPrent().getSililingsadmission());
-				studentDto.setSibilingsGrade(student.getPrent().getSibilingsGrade()); 
+				studentDto.setSibilingsGrade(student.getPrent().getSibilingsGrade());
 				studentDto.setGuardian(student.getPrent().getGuardian());
 				studentDto.setGuardianemail(student.getPrent().getGuardianemail());
 				studentDto.setGuardianmobileNo(student.getPrent().getFathermobile());
 				studentDto.setGuardianname(student.getPrent().getGuardianname());
 				studentDto.setGuardianoccupation(student.getPrent().getGuardianoccupation());
+				studentDto.setFullName(
+						student.getFirstname().concat(student.getMiddlename().concat(student.getLastname())));
 				liststudentDto.add(studentDto);
 
 			}
@@ -139,9 +141,6 @@ public class StudentdtoConverter {
 			studentDto.setAchievementsport(student.getAchievementsport());
 			studentDto.setAchievementstudy(student.getAchievementstudy());
 			studentDto.setDivisionId(student.getDivision().getDivisionId());
-			studentDto.setDivisionName(student.getDivision().getDivisionName());
-			studentDto.setGradeId(student.getDivision().getGrade().getGradeId());
-			studentDto.setGradeName(student.getDivision().getGrade().getGradeName());
 			studentDto.setParId(student.getPrent().getParId());
 			studentDto.setParentId(student.getPrent().getParentId());
 			studentDto.setFathername(student.getPrent().getFathername());
@@ -161,12 +160,14 @@ public class StudentdtoConverter {
 			studentDto.setMotherstudyend(student.getPrent().getMotherstudyend());
 			studentDto.setSibilingsfullname(student.getPrent().getSibilingsfullname());
 			studentDto.setSililingsadmission(student.getPrent().getSililingsadmission());
-			studentDto.setSibilingsGrade(student.getPrent().getSibilingsGrade()); 
+			studentDto.setSibilingsGrade(student.getPrent().getSibilingsGrade());
 			studentDto.setGuardian(student.getPrent().getGuardian());
 			studentDto.setGuardianemail(student.getPrent().getGuardianemail());
 			studentDto.setGuardianmobileNo(student.getPrent().getFathermobile());
 			studentDto.setGuardianname(student.getPrent().getGuardianname());
 			studentDto.setGuardianoccupation(student.getPrent().getGuardianoccupation());
+			studentDto
+					.setFullName(student.getFirstname().concat(student.getMiddlename().concat(student.getLastname())));
 			return studentDto;
 		}
 		return null;

@@ -68,20 +68,20 @@ public class StaffController {
 		return null;
 	}
 
-	@DeleteMapping("/{staffId}")
-	public ResponseEntity<String> deleteBystaffId(@PathVariable("staffId") Long staffId) {
-		if (staffDtoMapper.getBystaffId(staffId) != null) {
-			if (staffDtoMapper.deleteBystaffId(staffId) == null) {
-				logger.info("Staff Controller -> Staff Deleted Successful");
-				return new ResponseEntity<>("Staff Sucessfully deleted", HttpStatus.OK);
-			}
-		} else {
-			logger.info("Staff Controller -> Staff Id Not Found");
-			return new ResponseEntity<>("Staff Id Not FOUND!!!", HttpStatus.BAD_REQUEST);
-		}
-		logger.info("Staff Controller -> Staff Deleted Failed!!!");
-		return new ResponseEntity<>("Delete FAILED!!!", HttpStatus.BAD_REQUEST);
-	}
+//	@DeleteMapping("/{staffId}")
+//	public ResponseEntity<String> deleteBystaffId(@PathVariable("staffId") Long staffId) {
+//		if (staffDtoMapper.getBystaffId(staffId) != null) {
+//			if (staffDtoMapper.deleteBystaffId(staffId) == null) {
+//				logger.info("Staff Controller -> Staff Deleted Successful");
+//				return new ResponseEntity<>("Staff Sucessfully deleted", HttpStatus.OK);
+//			}
+//		} else {
+//			logger.info("Staff Controller -> Staff Id Not Found");
+//			return new ResponseEntity<>("Staff Id Not FOUND!!!", HttpStatus.BAD_REQUEST);
+//		}
+//		logger.info("Staff Controller -> Staff Deleted Failed!!!");
+//		return new ResponseEntity<>("Delete FAILED!!!", HttpStatus.BAD_REQUEST);
+//	}
 
 	@PutMapping("update/{staffId}")
 	public ResponseEntity<String> updatestaff(@RequestBody StaffDto staffDto) {

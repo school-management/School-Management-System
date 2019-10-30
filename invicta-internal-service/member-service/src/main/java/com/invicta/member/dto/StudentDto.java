@@ -52,8 +52,16 @@ public class StudentDto {
 	private String sibilingsfullname;
 	private Integer sibilingsGrade;
 	private String sililingsadmission;
+	private String fullName;
 	
-	
+	public String getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
 	public Long getDivisionId() {
 		return divisionId;
 	}

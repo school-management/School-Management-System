@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.invicta.member.entity.Student;
 
@@ -32,5 +33,7 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 	@Query(value = "from Student where stuId = :stuId")
 	List<Student>findBystuId(String stuId);
 	
+	@Query("select s from student s where concat(student(column1), student(column2), student(column3)) like %:searchString%")
+	List<Student> findBySearchString(@Param("searchString") String searchString);
 
 }

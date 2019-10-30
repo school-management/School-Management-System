@@ -104,4 +104,8 @@ public class StudentServiceImp implements StudentService {
 		return studentrepository.findBystuId(stuId);
 	}
 
+	@Override
+	public List<Student> findbyfullname(String searchString) {
+		return studentrepository.findBySearchString(searchString);
+	}
 }

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.invicta.member.Converter.StaffDtoConverter;
 import com.invicta.member.Service.StaffService;
 import com.invicta.member.dto.StaffDto;
-import com.invicta.member.dto.StudentDto;
+//import com.invicta.member.dto.StudentDto;
 import com.invicta.member.entity.Staff;
 
 @Service 
@@ -43,11 +43,11 @@ public class StaffDtoMapper {
 		return staffDtoConverter.StaffEntityToStaffDTO(staff);
 	}
 	
-	public StudentDto deleteBystaffId(Long staffId) {
-		logger.info("staff Mapper -> staff Deleted");
-		staffService.deleteByStaffId(staffId);
-		return null;
-	}
+//	public StudentDto deleteBystaffId(Long staffId) {
+//		logger.info("staff Mapper -> staff Deleted");
+//		staffService.deleteByStaffId(staffId);
+//		return null;
+//	}
 	@SuppressWarnings("static-access")
 	public Staff UpdateStaff(StaffDto staffDto) {
 		@SuppressWarnings("unused")
