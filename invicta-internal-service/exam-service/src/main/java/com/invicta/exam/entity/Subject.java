@@ -8,18 +8,21 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "subject1to8", schema = "examservice")
-public class SubjectOne {
+@Table(name = "subject", schema = "examservice")
+public class Subject {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "subjectId", nullable = false)
+	@Column(nullable = false)
 	private Long subjectId;
 
-	@Column(name = "subjectName", nullable = false)
+	@Column(nullable = false)
 	private String subjectName;
 
-	@Column(name = "gradeId", nullable = false)
+	@Column(nullable = false)
+	private String Category;
+
+	@Column(nullable = false)
 	private Long gradeId;
 
 	public Long getSubjectId() {
@@ -36,6 +39,14 @@ public class SubjectOne {
 
 	public void setSubjectName(String subjectName) {
 		this.subjectName = subjectName;
+	}
+
+	public String getCategory() {
+		return Category;
+	}
+
+	public void setCategory(String category) {
+		Category = category;
 	}
 
 	public Long getGradeId() {
