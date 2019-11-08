@@ -37,9 +37,10 @@ public class CalendarDtoMapper {
 	}
 	
 	
-	  public Calendar Updatecalendar(CalendarDto calendarDto) {
+	  @SuppressWarnings("static-access")
+	public Calendar Updatecalendar(CalendarDto calendarDto) {
 //		    logger.info("Employee is Updated", employeeDTO.getEmpId());
-		  	@SuppressWarnings("static-access")
+		  	@SuppressWarnings({ "unused" })
 			Calendar calendar = caledCalendarDtoConvertor.CalendarDTOToClandar(calendarDto);
 		  	return calendarService.updateCalendar(caledCalendarDtoConvertor.CalendarDTOToClandar(calendarDto));
 
