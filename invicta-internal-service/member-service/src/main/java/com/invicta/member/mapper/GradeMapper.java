@@ -50,4 +50,9 @@ public class GradeMapper {
 		Grade grade=gradeService.deleteById(gradeId);
 		return null;
 	}
+	
+	@SuppressWarnings("static-access")
+	public Grade updateGrade(GradeDto gradeDto) {
+		return gradeService.updateGrade(gradeConverter.GradeDtoTograde(gradeDto));
+	}
 }
