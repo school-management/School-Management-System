@@ -35,4 +35,14 @@ public class CalendarDtoMapper {
 		return caledCalendarDtoConvertor.CalendarToCalendarDTO(calendartlist);
 
 	}
+	
+	
+	  @SuppressWarnings("static-access")
+	public Calendar Updatecalendar(CalendarDto calendarDto) {
+//		    logger.info("Employee is Updated", employeeDTO.getEmpId());
+		  	@SuppressWarnings({ "unused" })
+			Calendar calendar = caledCalendarDtoConvertor.CalendarDTOToClandar(calendarDto);
+		  	return calendarService.updateCalendar(caledCalendarDtoConvertor.CalendarDTOToClandar(calendarDto));
+
+		  }
 }

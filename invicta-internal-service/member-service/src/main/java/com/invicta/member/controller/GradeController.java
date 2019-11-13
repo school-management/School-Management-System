@@ -22,7 +22,7 @@ import com.invicta.member.entity.Grade;
 import com.invicta.member.mapper.GradeMapper;
 
 @RestController
-@RequestMapping("/Api/")
+@RequestMapping("/grade")
 public class GradeController {
 	
 	@Autowired

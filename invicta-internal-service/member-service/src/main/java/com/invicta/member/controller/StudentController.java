@@ -22,7 +22,7 @@ import com.invicta.member.repository.StudentRepository;
 import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
-@RequestMapping("/Api/")
+@RequestMapping("/student")
 public class StudentController {
 
 	@Autowired

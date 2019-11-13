@@ -13,6 +13,6 @@ public interface CalendarService {
 
 	public List<Calendar> getallCalendardetails();
 
-	public Calendar updateCalendar(Calendar student);
+	public Calendar updateCalendar(Calendar calendar);
 
 }
