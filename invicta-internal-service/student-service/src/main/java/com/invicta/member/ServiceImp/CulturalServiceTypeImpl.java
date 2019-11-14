@@ -27,4 +27,34 @@ public class CulturalServiceTypeImpl implements CulturalTypeService{
 		return culturalTypeRepository.findAll();
 	}
 
+	@Override
+	public CulturalType getCulturalTypeById(Long culturalTypeId) {
+		
+		return culturalTypeRepository.findCulturalTypeByCulturalTypeId(culturalTypeId);
+	}
+
+	@Override
+	public CulturalType deleteById(Long culturalTypeId) {
+		
+		culturalTypeRepository.deleteById(culturalTypeId);
+		return null;
+	}
+
+	@Override
+	public CulturalType updateCulturalType(CulturalType culturalType) {
+		Long culturalTypeId=culturalType.getCulturalTypeId();
+		
+		boolean isExit=culturalTypeRepository.findCulturalTypeByCulturalTypeId(culturalTypeId)!=null;
+		if(isExit) {
+			return culturalTypeRepository.save(culturalType);
+		}
+		return null;
+	}
+
+	@Override
+	public List<CulturalType> getCulturalTypeByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

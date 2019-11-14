@@ -26,4 +26,36 @@ public class CulturalActivityServiceImpl implements CulturalActivityService{
 		return culturalActivityRepository.findAll();
 	}
 
+	@Override
+	public CulturalActivity getCulturalActivityById(Long culturalActivityId) {
+		
+		return culturalActivityRepository.findCulturalActivityByCulturalActivityId(culturalActivityId);
+	}
+
+	@Override
+	public CulturalActivity deleteById(Long culturalActivityId) {
+		culturalActivityRepository.deleteById(culturalActivityId);
+		return null;
+	}
+
+	@Override
+	public CulturalActivity updateCulturalActivity(CulturalActivity culturalActivity) {
+		Long culturalActivityId=culturalActivity.getCulturalActivityId();
+		
+		boolean isExit=culturalActivityRepository.findCulturalActivityByCulturalActivityId(culturalActivityId) !=null;
+		if(isExit) {
+			return culturalActivityRepository.save(culturalActivity);
+		}else {
+			
+		}
+		
+		return null;
+	}
+
+	@Override
+	public List<CulturalActivity> getCulturalActivityByName(String name) {
+		
+		return culturalActivityRepository.findCulturalActivityByName(name);
+	}
+
 }

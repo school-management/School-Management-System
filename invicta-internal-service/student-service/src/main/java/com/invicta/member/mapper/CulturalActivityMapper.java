@@ -30,4 +30,32 @@ public class CulturalActivityMapper {
 		return culturalActivityConverter.CulturalActivityToDtoList(listCulturalActivity);
 	}
 	
+	
+	@SuppressWarnings("static-access")
+	public CulturalActivityDto  getCulturalActivityById(Long culturalActivityId) {
+		
+		CulturalActivity culturalActivity=culturalActivityService.getCulturalActivityById(culturalActivityId);
+		return culturalActivityConverter.CulturalActivityToDto(culturalActivity);
+		
+	}
+	
+	@SuppressWarnings("unused")
+	public CulturalActivityDto deleteCulturalActivity(Long culturalActivityId) {
+		CulturalActivity culturalActivity=culturalActivityService.deleteById(culturalActivityId);
+		return null;
+	}
+	
+	@SuppressWarnings("static-access")
+	public CulturalActivity updateCulturalActivity(CulturalActivityDto culturalActivityDto) {
+		return culturalActivityService.updateCulturalActivity(culturalActivityConverter.CulturalActivityDtoToEntity(culturalActivityDto));
+	}
+	
+	@SuppressWarnings("static-access")
+	public List<CulturalActivityDto> getCulturalActivityByName(String name){
+		List<CulturalActivity> listCulturalActivity=culturalActivityService.getCulturalActivityByName(name);
+		
+		return culturalActivityConverter.CulturalActivityToDtoList(listCulturalActivity);
+	}
+	
+	
 }
