@@ -14,5 +14,7 @@
     <module>member-service</module>
     <module>exam-service</module>
     <module>attendance-service</module>
+    <module>staff-service</module>
+    <module>calendar-service</module>
   </modules>
 </project>

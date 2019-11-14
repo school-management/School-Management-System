@@ -10,10 +10,10 @@
 		<version>2.1.8.RELEASE</version>
 		<relativePath />
 	</parent>
-	<groupId>com.invicta.student</groupId>
-	<artifactId>student-service</artifactId>
+	<groupId>com.invicta.member</groupId>
+	<artifactId>member-service</artifactId>
 	<version>V1</version>
-	<name>student-service</name>
+	<name>member-service</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -118,6 +118,6 @@
 				</executions>
 			</plugin>
 		</plugins>
-		<finalName>studentservice</finalName>
+		<finalName>memberservice</finalName>
 	</build>
 </project>
